@@ -60,7 +60,7 @@ session_start();
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Gender & Development</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,23 +119,11 @@ session_start();
       </a>
     </div>
   </section>
-  <!-- About Section -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">About Gender & Development</h2>
-      <p>
-        This website aims to raise awareness about gender issues and promote
-        gender equality and development. We provide information, resources,
-        and support for individuals and organizations working towards gender
-        equality.
-      </p>
-    </div>
-  </section>
 
   <!-- Rights Section with Cards -->
   <section id="rights" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-4">Gender and Development Laws</h2>
+      <h2 class="text-center mb-4">Know Your Rights</h2>
       <div class="row">
         <!-- Law 1: Anti-Sexual Harassment Act of 1995 -->
         <div class="col-md-6 mb-4"">
@@ -148,9 +136,10 @@ session_start();
               This law aims to protect individuals from sexual harassment in
               the workplace and in educational or training institutions.
             </p>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(7877)">
-              Take Survey
-            </button>
+            <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-7877-anti-sexual-harassment-act-of-1995/" target="_blank">Read More</a>
+              <button class="btn btn-primary mt-auto" onclick="openSurvey(7877)">
+                Take Survey
+              </button>
           </div>
         </div>
       </div>
@@ -166,9 +155,10 @@ session_start();
               This law provides protection for women and children from all
               forms of violence and abuse.
             </p>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(9262)">
-              Take Survey
-            </button>
+            <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-9262/" target="_blank">Read More</a>
+              <button class="btn btn-primary mt-auto" onclick="openSurvey(9262)">
+                Take Survey
+              </button>
           </div>
         </div>
       </div>
@@ -182,9 +172,10 @@ session_start();
               This law promotes the rights and welfare of women,
               particularly those belonging to marginalized sectors.
             </p>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(9710)">
-              Take Survey
-            </button>
+            <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-9710-the-magna-carta-of-women/" target="_blank">Read More</a>
+              <button class="btn btn-primary mt-auto" onclick="openSurvey(9710)">
+                Take Survey
+              </button>
           </div>
         </div>
       </div>
@@ -198,9 +189,10 @@ session_start();
             This law aims to prevent and address gender-based street and
             public spaces harassment.
           </p>
-          <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
-            Take Survey
-          </button>
+          <a class="btn btn-primary" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
+            <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
+              Take Survey
+            </button>
         </div>
       </div>
     </div>

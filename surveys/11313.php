@@ -15,8 +15,25 @@ session_start();
   <link rel="stylesheet" href="../styles.css" />
   <style>
     .radio-inline {
-      margin-right: 150px;
+      margin-right: 100px;
     }
+
+    input[type="radio"] {
+      height: 20px;
+    }
+
+    p {
+      font-size: 3vh;
+      font-weight: bold;
+      padding-top: 50px;
+    }
+
+
+    label {
+      font-size: 3vh;
+    }
+
+
 
     body {
       background: #e0aaff;
@@ -44,22 +61,44 @@ session_start();
 </head>
 
 <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <!-- <a class="navbar-brand" href="#">Repubic Act of 1995</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="#">1 - Strongly Agree</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">2 - Agree</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">3 - Neutral</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">4 - Disagree</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">5 - Strongly Disagree</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
   <div class="container mt-5">
-    <h2>Gender and Development Survey</h2>
     <form id="surveyForm" method="POST" action="">
+      <!-- Survey questions related to the law -->
+      <p class="text-center">This is a survey on the level of awareness of respondents on the specified law.</p>
       <div class="form-group">
         <label for="email">Email: </label>
         <input type="email" class="form-control" id="email" name="email" required />
       </div>
-      <!-- Survey questions related to the law -->
-      <p>This is a survey on the level of awareness of respondents on the specified law.</p>
-      <ul>
-        <li>1 - Strongly Agree</li>
-        <li>2 - Agree</li>
-        <li>3 - Neutral</li>
-        <li>4 - Disagree</li>
-        <li>5 - Strong Disagree</li>
-      </ul>
 
 
       <div class="form-group">
@@ -108,7 +147,7 @@ session_start();
       </div>
       <button class="btn btn-primary" name="law">
         Submit
-      </button>
+      </button><br /><br />
       <?php
       if (isset($_POST['law'])) {
         // Retrieve form data
