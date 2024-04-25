@@ -97,15 +97,11 @@ session_start();
         <div class="carousel-item active">
           <img class="d-block w-100" src="https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
-            <!-- <h5>First slide label</h5> -->
-            <!-- <p>Some representative placeholder content for the first slide.</p> -->
           </div>
         </div>
         <div class="carousel-item">
           <img class="d-block w-100" src="https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
-            <!-- <h5>Second slide label</h5> -->
-            <!-- <p>Some representative placeholder content for the second slide.</p> -->
           </div>
         </div>
       </div>
@@ -117,6 +113,70 @@ session_start();
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+    </div>
+  </section>
+
+  <!-- About section -->
+  <section id="about" class="about-section py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Team</h2>
+      <div class="row">
+        <!-- Profile cards -->
+        <div class="col-md-4 mb-4">
+          <div class="profile-card">
+            <img src="https://avatars.githubusercontent.com/u/74944536?s=400&u=3f4278bc86be9aa6394d1bcce451abb5538ef977&v=4" alt="Profile 1" class="profile-pic">
+            <div class="profile-info">
+              <div class="name">Alexis Corporal</div>
+              <div class="bio">Programmer</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="profile-card">
+            <img src="assets/img/errol.jpg" alt="Profile 2" class="profile-pic">
+            <div class="profile-info">
+              <div class="name">Errol Arapan</div>
+              <div class="bio">Documentation</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="profile-card">
+            <img src="assets/img/kevin.jpg" alt="Profile 3" class="profile-pic">
+            <div class="profile-info">
+              <div class="name">Vince Kevin Comaya</div>
+              <div class="bio">Documentation</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="profile-card">
+            <img src="assets/img/archie.jpg" alt="Profile 4" class="profile-pic">
+            <div class="profile-info">
+              <div class="name">Archie Nuque</div>
+              <div class="bio">Database Administrator</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="profile-card">
+            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="profile-pic">
+            <div class="profile-info">
+              <div class="name">Aldrin Porcioncula</div>
+              <div class="bio">Database Administrator</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="profile-card">
+            <img src="assets/img/daniel.jpg" alt="Profile 6" class="profile-pic">
+            <div class="profile-info">
+              <div class="name">Daniel Aaron Mendoza</div>
+              <div class="bio">UI/UX Designer</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -424,6 +484,15 @@ session_start();
     updateChart("lawtwo", <?php echo json_encode($data["ra9262"]); ?>);
     updateChart("lawthree", <?php echo json_encode($data["ra9710"]); ?>);
     updateChart("lawfour", <?php echo json_encode($data["ra11313"]); ?>);
+    // Function to open the About section pop-up window
+    function openAboutPopup() {
+      document.getElementById('aboutPopup').style.display = 'block';
+    }
+
+    // Function to close the About section pop-up window
+    function closeAboutPopup() {
+      document.getElementById('aboutPopup').style.display = 'none';
+    }
   </script>
 </body>
 
