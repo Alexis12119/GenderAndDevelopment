@@ -122,7 +122,7 @@ session_start();
         $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
         // Prepare SQL statement
-        $sql = "INSERT INTO lawfour (email, totalScore)
+        $sql = "INSERT INTO ra11313 (email, totalScore)
             VALUES ('$email','$totalScore')";
 
         $result = mysqli_query($conn, $sql);

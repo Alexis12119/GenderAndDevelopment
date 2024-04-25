@@ -31,7 +31,7 @@ function fetchData($tableName, $conn)
 }
 
 // Fetch data for each table
-$tables = array("lawone", "lawtwo", "lawthree", "lawfour");
+$tables = array("ra7877", "ra9262", "ra9710", "ra11313");
 $data = [];
 foreach ($tables as $table) {
   $data[$table] = fetchData($table, $conn);
@@ -60,7 +60,7 @@ session_start();
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="#">Gender & Development</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,8 +85,6 @@ session_start();
     </div>
   </nav>
 
-  <br />
-  <br />
   <!-- Carousel Section -->
   <section id="carousel" class="py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -110,7 +108,6 @@ session_start();
             <!-- <p>Some representative placeholder content for the second slide.</p> -->
           </div>
         </div>
-        <!-- Add more carousel items with images and captions -->
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -392,10 +389,10 @@ session_start();
     }
 
     // Call the function to update the chart
-    updateChart("lawone", <?php echo json_encode($data["lawone"]); ?>);
-    updateChart("lawtwo", <?php echo json_encode($data["lawtwo"]); ?>);
-    updateChart("lawthree", <?php echo json_encode($data["lawthree"]); ?>);
-    updateChart("lawfour", <?php echo json_encode($data["lawfour"]); ?>);
+    updateChart("lawone", <?php echo json_encode($data["ra7877"]); ?>);
+    updateChart("lawtwo", <?php echo json_encode($data["ra9262"]); ?>);
+    updateChart("lawthree", <?php echo json_encode($data["ra9710"]); ?>);
+    updateChart("lawfour", <?php echo json_encode($data["ra11313"]); ?>);
   </script>
 </body>
 
