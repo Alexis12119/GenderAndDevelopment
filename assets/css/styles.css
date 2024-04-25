@@ -1,6 +1,7 @@
 body {
   background: #e0aaff;
 }
+
 p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 3vh; /* Adjust the font size */
@@ -8,19 +9,21 @@ p {
   line-height: 1.6; /* Adjust the line height for better readability */
   margin-bottom: 15px; /* Add spacing between paragraphs */
 }
+
 h4 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.5rem;
   color: #6c5ce7;
 }
+
 h2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 2.5rem;
   font-weight: bold;
   color: #6c5ce7;
 }
-/* Navigation Bar */
 
+/* Navigation Bar */
 .navbar,
 footer {
   background: linear-gradient(
@@ -35,7 +38,7 @@ footer {
 .navbar-nav .nav-link {
   color: #fff; /* White */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.2rem; /* Adjust font size as needed */
+  font-size: 1.2rem;
   font-weight: bold;
   color: #fff; /* White */
   transition: color 0.3s; /* Smooth color transition on hover */
@@ -58,6 +61,7 @@ footer {
     #ffb3d1
   ); /* Gradient from light purple to light pink */
 }
+
 #contact {
   background: linear-gradient(
     to right,
@@ -65,13 +69,13 @@ footer {
     #ffb3d1
   ); /* Gradient from light purple to light pink */
 }
+
 #statistics {
   background: linear-gradient(
     to right,
     #e0aaff,
     #ffb3d1
   ); /* Gradient from light purple to light pink */
-
   color: #6c5ce7;
 }
 
@@ -134,12 +138,10 @@ footer {
   margin: 10px;
   padding: 20px;
   transition: transform 0.3s;
-  background: linear-gradient(
-    to right,
-    #5b48a2,
-    #8f6dd1
-  ); /* Darker gradient on hover */
+  background: transparent;
   border-color: #5b48a2; /* Darker purple */
+  width: 90%;
+  max-width: 300px; /* Set a maximum width if desired */
 }
 
 .profile-card:hover {

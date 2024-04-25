@@ -48,8 +48,7 @@ session_start();
   <title>Gender and Development</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -91,7 +90,6 @@ session_start();
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <!-- Add more indicators if needed -->
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -117,62 +115,62 @@ session_start();
   </section>
 
   <!-- About section -->
-  <section id="about" class="about-section py-5">
+  <section id="about" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Our Team</h2>
       <div class="row">
         <!-- Profile cards -->
         <div class="col-md-4 mb-4">
-          <div class="profile-card">
-            <img src="https://avatars.githubusercontent.com/u/74944536?s=400&u=3f4278bc86be9aa6394d1bcce451abb5538ef977&v=4" alt="Profile 1" class="profile-pic">
-            <div class="profile-info">
-              <div class="name">Alexis Corporal</div>
-              <div class="bio">Programmer</div>
+          <div class="card rounded-3">
+            <img src="https://avatars.githubusercontent.com/u/74944536?s=400&u=3f4278bc86be9aa6394d1bcce451abb5538ef977&v=4" alt="Profile 1" class="card-img-top">
+            <div class="card-body ">
+              <h5 class="card-title">Alexis Corporal</h5>
+              <p class="card-text">Programmer</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="profile-card">
-            <img src="assets/img/errol.jpg" alt="Profile 2" class="profile-pic">
-            <div class="profile-info">
-              <div class="name">Errol Arapan</div>
-              <div class="bio">Documentation</div>
+          <div class="card rounded-3">
+            <img src="assets/img/errol.jpg" alt="Profile 2" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Errol Arapan</h5>
+              <p class="card-text">Documentation</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="profile-card">
-            <img src="assets/img/kevin.jpg" alt="Profile 3" class="profile-pic">
-            <div class="profile-info">
-              <div class="name">Vince Kevin Comaya</div>
-              <div class="bio">Documentation</div>
+          <div class="card rounded-3">
+            <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Vince Kevin Comaya</h5>
+              <p class="card-text">Documentation</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="profile-card">
-            <img src="assets/img/archie.jpg" alt="Profile 4" class="profile-pic">
-            <div class="profile-info">
-              <div class="name">Archie Nuque</div>
-              <div class="bio">Database Administrator</div>
+          <div class="card rounded-3">
+            <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Archie Nuque</h5>
+              <p class="card-text">Database Administrator</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="profile-card">
-            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="profile-pic">
-            <div class="profile-info">
-              <div class="name">Aldrin Porcioncula</div>
-              <div class="bio">Database Administrator</div>
+          <div class="card rounded-3">
+            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Aldrin Porcioncula</h5>
+              <p class="card-text">Database Administrator</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
-          <div class="profile-card">
-            <img src="assets/img/daniel.jpg" alt="Profile 6" class="profile-pic">
-            <div class="profile-info">
-              <div class="name">Daniel Aaron Mendoza</div>
-              <div class="bio">UI/UX Designer</div>
+          <div class="card rounded-3">
+            <img src="assets/img/daniel.jpg" alt="Profile 6" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Daniel Mendoza</h5>
+              <p class="card-text">UI/UX Designer</p>
             </div>
           </div>
         </div>
@@ -260,7 +258,6 @@ session_start();
     </div>
   </section>
 
-
   <!-- Statistics Section -->
   <section id="statistics" class="py-5">
     <div class="container">
@@ -277,7 +274,6 @@ session_start();
           </div>
         </div>
 
-        <!-- Add more cards for other charts -->
         <!-- Law Two Chart -->
         <div class="col-md-6 mb-4">
           <div class="card">
@@ -346,8 +342,6 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Custom JavaScript -->
-  <script src="script.js"></script>
   <script>
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

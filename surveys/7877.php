@@ -11,8 +11,7 @@ session_start();
   <title>Gender and Development Survey</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
   <style>
     body {
       background: #e0aaff;
@@ -62,7 +61,6 @@ session_start();
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <!-- <a class="navbar-brand" href="#">Repubic Act of 1995</a> -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -87,8 +85,6 @@ session_start();
       </div>
     </div>
   </nav>
-
-
 
   <div class="container mt-5">
     <form id="surveyForm" method="POST" action="">
