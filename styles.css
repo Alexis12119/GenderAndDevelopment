@@ -23,7 +23,12 @@ h2 {
 
 .navbar,
 footer {
-  background: linear-gradient(to right, #6c5ce7, #b19cd9);
+  background: linear-gradient(
+    to right,
+    #5b48a2,
+    #8f6dd1
+  ); /* Darker gradient on hover */
+  border-color: #5b48a2; /* Darker purple */
 }
 
 .navbar-brand,
@@ -46,7 +51,7 @@ footer {
 }
 
 /* Resources Section with Cards */
-#laws {
+#rights {
   background: linear-gradient(
     to right,
     #e0aaff,

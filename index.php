@@ -70,7 +70,7 @@ session_start();
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#laws">Laws</a>
+            <a class="nav-link" href="#rights">Rights</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#statistics">Statistics</a>
@@ -99,7 +99,7 @@ session_start();
   </section>
 
   <!-- Resources Section with Cards -->
-  <section id="laws" class="py-5">
+  <section id="rights" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Gender and Development Laws</h2>
       <div class="row">
@@ -230,7 +230,7 @@ session_start();
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
     <div class="container">
-      <p>&copy; 2024 Gender & Development</p>
+      <p>&copy; 2024 Everonix</p>
     </div>
   </footer>
 
@@ -254,7 +254,7 @@ session_start();
 
     function openSurvey(surveyName) {
       // Redirect to the specified survey file
-      window.open(surveyName + ".php", "_blank");
+      window.open("surveys/" + surveyName + ".php", "_blank");
     }
 
     // Function to fetch data from the database

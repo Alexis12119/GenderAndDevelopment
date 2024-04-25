@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config.php';
 session_start();
 ?>
 <!doctype html>
@@ -12,15 +12,17 @@ session_start();
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../styles.css" />
   <style>
     .radio-inline {
       margin-right: 150px;
+      /* Adjust the margin as needed */
     }
 
     body {
       background: #e0aaff;
     }
+
 
     /* Add your custom styles here */
     .form-group {
@@ -52,13 +54,18 @@ session_start();
         <input type="email" class="form-control" id="email" name="email" required />
       </div>
       <!-- Survey questions related to the law -->
-      <h3>Please take the time to answer the following survey:</h3>
       <p>This is a survey on the level of awareness of respondents on the specified law.</p>
+      <ul>
+        <li>1 - Strongly Agree</li>
+        <li>2 - Agree</li>
+        <li>3 - Neutral</li>
+        <li>4 - Disagree</li>
+        <li>5 - Strong Disagree</li>
+      </ul>
+
 
       <div class="form-group">
-        <label>I am aware that Work, Education or Training-Related, Sexual
-          Harassment is committed by an employer, employee, instructor, coach,
-          or any person with authority</label><br />
+        <label>1. Are you aware of RA 9262: Violence against women law?</label><br />
         <label class="radio-inline"><input type="radio" name="question1" value="1" /> 1</label>
         <label class="radio-inline"><input type="radio" name="question1" value="2" /> 2</label>
         <label class="radio-inline"><input type="radio" name="question1" value="3" /> 3</label>
@@ -67,8 +74,7 @@ session_start();
       </div>
 
       <div class="form-group">
-        <label>I am aware that I can file for charges when I am offered favorable
-          compensations in exchange of sexual favors</label><br />
+        <label>2. Are you aware of the process to get a BPO/TPO/PPO whenever you or someone you know committed a crime covered under VAWC?</label><br />
         <label class="radio-inline"><input type="radio" name="question2" value="1" /> 1</label>
         <label class="radio-inline"><input type="radio" name="question2" value="2" /> 2</label>
         <label class="radio-inline"><input type="radio" name="question2" value="3" /> 3</label>
@@ -77,9 +83,7 @@ session_start();
       </div>
 
       <div class="form-group">
-        <label>I am aware that I can file for charges when I am denied of
-          employment opportunities or privileges unless I submit to sexual
-          favors</label><br />
+        <label>3. Do you know that VAWC is not committed by men alone?</label><br />
         <label class="radio-inline"><input type="radio" name="question3" value="1" /> 1</label>
         <label class="radio-inline"><input type="radio" name="question3" value="2" /> 2</label>
         <label class="radio-inline"><input type="radio" name="question3" value="3" /> 3</label>
@@ -88,8 +92,7 @@ session_start();
       </div>
 
       <div class="form-group">
-        <label>I am aware that any person who directs or induces another to commit
-          any act of sexual harassment is held liable under RA 7877</label><br />
+        <label>4. Do you know that VAWC includes physical, sexual, psychological violence, and economic abuse against women and children?</label><br />
         <label class="radio-inline"><input type="radio" name="question4" value="1" /> 1</label>
         <label class="radio-inline"><input type="radio" name="question4" value="2" /> 2</label>
         <label class="radio-inline"><input type="radio" name="question4" value="3" /> 3</label>
@@ -98,8 +101,7 @@ session_start();
       </div>
 
       <div class="form-group">
-        <label>I am aware that any person who cooperates in an act of sexual
-          harassment is held liable under RA 7877</label><br />
+        <label>5. Are you aware that children covered in VAWC are those below 18 years of age or older but are incapable of taking care of themselves?</label><br />
         <label class="radio-inline"><input type="radio" name="question5" value="1" /> 1</label>
         <label class="radio-inline"><input type="radio" name="question5" value="2" /> 2</label>
         <label class="radio-inline"><input type="radio" name="question5" value="3" /> 3</label>
@@ -107,11 +109,11 @@ session_start();
         <label class="radio-inline"><input type="radio" name="question5" value="5" /> 5</label>
       </div>
 
-      <button class="btn btn-primary" name="law1">
+      <button class="btn btn-primary" name="law">
         Submit
       </button>
       <?php
-      if (isset($_POST['law1'])) {
+      if (isset($_POST['law'])) {
         // Retrieve form data
         $email = $_POST["email"];
         $question1 = $_POST["question1"];
@@ -123,23 +125,10 @@ session_start();
         $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
         // Prepare SQL statement
-        $sql = "INSERT INTO lawfour (email, totalScore)
+        $sql = "INSERT INTO lawtwo (email, totalScore )
             VALUES ('$email','$totalScore')";
 
         $result = mysqli_query($conn, $sql);
-        if ($result) {
-          echo "<script>swal({
-                                title: 'Reservation successful',
-                                icon: 'success',
-                            });
-                        </script>";
-        } else {
-          echo "<script>swal({
-                                    title: 'Something went wrong',
-                                    icon: 'error',
-                                });
-                        </script>";
-        }
       }
       ?>
 
