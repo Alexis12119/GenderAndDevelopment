@@ -93,12 +93,14 @@ session_start();
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png" alt="First slide">
+          <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
+          <img class="d-block w-100" src="assets/img/gad.png" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png" alt="Second slide">
+          <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
+          <img class="d-block w-100" src="assets/img/gad.png" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
