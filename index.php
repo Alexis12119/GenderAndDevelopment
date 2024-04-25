@@ -137,9 +137,9 @@ session_start();
               the workplace and in educational or training institutions.
             </p>
             <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-7877-anti-sexual-harassment-act-of-1995/" target="_blank">Read More</a>
-              <button class="btn btn-primary mt-auto" onclick="openSurvey(7877)">
-                Take Survey
-              </button>
+            <button class="btn btn-primary mt-auto" onclick="openSurvey(7877)">
+              Take Survey
+            </button>
           </div>
         </div>
       </div>
@@ -156,9 +156,9 @@ session_start();
               forms of violence and abuse.
             </p>
             <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-9262/" target="_blank">Read More</a>
-              <button class="btn btn-primary mt-auto" onclick="openSurvey(9262)">
-                Take Survey
-              </button>
+            <button class="btn btn-primary mt-auto" onclick="openSurvey(9262)">
+              Take Survey
+            </button>
           </div>
         </div>
       </div>
@@ -173,9 +173,9 @@ session_start();
               particularly those belonging to marginalized sectors.
             </p>
             <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-9710-the-magna-carta-of-women/" target="_blank">Read More</a>
-              <button class="btn btn-primary mt-auto" onclick="openSurvey(9710)">
-                Take Survey
-              </button>
+            <button class="btn btn-primary mt-auto" onclick="openSurvey(9710)">
+              Take Survey
+            </button>
           </div>
         </div>
       </div>
@@ -190,9 +190,9 @@ session_start();
             public spaces harassment.
           </p>
           <a class="btn btn-primary" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
-              Take Survey
-            </button>
+          <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
+            Take Survey
+          </button>
         </div>
       </div>
     </div>
@@ -326,60 +326,99 @@ session_start();
     function updateChart(surveyName, data) {
       var data = fetchDataForChart(data);
 
-      // Define custom colors based on GAD score ranges
-      var customColors = [];
-      data.level.forEach(function(range) {
-        switch (range) {
-          case 'Low':
-            customColors.push('rgba(255, 99, 132, 0.5)');
-            break;
-          case 'Medium':
-            customColors.push('rgba(54, 162, 235, 0.5)');
-            break;
-          case 'High':
-            customColors.push('rgba(255, 206, 86, 0.5)');
-            break;
-        }
-      });
+      // Check if data is empty, if so, create a default chart with no data
+      if (data.level.length === 0 || data.counts.length === 0) {
+        var defaultData = {
+          labels: ['No Data'],
+          datasets: [{
+            data: [1], // Just to display something, doesn't matter what
+            backgroundColor: ['rgba(0, 0, 0, 0.1)'],
+            borderColor: ['rgba(0, 0, 0, 0.1)'],
+            borderWidth: 1
+          }]
+        };
 
-      var scoreData = {
-        labels: data.level,
-        datasets: [{
-          data: data.counts,
-          backgroundColor: customColors, // Use custom colors
-          borderColor: customColors.map(color => color.replace('0.5', '1')), // Set border color to full opacity
-          borderWidth: 1
-        }]
-      };
+        // Get the canvas element
+        var defaultCanvas = document.getElementById(surveyName).getContext('2d');
 
-      // Get the canvas element
-      var scoreCanvas = document.getElementById(surveyName).getContext('2d');
+        // Create the default chart
+        window[surveyName + 'Chart'] = new Chart(defaultCanvas, {
+          type: 'pie',
+          data: defaultData,
+          options: {
+            responsive: true,
+            legend: {
+              display: true,
+              position: 'right'
+            },
+            elements: {
+              arc: {
+                bevelWidth: 5, // Add bevel effect
+                bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
+                // Add gradient shading for a realistic look
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowBlur: 15,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            },
+          }
+        });
+      } else {
+        // Define custom colors based on GAD score ranges
+        var customColors = [];
+        data.level.forEach(function(range) {
+          switch (range) {
+            case 'Low':
+              customColors.push('rgba(255, 99, 132, 0.5)');
+              break;
+            case 'Medium':
+              customColors.push('rgba(54, 162, 235, 0.5)');
+              break;
+            case 'High':
+              customColors.push('rgba(255, 206, 86, 0.5)');
+              break;
+          }
+        });
 
-      // Check if the chart exists and update it, or create a new chart
-      window.scoreChart = new Chart(scoreCanvas, {
-        type: 'pie',
-        data: scoreData,
-        options: {
-          responsive: true,
-          legend: {
-            display: true,
-            position: 'right'
-          },
-          elements: {
-            arc: {
-              bevelWidth: 5, // Add bevel effect
-              bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
-              // Add gradient shading for a realistic look
-              shadowOffsetX: 0,
-              shadowOffsetY: 0,
-              shadowBlur: 15,
-              shadowColor: 'rgba(0, 0, 0, 0.5)'
-            }
-          },
-        }
-      });
+        var scoreData = {
+          labels: data.level,
+          datasets: [{
+            data: data.counts,
+            backgroundColor: customColors, // Use custom colors
+            borderColor: customColors.map(color => color.replace('0.5', '1')), // Set border color to full opacity
+            borderWidth: 1
+          }]
+        };
+
+        // Get the canvas element
+        var scoreCanvas = document.getElementById(surveyName).getContext('2d');
+
+        // Check if the chart exists and update it, or create a new chart
+        window[surveyName + 'Chart'] = new Chart(scoreCanvas, {
+          type: 'pie',
+          data: scoreData,
+          options: {
+            responsive: true,
+            legend: {
+              display: true,
+              position: 'right'
+            },
+            elements: {
+              arc: {
+                bevelWidth: 5, // Add bevel effect
+                bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
+                // Add gradient shading for a realistic look
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowBlur: 15,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            },
+          }
+        });
+      }
     }
-
     // Call the function to update the chart
     updateChart("lawone", <?php echo json_encode($data["ra7877"]); ?>);
     updateChart("lawtwo", <?php echo json_encode($data["ra9262"]); ?>);
