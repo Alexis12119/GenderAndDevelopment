@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `ra7877` (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL,
     totalScore INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
+    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
 );
 
 -- Create table 'ra9262' with a timestamp column for record creation time
