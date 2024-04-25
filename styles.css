@@ -1,0 +1,119 @@
+body {
+  background: #e0aaff;
+}
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3vh; /* Adjust the font size */
+  color: #333; /* Change the color of the text */
+  line-height: 1.6; /* Adjust the line height for better readability */
+  margin-bottom: 15px; /* Add spacing between paragraphs */
+}
+h4 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5rem;
+  color: #6c5ce7;
+}
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #6c5ce7;
+}
+/* Navigation Bar */
+
+.navbar,
+footer {
+  background: linear-gradient(to right, #6c5ce7, #b19cd9);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #fff; /* White */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #fff; /* White */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+/* About Section */
+#about {
+  background: linear-gradient(
+    to right,
+    #e0aaff,
+    #ffb3d1
+  ); /* Gradient from light purple to light pink */
+}
+
+/* Resources Section with Cards */
+#laws {
+  background: linear-gradient(
+    to right,
+    #e0aaff,
+    #ffb3d1
+  ); /* Gradient from light purple to light pink */
+}
+#contact {
+  background: linear-gradient(
+    to right,
+    #e0aaff,
+    #ffb3d1
+  ); /* Gradient from light purple to light pink */
+}
+#statistics {
+  background: linear-gradient(
+    to right,
+    #e0aaff,
+    #ffb3d1
+  ); /* Gradient from light purple to light pink */
+
+  color: #6c5ce7;
+}
+
+.card {
+  background-color: #e0aaff;
+  border-radius: 10px; /* Rounded corners for the card */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow for 3D effect */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift the card up slightly on hover */
+}
+
+.card-title {
+  color: #6c5ce7; /* Purple */
+  font-size: 4vh;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(
+    to right,
+    #6c5ce7,
+    #a44cf2
+  ); /* Gradient background for buttons */
+  border-color: #6c5ce7; /* Purple */
+  color: #fff; /* White text color */
+}
+
+.btn-primary:hover {
+  background: linear-gradient(
+    to right,
+    #5b48a2,
+    #8f6dd1
+  ); /* Darker gradient on hover */
+  border-color: #5b48a2; /* Darker purple */
+}
+
+/* Form Inputs */
+.form-control {
+  background-color: #fff; /* White */
+  border-color: #6c5ce7; /* Purple */
+}
+
+/* Form Inputs Focus */
+.form-control:focus {
+  border-color: #5b48a2; /* Darker purple */
+  box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25); /* Lighter purple shadow */
+}
