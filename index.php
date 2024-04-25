@@ -122,7 +122,7 @@ session_start();
         <!-- Profile cards -->
         <div class="col-md-4 mb-4">
           <div class="card rounded-3">
-            <img src="https://avatars.githubusercontent.com/u/74944536?s=400&u=3f4278bc86be9aa6394d1bcce451abb5538ef977&v=4" alt="Profile 1" class="card-img-top">
+            <img src="assets/img/alexis.jpg" alt="Profile 1" class="card-img-top">
             <div class="card-body ">
               <h5 class="card-title">Alexis Corporal</h5>
               <p class="card-text">Programmer</p>
@@ -478,15 +478,6 @@ session_start();
     updateChart("lawtwo", <?php echo json_encode($data["ra9262"]); ?>);
     updateChart("lawthree", <?php echo json_encode($data["ra9710"]); ?>);
     updateChart("lawfour", <?php echo json_encode($data["ra11313"]); ?>);
-    // Function to open the About section pop-up window
-    function openAboutPopup() {
-      document.getElementById('aboutPopup').style.display = 'block';
-    }
-
-    // Function to close the About section pop-up window
-    function closeAboutPopup() {
-      document.getElementById('aboutPopup').style.display = 'none';
-    }
   </script>
 </body>
 
