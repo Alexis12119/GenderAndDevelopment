@@ -34,6 +34,15 @@ footer {
   border-color: #5b48a2; /* Darker purple */
 }
 
+footer p {
+  color: #fff; /* White */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff; /* White */
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
 .navbar-brand,
 .navbar-nav .nav-link {
   color: #fff; /* White */
@@ -125,51 +134,4 @@ footer {
 .form-control:focus {
   border-color: #5b48a2; /* Darker purple */
   box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25); /* Lighter purple shadow */
-}
-
-.profile-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  padding: 20px;
-  transition: transform 0.3s;
-  background: transparent;
-  border-color: #5b48a2; /* Darker purple */
-  width: 90%;
-  max-width: 300px; /* Set a maximum width if desired */
-}
-
-.profile-card:hover {
-  transform: translateY(-5px);
-}
-
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.profile-info {
-  text-align: center;
-}
-
-.name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.bio {
-  font-size: 14px;
-}
-
-.name {
-  margin-top: 5px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
