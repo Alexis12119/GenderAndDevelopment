@@ -15,10 +15,11 @@ session_start();
   <style>
     .radio-inline {
       margin-right: 100px;
+      padding-left: 25px;
     }
 
     input[type="radio"] {
-      height: 20px;
+      transform: scale(2);
     }
 
     p {
@@ -95,47 +96,47 @@ session_start();
 
       <div class="form-group">
         <label>1. Are you aware of RA 9262: Violence against women law?</label><br />
-        <label class="radio-inline"><input type="radio" name="question1" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>2. Are you aware of the process to get a BPO/TPO/PPO whenever you or someone you know committed a crime covered under VAWC?</label><br />
-        <label class="radio-inline"><input type="radio" name="question2" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>3. Do you know that VAWC is not committed by men alone?</label><br />
-        <label class="radio-inline"><input type="radio" name="question3" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>4. Do you know that VAWC includes physical, sexual, psychological violence, and economic abuse against women and children?</label><br />
-        <label class="radio-inline"><input type="radio" name="question4" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>5. Are you aware that children covered in VAWC are those below 18 years of age or older but are incapable of taking care of themselves?</label><br />
-        <label class="radio-inline"><input type="radio" name="question5" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="5" /><br /> 5</label>
       </div>
 
       <button class="btn btn-primary" name="law">

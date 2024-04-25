@@ -68,13 +68,13 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#rights">Rights</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#statistics">Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
@@ -111,70 +111,6 @@ session_start();
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div>
-  </section>
-
-  <!-- About section -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Our Team</h2>
-      <div class="row">
-        <!-- Profile cards -->
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/alexis.jpg" alt="Profile 1" class="card-img-top">
-            <div class="card-body ">
-              <h5 class="card-title">Alexis Corporal</h5>
-              <p class="card-text">Programmer</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/errol.jpg" alt="Profile 2" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Errol Arapan</h5>
-              <p class="card-text">Documentation</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Vince Kevin Comaya</h5>
-              <p class="card-text">Documentation</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Archie Nuque</h5>
-              <p class="card-text">Database Administrator</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Aldrin Porcioncula</h5>
-              <p class="card-text">Database Administrator</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/daniel.jpg" alt="Profile 6" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Daniel Mendoza</h5>
-              <p class="card-text">UI/UX Designer</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -307,6 +243,71 @@ session_start();
       </div>
     </div>
   </section>
+
+  <!-- About section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Our Team</h2>
+      <div class="row">
+        <!-- Profile cards -->
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/alexis.jpg" alt="Profile 1" class="card-img-top">
+            <div class="card-body ">
+              <h5 class="card-title">Alexis Corporal</h5>
+              <p class="card-text">Programmer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/errol.jpg" alt="Profile 2" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Errol Arapan</h5>
+              <p class="card-text">Documentation</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Vince Kevin Comaya</h5>
+              <p class="card-text">Documentation</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Archie Nuque</h5>
+              <p class="card-text">Database Administrator</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Aldrin Porcioncula</h5>
+              <p class="card-text">Database Administrator</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/daniel.jpg" alt="Profile 6" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Daniel Mendoza</h5>
+              <p class="card-text">UI/UX Designer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Contact Section -->
   <section id="contact" class="py-5">

@@ -15,10 +15,11 @@ session_start();
   <style>
     .radio-inline {
       margin-right: 100px;
+      padding-left: 25px;
     }
 
     input[type="radio"] {
-      height: 20px;
+      transform: scale(2);
     }
 
     p {
@@ -95,50 +96,49 @@ session_start();
         <input type="email" class="form-control" id="email" name="email" required />
       </div>
 
-
       <div class="form-group">
         <label>1. Are you aware that cat-calling, stalking, and other acts that threaten one's personal space and safety committed in public spaces are punishable under this Act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question6" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question6" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question6" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question6" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question6" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>2. Are you aware that motive is insignificant when punished for any sexual harassment committed or received in any public space?</label><br />
-        <label class="radio-inline"><input type="radio" name="question7" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question7" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question7" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question7" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question7" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>3. Are you aware that sexual harassment committed online is punishable under this act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question8" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question8" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question8" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question8" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question8" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>4. Are you aware that males can be victims too under this Act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question9" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question9" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question9" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question9" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question9" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>5. Are you aware that any sexual harassment committed or received while in a Public Utility Vehicle is punishable under this Act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question10" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question10" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question10" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question10" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question10" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="5" /><br /> 5</label>
       </div>
       <button class="btn btn-primary" name="law">
         Submit

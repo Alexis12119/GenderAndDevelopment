@@ -19,10 +19,11 @@ session_start();
 
     .radio-inline {
       margin-right: 100px;
+      padding-left: 25px;
     }
 
     input[type="radio"] {
-      height: 20px;
+      transform: scale(2);
     }
 
     p {
@@ -98,52 +99,52 @@ session_start();
         <label>1. I am aware that Work, Education or Training-Related, Sexual
           Harassment is committed by an employer, employee, instructor, coach,
           or any person with authority.</label><br />
-        <label class="radio-inline"><input type="radio" name="question1" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="1" /> <br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="2" /> <br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="3" /> <br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="4" /> <br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="5" /> <br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>2. I am aware that I can file for charges when I am offered favorable
           compensations in exchange of sexual favors.</label><br />
-        <label class="radio-inline"><input type="radio" name="question2" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="1" /> <br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="2" /> <br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="3" /> <br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="4" /> <br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="5" /> <br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>3. I am aware that I can file for charges when I am denied of
           employment opportunities or privileges unless I submit to sexual
           favors.</label><br />
-        <label class="radio-inline"><input type="radio" name="question3" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="1" /> <br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="2" /> <br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="3" /> <br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="4" /> <br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="5" /> <br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>4. I am aware that any person who directs or induces another to commit
           any act of sexual harassment is held liable under RA 7877.</label><br />
-        <label class="radio-inline"><input type="radio" name="question4" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="1" /> <br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="2" /> <br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="3" /> <br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="4" /> <br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="5" /> <br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>5. I am aware that any person who cooperates in an act of sexual
           harassment is held liable under RA 7877.</label><br />
-        <label class="radio-inline"><input type="radio" name="question5" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="1" /> <br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="2" /> <br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="3" /> <br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="4" /> <br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="5" /> <br /> 5</label>
       </div>
 
       <button class="btn btn-primary" name="law">

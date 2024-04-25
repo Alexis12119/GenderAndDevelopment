@@ -15,10 +15,11 @@ session_start();
   <style>
     .radio-inline {
       margin-right: 100px;
+      padding-left: 25px;
     }
 
     input[type="radio"] {
-      height: 20px;
+      transform: scale(2);
     }
 
     p {
@@ -95,50 +96,49 @@ session_start();
         <input type="email" class="form-control" id="email" name="email" required />
       </div>
 
-
       <div class="form-group">
         <label>1. Are you aware that Discrimination Against Women refers to any gender-based distinction which has the purpose of impairing the recognition, enjoyment, or exercise by women, of human rights and fundamental freedoms in the political, economic, social, cultural, civil, or any other field?</label><br />
-        <label class="radio-inline"><input type="radio" name="question1" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question1" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question1" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>2. Are you aware that discrimination against women under marginalized sectors such as Small Farmers and Fisherfolk is punishable under this act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question2" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question2" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question2" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>3. Are you aware that pregnancy as a reason for expulsion from institutions or prohibition for enrollment is outlawed by this Act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question3" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question3" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question3" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>4. Are you aware that denied promotions and unequal compensations in the work environment arising from being a woman is punishable under this act?</label><br />
-        <label class="radio-inline"><input type="radio" name="question4" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question4" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question4" value="5" /><br /> 5</label>
       </div>
 
       <div class="form-group">
         <label>5. Are you aware that women have leave benefits of 105 days with full pay based on gross monthly compensation for women employees who undergo surgery caused by gynecological disorders, provided that they have rendered continuous aggregate employment service of at least six (6) months for the last twelve (12) months?</label><br />
-        <label class="radio-inline"><input type="radio" name="question5" value="1" /> 1</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="2" /> 2</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="3" /> 3</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="4" /> 4</label>
-        <label class="radio-inline"><input type="radio" name="question5" value="5" /> 5</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="1" /><br /> 1</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="2" /><br /> 2</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="3" /><br /> 3</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="4" /><br /> 4</label>
+        <label class="radio-inline"><input type="radio" name="question5" value="5" /><br /> 5</label>
       </div>
       <button class="btn btn-primary" name="law">
         Submit
