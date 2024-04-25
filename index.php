@@ -98,7 +98,7 @@ session_start();
     </div>
   </section>
 
-  <!-- Resources Section with Cards -->
+  <!-- Rights Section with Cards -->
   <section id="rights" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Gender and Development Laws</h2>
@@ -170,8 +170,6 @@ session_start();
         </div>
       </div>
     </div>
-
-    <!-- Add more laws following the same structure -->
     </div>
     </div>
   </section>
@@ -181,25 +179,49 @@ session_start();
   <section id="statistics" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Statistics</h2>
-      <div class="text-center">
-        <h4 class="font-weight-bold">
-          Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)
-        </h4></br>
-        <canvas id="lawone" style="width:100%;max-width:700px"></canvas></br>
+      <div class="row">
 
-        <h4 class="font-weight-bold">
-          Anti-Violence Against Women and their Children (RA 9262)
-        </h4></br>
-        <canvas id="lawtwo" style="width:100%;max-width:700px"></canvas></br>
-        <h4 class="font-weight-bold">
-          Magna Carta for Women (RA 9710)
-        </h4></br>
-        <canvas id="lawthree" style="width:100%;max-width:700px"></canvas></br>
+        <!-- Card for Law One Chart -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
+              <canvas id="lawone" style="max-width:100%"></canvas>
+            </div>
+          </div>
+        </div>
 
-        <h4 class="font-weight-bold">
-          Safe Spaces Act (RA 11313)
-        </h4></br>
-        <canvas id="lawfour" style="width:100%;max-width:700px"></canvas>
+        <!-- Add more cards for other charts -->
+        <!-- Law Two Chart -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Anti-Violence Against Women and their Children (RA 9262)</h5>
+              <canvas id="lawtwo" style="max-width:100%"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Law Three Chart -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Magna Carta for Women (RA 9710)</h5>
+              <canvas id="lawthree" style="max-width:100%"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Law Four Chart -->
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
+              <canvas id="lawfour" style="max-width:100%"></canvas>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
