@@ -32,6 +32,7 @@ footer {
     #8f6dd1
   ); /* Darker gradient on hover */
   border-color: #5b48a2; /* Darker purple */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow for 3D effect */
 }
 
 footer p {
@@ -134,4 +135,11 @@ footer p {
 .form-control:focus {
   border-color: #5b48a2; /* Darker purple */
   box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25); /* Lighter purple shadow */
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  height: 35px;
 }
