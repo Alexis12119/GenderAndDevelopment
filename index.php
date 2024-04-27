@@ -62,7 +62,7 @@ session_start();
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="logo navbar-brand " href="#">
+      <a class="logo navbar-brand " href="https://www.youtube.com/shorts/SXHMnicI6Pg" target="_blank">
         <img class="rounded-circle" src="assets/img/logo.png" alt="logo">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -180,21 +180,21 @@ session_start();
       </div>
 
       <!-- Law 4: Safe Spaces Act -->
-      <div class="col-md-6 mb-4"">
-          <div class=" card h-100">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
-          <p class="card-text flex-grow-1">
-            This law aims to prevent and address gender-based street and
-            public spaces harassment.
-          </p>
-          <a class="btn btn-primary" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
-          <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
-            Take Survey
-          </button>
+      <div class="col-md-6 mb-4">
+        <div class=" card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
+            <p class="card-text flex-grow-1">
+              This law aims to prevent and address gender-based street and
+              public spaces harassment.
+            </p>
+            <a class="btn btn-primary" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
+            <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
+              Take Survey
+            </button>
+          </div>
         </div>
       </div>
-    </div>
     </div>
     </div>
   </section>
@@ -239,7 +239,7 @@ session_start();
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
+              <h5 class="card-title">Safe Spaces Act <br /> (RA 11313)</h5>
               <canvas id="lawfour" style="max-width:100%"></canvas>
             </div>
           </div>
@@ -275,15 +275,6 @@ session_start();
         </div>
         <div class="col-md-4 mb-4">
           <div class="card rounded-3">
-            <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Vince Kevin Comaya</h5>
-              <p class="card-text">Documentation</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
             <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">Archie Nuque</h5>
@@ -291,6 +282,16 @@ session_start();
             </div>
           </div>
         </div>
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Vince Kevin Comaya</h5>
+              <p class="card-text">System Analyst</p>
+            </div>
+          </div>
+        </div>
+
         <div class="col-md-4 mb-4">
           <div class="card rounded-3">
             <img src="assets/img/aldrin.jpg" alt="Profile 5" class="card-img-top">
@@ -304,7 +305,7 @@ session_start();
           <div class="card rounded-3">
             <img src="assets/img/daniel.jpg" alt="Profile 6" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Daniel Mendoza</h5>
+              <h5 class="card-title">Daniel Aaron Mendoza</h5>
               <p class="card-text">UI/UX Designer</p>
             </div>
           </div>

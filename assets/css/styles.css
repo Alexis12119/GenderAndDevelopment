@@ -143,3 +143,17 @@ footer p {
   width: 20px;
   height: 35px;
 }
+
+*::-webkit-scrollbar {
+  width: 0.6rem;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to right,
+    #6c5ce7,
+    #a44cf2
+  ); /* Gradient background for buttons */
+}
