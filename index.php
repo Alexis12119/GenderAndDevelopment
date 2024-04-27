@@ -239,7 +239,7 @@ session_start();
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Safe Spaces Act <br /> (RA 11313)</h5>
+              <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
               <canvas id="lawfour" style="max-width:100%"></canvas>
             </div>
           </div>
@@ -273,21 +273,23 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Archie Nuque</h5>
-              <p class="card-text">Database Administrator</p>
-            </div>
-          </div>
-        </div>
+
         <div class="col-md-4 mb-4">
           <div class="card rounded-3">
             <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">Vince Kevin Comaya</h5>
               <p class="card-text">System Analyst</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3">
+            <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Archie Nuque</h5>
+              <p class="card-text">Database Administrator</p>
             </div>
           </div>
         </div>
@@ -305,7 +307,7 @@ session_start();
           <div class="card rounded-3">
             <img src="assets/img/daniel.jpg" alt="Profile 6" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Daniel Aaron Mendoza</h5>
+              <h5 class="card-title">Daniel Mendoza</h5>
               <p class="card-text">UI/UX Designer</p>
             </div>
           </div>
