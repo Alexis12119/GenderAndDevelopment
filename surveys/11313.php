@@ -19,6 +19,10 @@ session_start();
       padding-left: 25px;
     }
 
+    input[type="radio"] {
+      transform: scale(2);
+    }
+
     p {
       font-size: 3vh;
       font-weight: bold;
