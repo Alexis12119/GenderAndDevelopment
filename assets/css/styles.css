@@ -157,3 +157,7 @@ footer p {
     #a44cf2
   ); /* Gradient background for buttons */
 }
+
+input[type="radio"] {
+  transform: scale(2);
+}
