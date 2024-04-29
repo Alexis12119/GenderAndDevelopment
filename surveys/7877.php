@@ -1,6 +1,49 @@
 <?php
 include '../config.php';
 session_start();
+
+if (isset($_POST['law'])) {
+  // Retrieve form data
+  $email = $_POST["email"];
+  $question1 = $_POST["question1"];
+  $question2 = $_POST["question2"];
+  $question3 = $_POST["question3"];
+  $question4 = $_POST["question4"];
+  $question5 = $_POST["question5"];
+
+  // Check if the email is already used
+  $query = "SELECT email FROM ra7877 WHERE email = ?";
+  $stmt = mysqli_prepare($conn, $query);
+  mysqli_stmt_bind_param($stmt, "s", $email);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_store_result($stmt);
+  $rows = mysqli_stmt_num_rows($stmt);
+
+  if ($rows > 0) {
+    echo "<script>alert('Email already used! Please use a different email.');</script>";
+  } else {
+    $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
+
+    // Prepare SQL statement with a placeholder for the values
+    $sql = "INSERT INTO ra7877 (email, totalScore) VALUES (?, ?)";
+
+    // Initialize a prepared statement
+    $stmt = mysqli_prepare($conn, $sql);
+
+    // Bind parameters to the prepared statement
+    mysqli_stmt_bind_param($stmt, "si", $email, $totalScore);
+
+    // Execute the prepared statement
+    mysqli_stmt_execute($stmt);
+
+    // Close the statement
+    mysqli_stmt_close($stmt);
+
+    echo "<script>alert('Survey submitted successfully!');</script>";
+  }
+
+  mysqli_stmt_close($stmt);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -151,35 +194,6 @@ session_start();
       <button class="btn btn-primary" name="law">
         Submit
       </button><br /><br />
-      <?php
-      if (isset($_POST['law'])) {
-        // Retrieve form data
-        $email = $_POST["email"];
-        $question1 = $_POST["question1"];
-        $question2 = $_POST["question2"];
-        $question3 = $_POST["question3"];
-        $question4 = $_POST["question4"];
-        $question5 = $_POST["question5"];
-
-        $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
-
-        // Prepare SQL statement with a placeholder for the values
-        $sql = "INSERT INTO ra7877 (email, totalScore) VALUES (?, ?)";
-
-        // Initialize a prepared statement
-        $stmt = mysqli_prepare($conn, $sql);
-
-        // Bind parameters to the prepared statement
-        mysqli_stmt_bind_param($stmt, "si", $email, $totalScore);
-
-        // Execute the prepared statement
-        mysqli_stmt_execute($stmt);
-
-        // Close the statement
-        mysqli_stmt_close($stmt);
-      }
-      ?>
-
     </form>
   </div>
 
