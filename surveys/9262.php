@@ -155,11 +155,20 @@ session_start();
 
         $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
-        // Prepare SQL statement
-        $sql = "INSERT INTO ra9262 (email, totalScore )
-            VALUES ('$email','$totalScore')";
+        // Prepare SQL statement with a placeholder for the values
+        $sql = "INSERT INTO ra9262 (email, totalScore) VALUES (?, ?)";
 
-        $result = mysqli_query($conn, $sql);
+        // Initialize a prepared statement
+        $stmt = mysqli_prepare($conn, $sql);
+
+        // Bind parameters to the prepared statement
+        mysqli_stmt_bind_param($stmt, "si", $email, $totalScore);
+
+        // Execute the prepared statement
+        mysqli_stmt_execute($stmt);
+
+        // Close the statement
+        mysqli_stmt_close($stmt);
       }
       ?>
 
