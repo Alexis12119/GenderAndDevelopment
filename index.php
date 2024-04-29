@@ -54,7 +54,47 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  </script>
+  <style>
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background: linear-gradient(to right,
+          #5b48a2,
+          #8f6dd1);
+      border-color: #5b48a2;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+    }
+
+    /* Buttons */
+    #modal-confirm,
+    #modal-cancel {
+      background: linear-gradient(to right, #6c5ce7, #a44cf2);
+      border-color: #6c5ce7;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    #modal-confirm:hover,
+    #modal-cancel:hover {
+      background: linear-gradient(to right, #5b48a2, #8f6dd1);
+      border-color: #5b48a2;
+    }
+  </style>
 </head>
 
 <body>
@@ -197,6 +237,15 @@ session_start();
       </div>
     </div>
     </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h4>Confirmation</h4>
+        <p id="modal-message"></p>
+        <button id="modal-confirm">Yes</button>
+        <button id="modal-cancel">No</button>
+      </div>
+    </div>
+
   </section>
 
   <!-- Statistics Section -->
@@ -368,8 +417,30 @@ session_start();
     });
 
     function openSurvey(surveyName) {
-      // Redirect to the specified survey file
-      window.open("surveys/" + surveyName + ".php", "_blank");
+      var message = "By proceeding, you agree that your responses may be collected and processed in accordance with the Data Privacy Act. Your privacy and confidentiality will be maintained.";
+
+      // Display modal with message
+      document.getElementById("modal-message").innerText = message;
+      document.getElementById("myModal").style.display = "block";
+
+      // When the user clicks on the close button or outside the modal, close it
+      var closeBtn = document.getElementsByClassName("close")[0];
+      window.onclick = function(event) {
+        if (event.target == document.getElementById("myModal")) {
+          document.getElementById("myModal").style.display = "none";
+        }
+      }
+
+      // Handle confirm button click
+      document.getElementById("modal-confirm").onclick = function() {
+        window.open("surveys/" + surveyName + ".php", "_blank");
+        document.getElementById("myModal").style.display = "none";
+      }
+
+      // Handle cancel button click
+      document.getElementById("modal-cancel").onclick = function() {
+        document.getElementById("myModal").style.display = "none";
+      }
     }
 
     // Function to fetch data from the database

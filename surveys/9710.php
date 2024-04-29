@@ -63,7 +63,7 @@ if (isset($_POST['law'])) {
     }
 
     input[type="radio"] {
-      transform: scale(1);
+      transform: scale(2);
     }
 
     p {
