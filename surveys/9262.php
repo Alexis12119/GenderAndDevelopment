@@ -2,6 +2,10 @@
 include '../config.php';
 session_start();
 
+// Initialize error flag
+$error = false;
+$error_message = "";
+
 if (isset($_POST['law'])) {
   // Retrieve form data
   $email = $_POST["email"];
@@ -20,7 +24,9 @@ if (isset($_POST['law'])) {
   $rows = mysqli_stmt_num_rows($stmt);
 
   if ($rows > 0) {
-    echo "<script>alert('Email already used! Please use a different email.');</script>";
+    // Set error flag and message
+    $error = true;
+    $error_message = "Email already used! Please use a different email.";
   } else {
     $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
@@ -39,6 +45,7 @@ if (isset($_POST['law'])) {
     // Close the statement
     mysqli_stmt_close($stmt);
 
+    // Show success message
     echo "<script>alert('Survey submitted successfully!');</script>";
   }
 
@@ -60,6 +67,16 @@ if (isset($_POST['law'])) {
     .radio-inline {
       margin-right: 100px;
       padding-left: 25px;
+    }
+
+    .modal-content {
+      background: linear-gradient(to right,
+          #5b48a2,
+          #8f6dd1);
+      border-color: #5b48a2;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
     }
 
     input[type="radio"] {
@@ -189,10 +206,32 @@ if (isset($_POST['law'])) {
     </form>
   </div>
 
+  <!-- Error Modal -->
+  <div class="modal" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <?php echo $error_message; ?>
+        </div>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Script to show error modal if error flag is set -->
+  <?php if ($error) : ?>
+    <script>
+      $(document).ready(function() {
+        $('#errorModal').modal('show');
+      });
+    </script>
+  <?php endif; ?>
 </body>
 
 </html>
