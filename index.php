@@ -102,15 +102,23 @@ session_start();
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="logo navbar-brand " href="https://www.youtube.com/shorts/SXHMnicI6Pg" target="_blank">
-        <img class="rounded-circle" src="assets/img/logo.png" alt="logo">
-      </a>
+      <!-- Flex container to align logo and text -->
+      <div class="d-flex align-items-center">
+        <!-- Logo -->
+        <a class="logo navbar-brand" href="https://www.youtube.com/shorts/SXHMnicI6Pg" target="_blank">
+          <img class="rounded-circle" src="assets/img/logo.png" alt="logo">
+        </a>
+        <!-- Text alongside the logo -->
+        <span class="text ml-2">Gender And Development</span>
+      </div>
+      <!-- Navbar toggler for smaller screens -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Navbar items -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="#rights">Rights</a>
           </li>
           <li class="nav-item">
@@ -126,7 +134,6 @@ session_start();
       </div>
     </div>
   </nav>
-
   <!-- Carousel Section -->
   <section id="carousel" class="py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -363,8 +370,6 @@ session_start();
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </section>

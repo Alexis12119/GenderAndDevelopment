@@ -2,6 +2,17 @@ body {
   background: #e0aaff;
 }
 
+.text {
+  background: linear-gradient(to right, #e0aaff, #ffb3d1);
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  background-clip: text; /* Apply the gradient to the text */
+  color: transparent; /* Hide the original text color */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
 p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 3vh; /* Adjust the font size */
@@ -36,21 +47,25 @@ footer {
 }
 
 footer p {
-  color: #fff; /* White */
+  background: linear-gradient(to right, #e0aaff, #ffb3d1);
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  background-clip: text; /* Apply the gradient to the text */
+  color: transparent; /* Hide the original text color */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #fff; /* White */
   transition: color 0.3s; /* Smooth color transition on hover */
 }
 
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: #fff; /* White */
+  background: linear-gradient(to right, #e0aaff, #ffb3d1);
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  background-clip: text; /* Apply the gradient to the text */
+  color: transparent; /* Hide the original text color */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #fff; /* White */
   transition: color 0.3s; /* Smooth color transition on hover */
 }
 
