@@ -101,7 +101,7 @@ session_start();
 
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
+    <div class="container-fluid">
       <a class="logo navbar-brand " href="https://www.youtube.com/shorts/SXHMnicI6Pg" target="_blank">
         <img class="rounded-circle" src="assets/img/logo.png" alt="logo">
       </a>
