@@ -68,6 +68,12 @@ if (isset($_POST['law'])) {
       padding-left: 25px;
     }
 
+    .error-message {
+      font-size: 3vh;
+      color: #8D272B;
+      padding: 20px 0 0 0;
+    }
+
     .modal-content {
       background: linear-gradient(to right,
           #5b48a2,
@@ -211,8 +217,7 @@ if (isset($_POST['law'])) {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <h5 class="modal-title" id="errorModalLabel">Error</h5>
-          <?php echo $error_message; ?>
+          <p class="error-message"><?php echo $error_message; ?></p>
         </div>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
