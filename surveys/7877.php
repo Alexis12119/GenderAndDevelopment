@@ -111,16 +111,6 @@ if (isset($_POST['law'])) {
     .form-check-label {
       margin-right: 20px;
     }
-
-    .btn-primary {
-      background: linear-gradient(to right, #6c5ce7, #a44cf2);
-      border-color: #6c5ce7;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(to right, #5b48a2, #8f6dd1);
-      border-color: #5b48a2;
-    }
   </style>
 </head>
 
@@ -213,7 +203,7 @@ if (isset($_POST['law'])) {
         <label class="radio-inline"><input type="radio" name="question5" value="5" /> <br /> 5</label>
       </div>
 
-      <button class="btn btn-primary" name="law">
+      <button type="button" class="btn btn-primary" name="law">
         Submit
       </button><br /><br />
     </form>

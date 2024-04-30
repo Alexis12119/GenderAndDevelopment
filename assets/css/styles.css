@@ -39,8 +39,9 @@ h2 {
 footer {
   background: linear-gradient(
     to right,
-    #5b48a2,
-    #8f6dd1
+    /* #5b48a2, */ /* #8f6dd1 */
+    #091379,
+    #a41e8d
   ); /* Darker gradient on hover */
   border-color: #5b48a2; /* Darker purple */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow for 3D effect */
@@ -124,9 +125,11 @@ footer p {
 .btn-primary {
   background: linear-gradient(
     to right,
-    #6c5ce7,
-    #a44cf2
-  ); /* Gradient background for buttons */
+    /* #5b48a2, */ /* #8f6dd1 */
+    #091379,
+    #a41e8d
+  ); /* Darker gradient on hover */
+
   border-color: #6c5ce7; /* Purple */
   color: #fff; /* White text color */
 }
@@ -134,8 +137,10 @@ footer p {
 .btn-primary:hover {
   background: linear-gradient(
     to right,
-    #5b48a2,
-    #8f6dd1
+    /* #5b48a2, */
+    /* #8f6dd1 */
+#070b5c,
+ #830f6f
   ); /* Darker gradient on hover */
   border-color: #5b48a2; /* Darker purple */
 }
