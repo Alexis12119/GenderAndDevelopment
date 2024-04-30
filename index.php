@@ -475,7 +475,7 @@
     });
 
     function openSurvey(surveyName) {
-      var message = "By proceeding, you agree that your responses may be collected and processed in accordance with the Data Privacy Act. Your privacy and confidentiality will be maintained.";
+      var message = "By proceeding, you agree that your responses may be collected and processed in accordance with the Data Privacy Act of 2012. Your privacy and confidentiality will be maintained.";
 
       // Display modal with message
       document.getElementById("modal-message").innerText = message;
