@@ -49,8 +49,6 @@ if (isset($_POST['law'])) {
     // Show success message
     echo "<script>alert('Survey submitted successfully!');</script>";
   }
-
-  mysqli_stmt_close($stmt);
 }
 ?>
 <!doctype html>
