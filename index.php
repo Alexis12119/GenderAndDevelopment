@@ -118,16 +118,16 @@ session_start();
       <!-- Navbar items -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item" id="rightsNavItem">
             <a class="nav-link" href="#rights">Rights</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="statisticsNavItem">
             <a class="nav-link" href="#statistics">Statistics</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="aboutNavItem">
             <a class="nav-link" href="#about">About Us</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="contactNavItem">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
@@ -567,6 +567,34 @@ session_start();
     updateChart("lawtwo", <?php echo json_encode($data["ra9262"]); ?>);
     updateChart("lawthree", <?php echo json_encode($data["ra9710"]); ?>);
     updateChart("lawfour", <?php echo json_encode($data["ra11313"]); ?>);
+
+    // Function to update the active state of navigation items
+    function updateActiveNavItem(navItemId) {
+      // Remove 'active' class from all nav items
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Add 'active' class to the clicked nav item
+      document.getElementById(navItemId).classList.add('active');
+    }
+
+    // Add click event listeners to each nav item
+    document.getElementById('rightsNavItem').addEventListener('click', function() {
+      updateActiveNavItem('rightsNavItem');
+    });
+
+    document.getElementById('statisticsNavItem').addEventListener('click', function() {
+      updateActiveNavItem('statisticsNavItem');
+    });
+
+    document.getElementById('aboutNavItem').addEventListener('click', function() {
+      updateActiveNavItem('aboutNavItem');
+    });
+
+    document.getElementById('contactNavItem').addEventListener('click', function() {
+      updateActiveNavItem('contactNavItem');
+    });
   </script>
 </body>
 
