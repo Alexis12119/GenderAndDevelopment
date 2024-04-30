@@ -182,7 +182,7 @@ session_start();
               This law aims to protect individuals from sexual harassment in
               the workplace and in educational or training institutions.
             </p>
-            <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-7877-anti-sexual-harassment-act-of-1995/" target="_blank">Read More</a>
+            <a class="btn btn-primary mb-2" href="https://pcw.gov.ph/faq-republic-act-7877-anti-sexual-harassment-act-of-1995/" target="_blank">Read More</a>
             <button class="btn btn-primary mt-auto" onclick="openSurvey(7877)">
               Take Survey
             </button>
@@ -201,7 +201,7 @@ session_start();
               This law provides protection for women and children from all
               forms of violence and abuse.
             </p>
-            <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-9262/" target="_blank">Read More</a>
+            <a class="btn btn-primary mb-2" href="https://pcw.gov.ph/faq-republic-act-9262/" target="_blank">Read More</a>
             <button class="btn btn-primary mt-auto" onclick="openSurvey(9262)">
               Take Survey
             </button>
@@ -218,7 +218,7 @@ session_start();
               This law promotes the rights and welfare of women,
               particularly those belonging to marginalized sectors.
             </p>
-            <a class="btn btn-primary" href="https://pcw.gov.ph/faq-republic-act-9710-the-magna-carta-of-women/" target="_blank">Read More</a>
+            <a class="btn btn-primary mb-2" href="https://pcw.gov.ph/faq-republic-act-9710-the-magna-carta-of-women/" target="_blank">Read More</a>
             <button class="btn btn-primary mt-auto" onclick="openSurvey(9710)">
               Take Survey
             </button>
@@ -235,7 +235,7 @@ session_start();
               This law aims to prevent and address gender-based street and
               public spaces harassment.
             </p>
-            <a class="btn btn-primary" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
+            <a class="btn btn-primary mb-2" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
             <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
               Take Survey
             </button>
