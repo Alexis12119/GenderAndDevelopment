@@ -55,6 +55,16 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <style>
+    .navbar-dark .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.5);
+      /* Normal color */
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #fff;
+      /* Hover color */
+    }
+
     /* Modal */
     .modal {
       display: none;
