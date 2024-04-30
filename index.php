@@ -78,9 +78,7 @@ session_start();
     }
 
     .modal-content {
-      background: linear-gradient(to right,
-          #5b48a2,
-          #8f6dd1);
+      background: #8f6dd1;
       border-color: #5b48a2;
       margin: 15% auto;
       padding: 20px;
