@@ -364,21 +364,8 @@
     <div class="container">
       <h2 class="text-center mb-4">Contact Us</h2>
       <p class="text-center">Have questions or feedback? Reach out to us:</p>
-      <form id="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea class="form-control" id="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      <p class="text-center"><a class="text-center" href="https://forms.gle/6g8sopBwD82JbjFx8" target="_blank">Click to fill out the form</>
+      </p>
     </div>
   </section>
 
