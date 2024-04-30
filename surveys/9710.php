@@ -27,6 +27,7 @@ if (isset($_POST['law'])) {
     // Set error flag and message
     $error = true;
     $error_message = "Email already used! Please use a different email.";
+    mysqli_stmt_close($stmt);
   } else {
     $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
