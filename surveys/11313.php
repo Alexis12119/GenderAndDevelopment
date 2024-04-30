@@ -15,7 +15,7 @@ if (isset($_POST['law'])) {
   $question5 = $_POST["question5"];
 
   // Check if the email is already used
-  $query = "SELECT email FROM ra9710 WHERE email = ?";
+  $query = "SELECT email FROM ra11313 WHERE email = ?";
   $stmt = mysqli_prepare($conn, $query);
   mysqli_stmt_bind_param($stmt, "s", $email);
   mysqli_stmt_execute($stmt);
@@ -31,7 +31,7 @@ if (isset($_POST['law'])) {
     $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
     // Prepare SQL statement with a placeholder for the values
-    $sql = "INSERT INTO ra9262 (email, totalScore) VALUES (?, ?)";
+    $sql = "INSERT INTO ra11313 (email, totalScore) VALUES (?, ?)";
 
     // Initialize a prepared statement
     $stmt = mysqli_prepare($conn, $sql);

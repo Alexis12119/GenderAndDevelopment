@@ -16,7 +16,7 @@ if (isset($_POST['law'])) {
   $question5 = $_POST["question5"];
 
   // Check if the email is already used
-  $query = "SELECT email FROM ra7877 WHERE email = ?";
+  $query = "SELECT email FROM ra9262 WHERE email = ?";
   $stmt = mysqli_prepare($conn, $query);
   mysqli_stmt_bind_param($stmt, "s", $email);
   mysqli_stmt_execute($stmt);
