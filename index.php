@@ -1,44 +1,3 @@
-<?php
-include 'config.php';
-
-// Function to execute a query and fetch results
-function fetchData($tableName, $conn)
-{
-  $query = "SELECT level, COUNT(*) AS count 
-              FROM (
-                  SELECT 
-                      CASE 
-                          WHEN totalScore BETWEEN 5 AND 15 THEN 'Low' 
-                          WHEN totalScore BETWEEN 16 AND 20 THEN 'Medium' 
-                          WHEN totalScore BETWEEN 21 AND 25 THEN 'High' 
-                      END AS level
-                  FROM $tableName
-              ) AS subquery
-              GROUP BY level";
-
-  $result = mysqli_query($conn, $query);
-
-  if (!$result) {
-    die("Error: " . mysqli_error($conn));
-  }
-
-  $data = [];
-  while ($row = mysqli_fetch_assoc($result)) {
-    $data[] = $row;
-  }
-
-  return $data;
-}
-
-// Fetch data for each table
-$tables = array("ra7877", "ra9262", "ra9710", "ra11313");
-$data = [];
-foreach ($tables as $table) {
-  $data[$table] = fetchData($table, $conn);
-}
-
-session_start();
-?>
 <!doctype html>
 <html lang="en">
 
@@ -420,10 +379,92 @@ session_start();
   </footer>
 
   <!-- Bootstrap JS and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
+    // Global variable to store the previous data
+    var previousData = {
+      ra7877: [],
+      ra9262: [],
+      ra9710: [],
+      ra11313: []
+    };
+
+    var flag = false
+    // Function to fetch data from the server
+    function fetchAndUpdateCharts() {
+      $.ajax({
+        url: 'fetchData.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+          // Check if data has changed for each table
+          if (hasDataChanged(previousData.ra7877, response.ra7877)) {
+            updateChart("lawone", response.ra7877);
+            previousData.ra7877 = response.ra7877;
+          }
+          if (isDataZero(previousData.ra7877) && flag == false) {
+            createEmptyChart("lawone");
+          }
+          if (hasDataChanged(previousData.ra9262, response.ra9262)) {
+            updateChart("lawtwo", response.ra9262);
+            previousData.ra9262 = response.ra9262;
+          }
+          if (isDataZero(previousData.ra9262) && flag == false) {
+            createEmptyChart("lawtwo");
+          }
+          if (hasDataChanged(previousData.ra9710, response.ra9710)) {
+            updateChart("lawthree", response.ra9710);
+            previousData.ra9710 = response.ra9710;
+          }
+          if (isDataZero(previousData.ra9710) && flag == false) {
+            createEmptyChart("lawthree");
+          }
+          if (hasDataChanged(previousData.ra11313, response.ra11313)) {
+            updateChart("lawfour", response.ra11313);
+            previousData.ra11313 = response.ra11313;
+          }
+          if (isDataZero(previousData.ra11313) && flag == false) {
+            createEmptyChart("lawfour");
+          }
+          flag = true
+        },
+        error: function(xhr, status, error) {
+          console.error('Error fetching data:', error);
+        }
+      });
+    }
+
+    // Function to check if the data is zero
+    function isDataZero(data) {
+      return data.every(item => item.count === 0);
+    }
+
+    // Function to check if data has changed
+    function hasDataChanged(previousData, newData) {
+      // Check if length differs
+      if (previousData.length !== newData.length) {
+        return true;
+      }
+
+      // Check if any item differs
+      for (var i = 0; i < previousData.length; i++) {
+        if (previousData[i].level !== newData[i].level || previousData[i].count !== newData[i].count) {
+          return true;
+        }
+      }
+
+      // Data is the same
+      return false;
+    }
+
+    // Update charts initially
+    fetchAndUpdateCharts();
+
+    // Set interval to fetch data and update charts every 5 seconds
+    setInterval(fetchAndUpdateCharts, 5000);
+
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -485,42 +526,7 @@ session_start();
 
       // Check if data is empty, if so, create a default chart with no data
       if (data.level.length === 0 || data.counts.length === 0) {
-        var defaultData = {
-          labels: ['No Data'],
-          datasets: [{
-            data: [1], // Just to display something, doesn't matter what
-            backgroundColor: ['rgba(0, 0, 0, 0.1)'],
-            borderColor: ['rgba(0, 0, 0, 0.1)'],
-            borderWidth: 1
-          }]
-        };
-
-        // Get the canvas element
-        var defaultCanvas = document.getElementById(surveyName).getContext('2d');
-
-        // Create the default chart
-        window[surveyName + 'Chart'] = new Chart(defaultCanvas, {
-          type: 'pie',
-          data: defaultData,
-          options: {
-            responsive: true,
-            legend: {
-              display: true,
-              position: 'right'
-            },
-            elements: {
-              arc: {
-                bevelWidth: 5, // Add bevel effect
-                bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
-                // Add gradient shading for a realistic look
-                shadowOffsetX: 0,
-                shadowOffsetY: 0,
-                shadowBlur: 15,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              }
-            },
-          }
-        });
+        return;
       } else {
         // Define custom colors based on GAD score ranges
         var customColors = [];
@@ -552,35 +558,78 @@ session_start();
         var scoreCanvas = document.getElementById(surveyName).getContext('2d');
 
         // Check if the chart exists and update it, or create a new chart
-        window[surveyName + 'Chart'] = new Chart(scoreCanvas, {
-          type: 'pie',
-          data: scoreData,
-          options: {
-            responsive: true,
-            legend: {
-              display: true,
-              position: 'right'
-            },
-            elements: {
-              arc: {
-                bevelWidth: 5, // Add bevel effect
-                bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
-                // Add gradient shading for a realistic look
-                shadowOffsetX: 0,
-                shadowOffsetY: 0,
-                shadowBlur: 15,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              }
-            },
-          }
-        });
+        if (window[surveyName + 'Chart']) {
+          window[surveyName + 'Chart'].data = scoreData;
+          window[surveyName + 'Chart'].update();
+        } else {
+          window[surveyName + 'Chart'] = new Chart(scoreCanvas, {
+            type: 'pie',
+            data: scoreData,
+            options: {
+              responsive: true,
+              legend: {
+                display: true,
+                position: 'right'
+              },
+              elements: {
+                arc: {
+                  bevelWidth: 5, // Add bevel effect
+                  bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
+                  // Add gradient shading for a realistic look
+                  shadowOffsetX: 0,
+                  shadowOffsetY: 0,
+                  shadowBlur: 15,
+                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+              },
+            }
+          });
+        }
       }
     }
-    // Call the function to update the chart
-    updateChart("lawone", <?php echo json_encode($data["ra7877"]); ?>);
-    updateChart("lawtwo", <?php echo json_encode($data["ra9262"]); ?>);
-    updateChart("lawthree", <?php echo json_encode($data["ra9710"]); ?>);
-    updateChart("lawfour", <?php echo json_encode($data["ra11313"]); ?>);
+
+    // Function to create an empty chart
+    function createEmptyChart(surveyName) {
+      var defaultData = {
+        labels: ['No Data'],
+        datasets: [{
+          data: [1], // Just to display something, doesn't matter what
+          backgroundColor: ['rgba(0, 0, 0, 0.1)'],
+          borderColor: ['rgba(0, 0, 0, 0.1)'],
+          borderWidth: 1
+        }]
+      };
+
+      // Get the canvas element
+      var defaultCanvas = document.getElementById(surveyName).getContext('2d');
+
+      // Create the default chart
+      if (window[surveyName + 'Chart']) {
+        window[surveyName + 'Chart'].destroy();
+      }
+      window[surveyName + 'Chart'] = new Chart(defaultCanvas, {
+        type: 'pie',
+        data: defaultData,
+        options: {
+          responsive: true,
+          legend: {
+            display: true,
+            position: 'right'
+          },
+          elements: {
+            arc: {
+              bevelWidth: 5, // Add bevel effect
+              bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
+              // Add gradient shading for a realistic look
+              shadowOffsetX: 0,
+              shadowOffsetY: 0,
+              shadowBlur: 15,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          },
+        }
+      });
+    }
 
     // Function to update the active state of navigation items
     function updateActiveNavItem(navItemId) {
