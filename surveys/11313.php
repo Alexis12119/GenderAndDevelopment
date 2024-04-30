@@ -1,8 +1,10 @@
 <?php
 include '../config.php';
 session_start();
-// Initialize error flag
+
+// Initialize error and success flags
 $error = false;
+$success = false;
 $error_message = "";
 
 if (isset($_POST['law'])) {
@@ -40,13 +42,13 @@ if (isset($_POST['law'])) {
     mysqli_stmt_bind_param($stmt, "si", $email, $totalScore);
 
     // Execute the prepared statement
-    mysqli_stmt_execute($stmt);
+    if (mysqli_stmt_execute($stmt)) {
+      // Set success flag
+      $success = true;
+    }
 
     // Close the statement
     mysqli_stmt_close($stmt);
-
-    // Show success message
-    echo "<script>alert('Survey submitted successfully!');</script>";
   }
 }
 ?>
@@ -73,6 +75,11 @@ if (isset($_POST['law'])) {
       padding: 20px 0 0 0;
     }
 
+    .success-message {
+      font-size: 3vh;
+      padding: 20px 0 0 0;
+    }
+
     .modal-content {
       background: #8f6dd1;
       border-color: #5b48a2;
@@ -90,7 +97,6 @@ if (isset($_POST['law'])) {
       font-weight: bold;
       padding-top: 50px;
     }
-
 
     label {
       font-size: 3vh;
@@ -211,6 +217,18 @@ if (isset($_POST['law'])) {
     </div>
   </div>
 
+  <!-- Success Modal -->
+  <div class="modal" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p class="success-message">Survey submitted successfully!</p>
+        </div>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
@@ -221,6 +239,14 @@ if (isset($_POST['law'])) {
     <script>
       $(document).ready(function() {
         $('#errorModal').modal('show');
+      });
+    </script>
+  <?php endif; ?>
+  <!-- Script to show success modal if success flag is set -->
+  <?php if ($success) : ?>
+    <script>
+      $(document).ready(function() {
+        $('#successModal').modal('show');
       });
     </script>
   <?php endif; ?>
