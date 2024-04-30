@@ -391,7 +391,7 @@
       ra11313: []
     };
 
-    var flag = false
+    var initialize = false
     // Function to fetch data from the server
     function fetchAndUpdateCharts() {
       $.ajax({
@@ -404,31 +404,31 @@
             updateChart("lawone", response.ra7877);
             previousData.ra7877 = response.ra7877;
           }
-          if (isDataZero(previousData.ra7877) && flag == false) {
+          if (isDataZero(previousData.ra7877) && initialize == false) {
             createEmptyChart("lawone");
           }
           if (hasDataChanged(previousData.ra9262, response.ra9262)) {
             updateChart("lawtwo", response.ra9262);
             previousData.ra9262 = response.ra9262;
           }
-          if (isDataZero(previousData.ra9262) && flag == false) {
+          if (isDataZero(previousData.ra9262) && initialize == false) {
             createEmptyChart("lawtwo");
           }
           if (hasDataChanged(previousData.ra9710, response.ra9710)) {
             updateChart("lawthree", response.ra9710);
             previousData.ra9710 = response.ra9710;
           }
-          if (isDataZero(previousData.ra9710) && flag == false) {
+          if (isDataZero(previousData.ra9710) && initialize == false) {
             createEmptyChart("lawthree");
           }
           if (hasDataChanged(previousData.ra11313, response.ra11313)) {
             updateChart("lawfour", response.ra11313);
             previousData.ra11313 = response.ra11313;
           }
-          if (isDataZero(previousData.ra11313) && flag == false) {
+          if (isDataZero(previousData.ra11313) && initialize == false) {
             createEmptyChart("lawfour");
           }
-          flag = true
+          initialize = true
         },
         error: function(xhr, status, error) {
           console.error('Error fetching data:', error);
