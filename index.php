@@ -65,6 +65,12 @@ session_start();
       /* Hover color */
     }
 
+    .navbar-dark .navbar-nav .nav-item.active .nav-link {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
     /* Modal */
     .modal {
       display: none;

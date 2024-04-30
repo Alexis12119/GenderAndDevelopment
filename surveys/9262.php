@@ -204,7 +204,6 @@ if (isset($_POST['law'])) {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <h5 class="modal-title" id="errorModalLabel">Error</h5>
           <p class="error-message"><?php echo $error_message; ?></p>
         </div>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
