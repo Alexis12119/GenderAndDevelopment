@@ -363,8 +363,8 @@
   <section id="contact" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Contact Us</h2>
-      <p class="text-center">Have questions or feedback? Reach out to us:</p>
-      <p class="text-center"><a class="text-center" href="https://forms.gle/6g8sopBwD82JbjFx8" target="_blank">Click to fill out the form</>
+      <p class="text-center">We're always looking for ways to improve our platform.</p>
+      <p class="text-center"><a class="text-center" href="https://forms.gle/6g8sopBwD82JbjFx8" target="_blank">Click to fill out the feedback form </a>
       </p>
     </div>
   </section>
