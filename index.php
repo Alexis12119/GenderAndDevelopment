@@ -393,7 +393,7 @@
     // Function to fetch data from the server
     function fetchAndUpdateCharts() {
       $.ajax({
-        url: 'fetchData.php',
+        url: 'utils/fetchData.php',
         type: 'GET',
         dataType: 'json',
         success: function(response) {

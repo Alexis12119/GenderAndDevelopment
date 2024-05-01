@@ -1,61 +1,3 @@
-<?php
-include '../config.php';
-session_start();
-
-// Initialize error and success flags
-$error = false;
-$success = false;
-$error_message = "";
-
-if (isset($_POST['law'])) {
-  // Retrieve form data
-  $email = $_POST["email"];
-  $question1 = $_POST["question1"];
-  $question2 = $_POST["question2"];
-  $question3 = $_POST["question3"];
-  $question4 = $_POST["question4"];
-  $question5 = $_POST["question5"];
-
-  // Check if the email is already used
-  $query = "SELECT email FROM ra11313 WHERE email = ?";
-  $stmt = mysqli_prepare($conn, $query);
-  mysqli_stmt_bind_param($stmt, "s", $email);
-  mysqli_stmt_execute($stmt);
-  mysqli_stmt_store_result($stmt);
-  $rows = mysqli_stmt_num_rows($stmt);
-
-  if ($rows > 0) {
-    // Set error flag and message
-    $error = true;
-    $error_message = "Email already used! Please use a different email.";
-    mysqli_stmt_close($stmt);
-  } else if ($question1 == "" || $question2 == "" || $question3 == "" || $question4 == "" || $question5 == "") {
-    // Set error flag and message
-    $error = true;
-    $error_message = "Please, Answer all the questions!";
-  } else {
-    $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
-
-    // Prepare SQL statement with a placeholder for the values
-    $sql = "INSERT INTO ra11313 (email, totalScore) VALUES (?, ?)";
-
-    // Initialize a prepared statement
-    $stmt = mysqli_prepare($conn, $sql);
-
-    // Bind parameters to the prepared statement
-    mysqli_stmt_bind_param($stmt, "si", $email, $totalScore);
-
-    // Execute the prepared statement
-    if (mysqli_stmt_execute($stmt)) {
-      // Set success flag
-      $success = true;
-    }
-
-    // Close the statement
-    mysqli_stmt_close($stmt);
-  }
-}
-?>
 <!doctype html>
 <html lang="en">
 
@@ -73,16 +15,16 @@ if (isset($_POST['law'])) {
       padding-left: 25px;
     }
 
-    .error-message {
-      font-size: 3vh;
-      color: #3f0000;
-      padding: 20px 0 0 0;
-    }
-
     .success-message {
       font-size: 3vh;
       padding: 20px 0 0 0;
     }
+
+    .modal-body {
+      font-size: 3vh;
+      color: #3F0000;
+    }
+
 
     .modal-content {
       background: #8f6dd1;
@@ -151,7 +93,7 @@ if (isset($_POST['law'])) {
 
 
   <div class="container mt-5">
-    <form id="surveyForm" method="POST" action="">
+    <form id="surveyForm">
       <!-- Survey questions related to the law -->
       <p class="text-center">This is a survey on the level of awareness of respondents on the specified law.</p>
       <div class="form-group">
@@ -254,6 +196,39 @@ if (isset($_POST['law'])) {
       });
     </script>
   <?php endif; ?>
+  <script>
+    $(document).ready(function() {
+      $('#surveyForm').submit(function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Serialize form data
+        var formData = $(this).serialize();
+        formData += '&survey=ra11313';
+
+        // Send form data via AJAX
+        $.ajax({
+          type: 'POST',
+          url: '../utils/submit.php',
+          data: formData,
+          dataType: 'json',
+          success: function(response) {
+            if (response.success) {
+              $('#successModal').modal('show');
+              $('#surveyForm')[0].reset();
+            } else {
+              $('#errorModal .modal-body').text(response.message);
+              $('#errorModal').modal('show');
+            }
+          },
+          error: function() {
+            $('#errorModal .modal-body').text('An error occurred while processing your request.');
+            $('#errorModal').modal('show');
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 
 </html>
