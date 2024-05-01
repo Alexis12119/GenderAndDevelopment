@@ -158,8 +158,8 @@
               This law aims to protect individuals from sexual harassment in
               the workplace and in educational or training institutions.
             </p>
-            <a class="btn btn-primary mb-2" href="https://pcw.gov.ph/faq-republic-act-7877-anti-sexual-harassment-act-of-1995/" target="_blank">Read More</a>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(7877)">
+            <a class="btn btn-primary font-size mb-2" href="https://pcw.gov.ph/faq-republic-act-7877-anti-sexual-harassment-act-of-1995/" target="_blank">Read More</a>
+            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(7877)">
               Take Survey
             </button>
           </div>
@@ -180,8 +180,8 @@
               This law provides protection for women and children from all
               forms of violence and abuse.
             </p>
-            <a class="btn btn-primary mb-2" href="https://pcw.gov.ph/faq-republic-act-9262/" target="_blank">Read More</a>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(9262)">
+            <a class="btn btn-primary font-size mb-2" href="https://pcw.gov.ph/faq-republic-act-9262/" target="_blank">Read More</a>
+            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(9262)">
               Take Survey
             </button>
           </div>
@@ -200,8 +200,8 @@
               This law promotes the rights and welfare of women,
               particularly those belonging to marginalized sectors.
             </p>
-            <a class="btn btn-primary mb-2" href="https://pcw.gov.ph/faq-republic-act-9710-the-magna-carta-of-women/" target="_blank">Read More</a>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(9710)">
+            <a class="btn btn-primary font-size mb-2" href="https://pcw.gov.ph/faq-republic-act-9710-the-magna-carta-of-women/" target="_blank">Read More</a>
+            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(9710)">
               Take Survey
             </button>
           </div>
@@ -220,8 +220,8 @@
               This law aims to prevent and address gender-based street and
               public spaces harassment.
             </p>
-            <a class="btn btn-primary mb-2" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
-            <button class="btn btn-primary mt-auto" onclick="openSurvey(11313)">
+            <a class="btn btn-primary font-size mb-2" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
+            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(11313)">
               Take Survey
             </button>
           </div>
@@ -250,7 +250,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
-            <canvas id="lawone" style="max-width:100%"></canvas>
+            <canvas id="lawone"></canvas>
           </div>
         </div>
       </div>
@@ -260,7 +260,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
-            <canvas id="lawtwo" style="max-width:100%"></canvas>
+            <canvas id="lawtwo"></canvas>
           </div>
         </div>
       </div>
@@ -270,7 +270,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
-            <canvas id="lawthree" style="max-width:100%"></canvas>
+            <canvas id="lawthree"></canvas>
           </div>
         </div>
       </div>
@@ -280,7 +280,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
-            <canvas id="lawfour" style="max-width:100%"></canvas>
+            <canvas id="lawfour"></canvas>
           </div>
         </div>
       </div>

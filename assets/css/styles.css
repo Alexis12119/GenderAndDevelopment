@@ -171,3 +171,8 @@ footer p {
     #a44cf2
   ); /* Gradient background for buttons */
 }
+
+.font-size {
+  font-size: 3vh;
+}
+
