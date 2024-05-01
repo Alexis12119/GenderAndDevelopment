@@ -25,7 +25,6 @@
       color: #3F0000;
     }
 
-
     .modal-content {
       background: #8f6dd1;
       border-color: #5b48a2;

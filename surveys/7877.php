@@ -233,40 +233,6 @@
       });
     });
   </script>
-
-  <script>
-    $(document).ready(function() {
-      $('#surveyForm').submit(function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Serialize form data
-        var formData = $(this).serialize();
-        formData += '&survey=ra7877'; // Change 'ra7877' to the appropriate survey name
-
-        // Send form data via AJAX
-        $.ajax({
-          type: 'POST',
-          url: '../utils/submit.php',
-          data: formData,
-          dataType: 'json',
-          success: function(response) {
-            if (response.success) {
-              $('#successModal').modal('show');
-              // Reset form fields
-              $('#surveyForm')[0].reset();
-            } else {
-              $('#errorMessage').text(response.message).addClass('text-danger'); // Set error message text and add CSS class
-              $('#errorModal').modal('show');
-            }
-          },
-          error: function() {
-            $('#errorMessage').text('An error occurred while processing your request.').addClass('text-danger'); // Set error message text and add CSS class
-            $('#errorModal').modal('show');
-          }
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>
