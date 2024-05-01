@@ -389,7 +389,7 @@
       ra11313: []
     };
 
-    var initialize = false
+    var isChartAlreadyCreated = false
     // Function to fetch data from the server
     function fetchAndUpdateCharts() {
       $.ajax({
@@ -401,32 +401,48 @@
           if (hasDataChanged(previousData.ra7877, response.ra7877)) {
             updateChart("lawone", response.ra7877);
             previousData.ra7877 = response.ra7877;
+            isChartAlreadyCreated = false
           }
-          if (isDataZero(previousData.ra7877) && initialize == false) {
-            createEmptyChart("lawone");
+          if (isDataZero(previousData.ra7877)) {
+            if (!isChartAlreadyCreated) {
+              createEmptyChart("lawone");
+            }
+            isChartAlreadyCreated = true
           }
           if (hasDataChanged(previousData.ra9262, response.ra9262)) {
             updateChart("lawtwo", response.ra9262);
             previousData.ra9262 = response.ra9262;
+            isChartAlreadyCreated = false
           }
-          if (isDataZero(previousData.ra9262) && initialize == false) {
-            createEmptyChart("lawtwo");
+          if (isDataZero(previousData.ra9262)) {
+            if (!isChartAlreadyCreated) {
+              createEmptyChart("lawtwo");
+            }
+            isChartAlreadyCreated = true
           }
           if (hasDataChanged(previousData.ra9710, response.ra9710)) {
             updateChart("lawthree", response.ra9710);
             previousData.ra9710 = response.ra9710;
+            isChartAlreadyCreated = false
           }
-          if (isDataZero(previousData.ra9710) && initialize == false) {
-            createEmptyChart("lawthree");
+          if (isDataZero(previousData.ra9710)) {
+            if (!isChartAlreadyCreated) {
+              createEmptyChart("lawthree");
+            }
+            isChartAlreadyCreated = true
           }
+
           if (hasDataChanged(previousData.ra11313, response.ra11313)) {
             updateChart("lawfour", response.ra11313);
             previousData.ra11313 = response.ra11313;
+            isChartAlreadyCreated = false
           }
-          if (isDataZero(previousData.ra11313) && initialize == false) {
-            createEmptyChart("lawfour");
+          if (isDataZero(previousData.ra11313)) {
+            if (!isChartAlreadyCreated) {
+              createEmptyChart("lawfour");
+            }
+            isChartAlreadyCreated = true
           }
-          initialize = true
         },
         error: function(xhr, status, error) {
           console.error('Error fetching data:', error);
@@ -517,72 +533,66 @@
         counts: counts
       };
     }
-
     // Function to update the chart with fetched data
     function updateChart(surveyName, data) {
       var data = fetchDataForChart(data);
 
-      // Check if data is empty, if so, create a default chart with no data
-      if (data.level.length === 0 || data.counts.length === 0) {
-        return;
+      // Define custom colors based on GAD score ranges
+      var customColors = [];
+      data.level.forEach(function(range) {
+        switch (range) {
+          case 'Low':
+            customColors.push('rgba(255, 99, 132, 0.5)');
+            break;
+          case 'Medium':
+            customColors.push('rgba(54, 162, 235, 0.5)');
+            break;
+          case 'High':
+            customColors.push('rgba(255, 206, 86, 0.5)');
+            break;
+        }
+      });
+
+      var scoreData = {
+        labels: data.level,
+        datasets: [{
+          data: data.counts,
+          backgroundColor: customColors, // Use custom colors
+          borderColor: customColors.map(color => color.replace('0.5', '1')), // Set border color to full opacity
+          borderWidth: 1
+        }]
+      };
+
+      // Get the canvas element
+      var scoreCanvas = document.getElementById(surveyName).getContext('2d');
+
+      // Check if the chart exists and update it, or create a new chart
+      if (window[surveyName + 'Chart']) {
+        window[surveyName + 'Chart'].data = scoreData;
+        window[surveyName + 'Chart'].update();
       } else {
-        // Define custom colors based on GAD score ranges
-        var customColors = [];
-        data.level.forEach(function(range) {
-          switch (range) {
-            case 'Low':
-              customColors.push('rgba(255, 99, 132, 0.5)');
-              break;
-            case 'Medium':
-              customColors.push('rgba(54, 162, 235, 0.5)');
-              break;
-            case 'High':
-              customColors.push('rgba(255, 206, 86, 0.5)');
-              break;
+        window[surveyName + 'Chart'] = new Chart(scoreCanvas, {
+          type: 'pie',
+          data: scoreData,
+          options: {
+            responsive: true,
+            legend: {
+              display: true,
+              position: 'right'
+            },
+            elements: {
+              arc: {
+                bevelWidth: 5, // Add bevel effect
+                bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
+                // Add gradient shading for a realistic look
+                shadowOffsetX: 0,
+                shadowOffsetY: 0,
+                shadowBlur: 15,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            },
           }
         });
-
-        var scoreData = {
-          labels: data.level,
-          datasets: [{
-            data: data.counts,
-            backgroundColor: customColors, // Use custom colors
-            borderColor: customColors.map(color => color.replace('0.5', '1')), // Set border color to full opacity
-            borderWidth: 1
-          }]
-        };
-
-        // Get the canvas element
-        var scoreCanvas = document.getElementById(surveyName).getContext('2d');
-
-        // Check if the chart exists and update it, or create a new chart
-        if (window[surveyName + 'Chart']) {
-          window[surveyName + 'Chart'].data = scoreData;
-          window[surveyName + 'Chart'].update();
-        } else {
-          window[surveyName + 'Chart'] = new Chart(scoreCanvas, {
-            type: 'pie',
-            data: scoreData,
-            options: {
-              responsive: true,
-              legend: {
-                display: true,
-                position: 'right'
-              },
-              elements: {
-                arc: {
-                  bevelWidth: 5, // Add bevel effect
-                  bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
-                  // Add gradient shading for a realistic look
-                  shadowOffsetX: 0,
-                  shadowOffsetY: 0,
-                  shadowBlur: 15,
-                  shadowColor: 'rgba(0, 0, 0, 0.5)'
-                }
-              },
-            }
-          });
-        }
       }
     }
 
