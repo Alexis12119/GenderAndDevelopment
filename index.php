@@ -286,6 +286,7 @@
       </div>
     </div>
   </section>
+
   <!-- About section -->
   <section id="about" class="py-5">
     <div class="container">
