@@ -246,7 +246,7 @@
       <h2 class="text-center mb-4">Statistics</h2>
 
       <!-- Card for Law One Chart -->
-      <div class="col-md-10 mb-4 mx-auto">
+      <div class="col-md-8 mb-4 mx-auto">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
@@ -256,7 +256,7 @@
       </div>
 
       <!-- Law Two Chart -->
-      <div class="col-md-10 mb-4 mx-auto">
+      <div class="col-md-8 mb-4 mx-auto">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
@@ -266,7 +266,7 @@
       </div>
 
       <!-- Law Three Chart -->
-      <div class="col-md-10 mb-4 mx-auto">
+      <div class="col-md-8 mb-4 mx-auto">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
@@ -276,7 +276,7 @@
       </div>
 
       <!-- Law Four Chart -->
-      <div class="col-md-10 mb-4 mx-auto">
+      <div class="col-md-8 mb-4 mx-auto">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
