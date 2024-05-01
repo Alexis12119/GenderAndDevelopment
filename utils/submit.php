@@ -2,7 +2,6 @@
 include 'config.php';
 session_start();
 
-// Initialize response array
 $response = array();
 
 // Check if the request is a POST request
