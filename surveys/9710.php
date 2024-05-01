@@ -29,6 +29,10 @@ if (isset($_POST['law'])) {
     $error = true;
     $error_message = "Email already used! Please use a different email.";
     mysqli_stmt_close($stmt);
+  } else if ($question1 == "" || $question2 == "" || $question3 == "" || $question4 == "" || $question5 == "") {
+    // Set error flag and message
+    $error = true;
+    $error_message = "Please, Answer all the questions!";
   } else {
     $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 

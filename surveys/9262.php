@@ -29,6 +29,10 @@ if (isset($_POST['law'])) {
     $error = true;
     $error_message = "Email already used! Please use a different email.";
     mysqli_stmt_close($stmt);
+  } else if ($question1 == "" || $question2 == "" || $question3 == "" || $question4 == "" || $question5 == "") {
+    // Set error flag and message
+    $error = true;
+    $error_message = "Please, Answer all the questions!";
   } else {
     $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
 
@@ -231,7 +235,7 @@ if (isset($_POST['law'])) {
 
 
   <!-- Bootstrap JS and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
