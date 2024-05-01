@@ -244,51 +244,48 @@
   <section id="statistics" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Statistics</h2>
-      <div class="row">
 
-        <!-- Card for Law One Chart -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
-              <canvas id="lawone" style="max-width:100%"></canvas>
-            </div>
+      <!-- Card for Law One Chart -->
+      <div class="col-md-10 mb-4 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
+            <canvas id="lawone" style="max-width:100%"></canvas>
           </div>
         </div>
+      </div>
 
-        <!-- Law Two Chart -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
-              <canvas id="lawtwo" style="max-width:100%"></canvas>
-            </div>
+      <!-- Law Two Chart -->
+      <div class="col-md-10 mb-4 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
+            <canvas id="lawtwo" style="max-width:100%"></canvas>
           </div>
         </div>
+      </div>
 
-        <!-- Law Three Chart -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
-              <canvas id="lawthree" style="max-width:100%"></canvas>
-            </div>
+      <!-- Law Three Chart -->
+      <div class="col-md-10 mb-4 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
+            <canvas id="lawthree" style="max-width:100%"></canvas>
           </div>
         </div>
+      </div>
 
-        <!-- Law Four Chart -->
-        <div class="col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
-              <canvas id="lawfour" style="max-width:100%"></canvas>
-            </div>
+      <!-- Law Four Chart -->
+      <div class="col-md-10 mb-4 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
+            <canvas id="lawfour" style="max-width:100%"></canvas>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- About section -->
   <section id="about" class="py-5">
     <div class="container">
