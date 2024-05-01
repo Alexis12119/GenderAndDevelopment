@@ -122,8 +122,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block w-100" src="assets/img/gad.png" alt="Second slide">
+          <img class="d-block w-100" src="assets/img/equality.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
