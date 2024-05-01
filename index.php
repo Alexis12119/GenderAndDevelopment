@@ -145,7 +145,7 @@
       <div class="row">
         <!-- Law 1: Anti-Sexual Harassment Act of 1995 -->
         <div class="col-md-6 mb-4"">
-          <div class=" card h-100">
+          <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">
               Anti-Sexual Harassment Act of 1995 (RA 7877)
@@ -209,7 +209,7 @@
 
       <!-- Law 4: Safe Spaces Act -->
       <div class="col-md-6 mb-4">
-        <div class=" card h-100">
+        <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
             <div class="embed-responsive embed-responsive-16by9">
