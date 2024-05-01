@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $question5 = $_POST["question5"];
 
   // Validate form data
-  if (empty($email) || empty($question1) || empty($question2) || empty($question3) || empty($question4) || empty($question5)) {
+  if (empty($question1) || empty($question2) || empty($question3) || empty($question4) || empty($question5)) {
     // Set error message
     $response["success"] = false;
-    $response["message"] = "Please answer all the questions and provide an email.";
+    $response["message"] = "Please answer all the questions.";
   } else {
     // Check if the email is already used for the specific survey
     $query = "SELECT email FROM $survey WHERE email = ?";
