@@ -8,9 +8,9 @@ function fetchData($tableName, $conn)
               FROM (
                   SELECT 
                       CASE 
-                          WHEN totalScore BETWEEN 5 AND 15 THEN 'Low' 
-                          WHEN totalScore BETWEEN 16 AND 20 THEN 'Medium' 
-                          WHEN totalScore BETWEEN 21 AND 25 THEN 'High' 
+                          WHEN totalScore BETWEEN 5 AND 12 THEN 'Low' 
+                          WHEN totalScore BETWEEN 13 AND 19 THEN 'Medium' 
+                          WHEN totalScore BETWEEN 20 AND 25 THEN 'High' 
                       END AS level
                   FROM $tableName
               ) AS subquery
