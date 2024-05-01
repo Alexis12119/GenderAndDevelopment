@@ -126,19 +126,19 @@ if (isset($_POST['law'])) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <a class="nav-link" href="#">1 - Strongly Agree</a>
+            <a class="nav-link" href="#">5 - Strongly Agree</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">2 - Agree</a>
+            <a class="nav-link" href="#">4 - Agree</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">3 - Neutral</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">4 - Disagree</a>
+            <a class="nav-link" href="#">2 - Disagree</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">5 - Strongly Disagree</a>
+            <a class="nav-link" href="#">1 - Strongly Disagree</a>
           </li>
         </ul>
       </div>
