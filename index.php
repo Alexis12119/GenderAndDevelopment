@@ -290,11 +290,11 @@
   <section id="about" class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Our Team</h2>
-      <div class="row">
+      <div class="row align-items-stretch">
         <!-- Profile cards -->
         <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/kevin.jpg" alt="Profile 3" class="card-img-top">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/kevin.jpg" alt="Profile 3" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Vince Kevin Comaya</h5>
               <p class="card-text">System Analyst</p>
@@ -303,8 +303,8 @@
         </div>
 
         <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/archie.jpg" alt="Profile 4" class="card-img-top">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/archie.jpg" alt="Profile 4" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Archie Nuque</h5>
               <p class="card-text">Database Administrator</p>
@@ -313,8 +313,8 @@
         </div>
 
         <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="card-img-top">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Aldrin Porcioncula</h5>
               <p class="card-text">Database Administrator</p>
@@ -323,9 +323,9 @@
         </div>
 
         <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/alexis.jpg" alt="Profile 1" class="card-img-top">
-            <div class="card-body ">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/alexis.jpg" alt="Profile 6" class="img-fluid">
+            <div class="card-body">
               <h5 class="card-title">Alexis Corporal</h5>
               <p class="card-text">Programmer</p>
             </div>
@@ -333,8 +333,8 @@
         </div>
 
         <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/daniel.jpg" alt="Profile 6" class="card-img-top">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/daniel.jpg" alt="Profile 7" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Daniel Mendoza</h5>
               <p class="card-text">UI/UX Designer</p>
@@ -343,8 +343,8 @@
         </div>
 
         <div class="col-md-4 mb-4">
-          <div class="card rounded-3">
-            <img src="assets/img/errol.jpg" alt="Profile 2" class="card-img-top">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/errol.jpg" alt="Profile 8" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Errol Arapan</h5>
               <p class="card-text">Documentation</p>
