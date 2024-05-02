@@ -369,7 +369,7 @@
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
     <div class="container">
-      <p>&copy; 2024 Everonix</p>
+      <p>&copy; 2024 Everonix | Page Views: <span id="pageViews">0</span></p>
     </div>
   </footer>
 
@@ -663,6 +663,66 @@
     document.getElementById('contactNavItem').addEventListener('click', function() {
       updateActiveNavItem('contactNavItem');
     });
+
+    // Function to increment page view count
+    function incrementPageViews() {
+      // Retrieve page views from local storage, or initialize to 0 if not present
+      var pageViews = localStorage.getItem('pageViews') || 0;
+      // Increment the page views
+      pageViews++;
+      // Update the page views in local storage
+      localStorage.setItem('pageViews', pageViews);
+      // Update the page view count display
+      document.getElementById('pageViews').textContent = pageViews;
+    }
+
+    // Increment page view count when the page is loaded
+    incrementPageViews();
+
+    // Function to update the active state of navigation items based on scroll position
+    function updateActiveNavItemOnScroll() {
+      // Get the current scroll position and viewport height
+      var scrollPosition = window.scrollY;
+      var viewportHeight = window.innerHeight;
+
+      // Loop through each section to check if it's in view
+      document.querySelectorAll('section').forEach(section => {
+        var sectionId = section.getAttribute('id');
+        var sectionOffsetTop = section.offsetTop;
+        var sectionHeight = section.offsetHeight;
+
+        // Calculate the bottom of the section relative to the viewport
+        var sectionBottom = sectionOffsetTop + sectionHeight;
+
+        // Check if the section is in view, considering both top and bottom of the viewport
+        if (scrollPosition >= sectionOffsetTop - (viewportHeight / 2) && scrollPosition < sectionBottom - (viewportHeight / 2)) {
+          // Update the active state of the corresponding navigation item
+          updateActiveNavItem(sectionId + 'NavItem');
+        }
+      });
+    }
+
+    // Add event listener for scroll event to update active navigation item
+    window.addEventListener('scroll', updateActiveNavItemOnScroll);
+    // Set initial active navigation item
+    updateActiveNavItemOnScroll()
+
+    // Function to handle navigation item clicks
+    function handleNavItemClick(event) {
+      // Remove the scroll event listener temporarily
+      window.removeEventListener('scroll', updateActiveNavItemOnScroll);
+
+      // Reattach the scroll event listener after a short delay
+      setTimeout(function() {
+        window.addEventListener('scroll', updateActiveNavItemOnScroll);
+      }, 2000);
+    }
+
+    // Add click event listeners to each nav item
+    document.getElementById('rightsNavItem').addEventListener('click', handleNavItemClick);
+    document.getElementById('statisticsNavItem').addEventListener('click', handleNavItemClick);
+    document.getElementById('aboutNavItem').addEventListener('click', handleNavItemClick);
+    document.getElementById('contactNavItem').addEventListener('click', handleNavItemClick);
   </script>
 </body>
 
