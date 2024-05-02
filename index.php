@@ -117,12 +117,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block w-100" src="assets/img/gad.png" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/gad.png" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="assets/img/equality.jpg" alt="Second slide">
+          <img class="d-block img-fluid" src="assets/img/equality.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -145,7 +145,7 @@
       <div class="row">
         <!-- Law 1: Anti-Sexual Harassment Act of 1995 -->
         <div class="col-md-6 mb-4"">
-          <div class="card h-100">
+          <div class=" card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">
               Anti-Sexual Harassment Act of 1995 (RA 7877)
