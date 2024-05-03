@@ -117,12 +117,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/gad.png" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="assets/img/equality.jpg" alt="Second slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -294,7 +294,7 @@
         <!-- Profile cards -->
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/kevin.jpg" alt="Profile 3" class="img-fluid">
+            <img src="assets/img/profiles/kevin.jpg" alt="Profile 3" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Vince Kevin Comaya</h5>
               <p class="card-text">System Analyst</p>
@@ -304,7 +304,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/archie.jpg" alt="Profile 4" class="img-fluid">
+            <img src="assets/img/profiles/archie.jpg" alt="Profile 4" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Archie Nuque</h5>
               <p class="card-text">Database Administrator</p>
@@ -314,7 +314,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/aldrin.jpg" alt="Profile 5" class="img-fluid">
+            <img src="assets/img/profiles/aldrin.jpg" alt="Profile 5" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Aldrin Porcioncula</h5>
               <p class="card-text">Database Administrator</p>
@@ -324,7 +324,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/alexis.jpg" alt="Profile 6" class="img-fluid">
+            <img src="assets/img/profiles/alexis.jpg" alt="Profile 6" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Alexis Corporal</h5>
               <p class="card-text">Programmer</p>
@@ -334,7 +334,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/daniel.jpg" alt="Profile 7" class="img-fluid">
+            <img src="assets/img/profiles/daniel.jpg" alt="Profile 7" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Daniel Mendoza</h5>
               <p class="card-text">UI/UX Designer</p>
@@ -344,7 +344,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/errol.jpg" alt="Profile 8" class="img-fluid">
+            <img src="assets/img/profiles/errol.jpg" alt="Profile 8" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Errol Arapan</h5>
               <p class="card-text">Documentation</p>
