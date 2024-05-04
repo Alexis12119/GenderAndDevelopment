@@ -117,7 +117,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
