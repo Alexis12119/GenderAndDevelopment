@@ -208,7 +208,7 @@
 
         // Serialize form data
         var formData = $(this).serialize();
-        formData += '&survey=ra7877'; // Change 'ra7877' to the appropriate survey name
+        formData += '&survey=ra7877';
 
         // Send form data via AJAX
         $.ajax({
