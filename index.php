@@ -117,12 +117,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="Second slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -314,16 +314,6 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/aldrin.jpg" alt="Profile 5" class="img-fluid">
-            <div class="card-body">
-              <h5 class="card-title">Aldrin Porcioncula</h5>
-              <p class="card-text">Database Administrator</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4">
-          <div class="card rounded-3 h-100">
             <img src="assets/img/profiles/alexis.jpg" alt="Profile 6" class="img-fluid">
             <div class="card-body">
               <h5 class="card-title">Alexis Corporal</h5>
@@ -338,6 +328,16 @@
             <div class="card-body">
               <h5 class="card-title">Daniel Mendoza</h5>
               <p class="card-text">UI/UX Designer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/profiles/aldrin.jpg" alt="Profile 5" class="img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Aldrin Porcioncula</h5>
+              <p class="card-text">Documentation</p>
             </div>
           </div>
         </div>
@@ -369,7 +369,7 @@
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
     <div class="container">
-      <p>&copy; 2024 Everonix | Page Views: <span id="pageViews">0</span></p>
+      <p>&copy; 2024 Everonix</p>
     </div>
   </footer>
 
