@@ -664,21 +664,6 @@
       updateActiveNavItem('contactNavItem');
     });
 
-    // Function to increment page view count
-    function incrementPageViews() {
-      // Retrieve page views from local storage, or initialize to 0 if not present
-      var pageViews = localStorage.getItem('pageViews') || 0;
-      // Increment the page views
-      pageViews++;
-      // Update the page views in local storage
-      localStorage.setItem('pageViews', pageViews);
-      // Update the page view count display
-      document.getElementById('pageViews').textContent = pageViews;
-    }
-
-    // Increment page view count when the page is loaded
-    incrementPageViews();
-
     // Function to update the active state of navigation items based on scroll position
     function updateActiveNavItemOnScroll() {
       // Get the current scroll position and viewport height
