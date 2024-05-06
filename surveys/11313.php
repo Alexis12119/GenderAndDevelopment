@@ -95,7 +95,7 @@
   <div class="container mt-5">
     <form id="surveyForm">
       <!-- Survey questions related to the law -->
-      <p class="text-center">This is a survey on the level of awareness of respondents on the specified law.</p>
+      <p class="text-center">This is a survey on the level of awareness of respondents on the RA 11313.</p>
       <div class="form-group">
         <label for="email">Email: </label>
         <input type="email" class="form-control" id="email" name="email" required />
