@@ -13,6 +13,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     .navbar-dark .navbar-nav .nav-link {
       color: rgba(255, 255, 255, 0.5);
@@ -107,6 +109,7 @@
       </div>
     </div>
   </nav>
+
   <!-- Carousel Section -->
   <section id="carousel" class="py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -150,9 +153,9 @@
             <h5 class="card-title">
               Anti-Sexual Harassment Act of 1995 (RA 7877)
             </h5>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7R9VbCO1ck4?si=8PgPgSqzRfEAZwQQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7R9VbCO1ck4?si=8PgPgSqzRfEAZwQQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
+            <!-- </div> -->
             <p class="card-text flex-grow-1">
               This law aims to protect individuals from sexual harassment in
               the workplace and in educational or training institutions.
@@ -172,9 +175,9 @@
             <h5 class="card-title">
               Anti-Violence Against Women and their Children (RA 9262)
             </h5>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ED9SvlGuJ2Y?si=o3KlLkdWntcpR7tU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ED9SvlGuJ2Y?si=o3KlLkdWntcpR7tU" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
+            <!-- </div> -->
             <p class="card-text flex-grow-1">
               This law provides protection for women and children from all
               forms of violence and abuse.
@@ -192,9 +195,9 @@
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Magna Carta for Women (RA 9710)</h5>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SHcWcXroVnE?si=_c4eqcRSQzekI_DK" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SHcWcXroVnE?si=_c4eqcRSQzekI_DK" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
+            <!-- </div> -->
             <p class="card-text flex-grow-1">
               This law promotes the rights and welfare of women,
               particularly those belonging to marginalized sectors.
@@ -212,9 +215,9 @@
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MoTfn0QT_dQ?si=X6k9tQ7Sd6sjE_cn" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MoTfn0QT_dQ?si=X6k9tQ7Sd6sjE_cn" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
+            <!-- </div> -->
             <p class="card-text flex-grow-1">
               This law aims to prevent and address gender-based street and
               public spaces harassment.
@@ -226,6 +229,7 @@
           </div>
         </div>
       </div>
+
     </div>
     </div>
     <div id="myModal" class="modal">
@@ -244,42 +248,45 @@
     <div class="container">
       <h2 class="text-center mb-4">Statistics</h2>
 
-      <!-- Card for Law One Chart -->
-      <div class="col-md-8 mb-4 mx-auto">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
-            <canvas id="lawone"></canvas>
+      <div class="row align-items-stretch">
+
+        <!-- Card for Law One Chart -->
+        <div class="col-md-6 mb-4 ">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
+              <canvas id="lawone"></canvas>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Law Two Chart -->
-      <div class="col-md-8 mb-4 mx-auto">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
-            <canvas id="lawtwo"></canvas>
+        <!-- Law Two Chart -->
+        <div class="col-md-6 mb-4 ">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
+              <canvas id="lawtwo"></canvas>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Law Three Chart -->
-      <div class="col-md-8 mb-4 mx-auto">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
-            <canvas id="lawthree"></canvas>
+        <!-- Law Three Chart -->
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
+              <canvas id="lawthree"></canvas>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Law Four Chart -->
-      <div class="col-md-8 mb-4 mx-auto">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
-            <canvas id="lawfour"></canvas>
+        <!-- Law Four Chart -->
+        <div class="col-md-6 mb-4 ">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
+              <canvas id="lawfour"></canvas>
+            </div>
           </div>
         </div>
       </div>

@@ -35,3 +35,32 @@ CREATE TABLE IF NOT EXISTS `ra11313` (
     totalScore INT NOT NULL,
     createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
 );
+
+CREATE TABLE gender (
+    genderID INT AUTO_INCREMENT PRIMARY KEY,
+    genderName VARCHAR(255) NOT NULL
+);
+
+INSERT INTO gender (genderName) VALUES ('Man'), ('Woman'), ('Transgender'),('Asexual');
+
+CREATE TABLE department (
+    departmentCode VARCHAR(255) PRIMARY KEY,
+    departmentName VARCHAR(255) NOT NULL
+);
+
+INSERT INTO department (departmentCode, departmentName) VALUES 
+('ccst', 'College Of Computer Studies and Technology'),
+('coa', 'College of Accountacy'),
+('coe', 'College of Engineering'),
+('cthm', 'College of Hotel Management');
+
+CREATE TABLE users (
+    userID INT AUTO_INCREMENT PRIMARY KEY,
+    firstName VARCHAR(255) NOT NULL,
+    middleName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    genderID INT NOT NULL,
+    departmentCode VARCHAR(255) NOT NULL,
+    FOREIGN KEY (genderID) REFERENCES gender(genderID),
+    FOREIGN KEY (departmentCode) REFERENCES department(departmentCode)
+);
