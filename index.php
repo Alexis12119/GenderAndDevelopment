@@ -93,8 +93,8 @@
       <!-- Navbar items -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" id="rightsNavItem">
-            <a class="nav-link" href="#rights">Rights</a>
+          <li class="nav-item" id="surveyNavItem">
+            <a class="nav-link" href="#survey">Survey</a>
           </li>
           <li class="nav-item" id="statisticsNavItem">
             <a class="nav-link" href="#statistics">Statistics</a>
@@ -141,10 +141,10 @@
     </div>
   </section>
 
-  <!-- Rights Section with Cards -->
-  <section id="rights" class="py-5">
+  <!-- Survey Section with Cards -->
+  <section id="survey" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-4">Know Your Rights</h2>
+      <h2 class="text-center mb-4">Survey</h2>
       <div class="row">
         <!-- Law 1: Anti-Sexual Harassment Act of 1995 -->
         <div class="col-md-6 mb-4"">
@@ -224,6 +224,21 @@
             </p>
             <a class="btn btn-primary font-size mb-2" href="https://www.ombudsman.gov.ph/GAD/Laws%20and%20Mandates/IRR-of-RA-11313-Safe-Spaces-Act.pdf" target="_blank">Read More</a>
             <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(11313)">
+              Take Survey
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profiling Survey -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Profiling Survey</h5>
+            <p class="card-text flex-grow-1">
+              This survey aims to gather demographic information, including gender, from respondents.
+            </p>
+            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(111)">
               Take Survey
             </button>
           </div>
@@ -655,8 +670,8 @@
     }
 
     // Add click event listeners to each nav item
-    document.getElementById('rightsNavItem').addEventListener('click', function() {
-      updateActiveNavItem('rightsNavItem');
+    document.getElementById('surveyNavItem').addEventListener('click', function() {
+      updateActiveNavItem('surveyNavItem');
     });
 
     document.getElementById('statisticsNavItem').addEventListener('click', function() {
@@ -711,7 +726,7 @@
     }
 
     // Add click event listeners to each nav item
-    document.getElementById('rightsNavItem').addEventListener('click', handleNavItemClick);
+    document.getElementById('surveyNavItem').addEventListener('click', handleNavItemClick);
     document.getElementById('statisticsNavItem').addEventListener('click', handleNavItemClick);
     document.getElementById('aboutNavItem').addEventListener('click', handleNavItemClick);
     document.getElementById('contactNavItem').addEventListener('click', handleNavItemClick);
