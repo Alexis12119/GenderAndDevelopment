@@ -304,6 +304,13 @@
             </div>
           </div>
         </div>
+
+        <section id="genderChartSection" class="py-5">
+          <div class="container">
+            <div class="row align-items-stretch" id="genderChartsContainer">
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>
@@ -730,6 +737,154 @@
     document.getElementById('statisticsNavItem').addEventListener('click', handleNavItemClick);
     document.getElementById('aboutNavItem').addEventListener('click', handleNavItemClick);
     document.getElementById('contactNavItem').addEventListener('click', handleNavItemClick);
+  </script>
+  <script>
+    // Function to update the gender chart with fetched data
+    // function updateGenderChart(data) {
+    //   // Extract department names and gender counts
+    //   var departments = Object.keys(data);
+
+    //   // Create a pie chart for each department
+    //   departments.forEach(function(department) {
+    //     var departmentData = data[department];
+    //     var genderLabels = Object.keys(departmentData);
+    //     var genderCounts = Object.values(departmentData);
+
+    //     // Calculate total count for the department
+    //     var totalCount = departmentData['Man'] + departmentData['Woman'] + departmentData['Transgender'] + departmentData['Asexual'];
+
+    //     // Define data for the pie chart
+    //     var genderChartData = {
+    //       labels: ['Man', 'Woman', 'Transgender', 'Asexual'],
+    //       datasets: [{
+    //         data: [departmentData['Man'], departmentData['Woman'], departmentData['Transgender'], departmentData['Asexual']],
+    //         backgroundColor: [
+    //           'rgba(255, 99, 132, 0.5)',
+    //           'rgba(54, 162, 235, 0.5)',
+    //           'rgba(255, 206, 86, 0.5)',
+    //           'rgba(75, 192, 192, 0.5)'
+    //         ],
+    //         borderColor: [
+    //           'rgba(255, 99, 132, 1)',
+    //           'rgba(54, 162, 235, 1)',
+    //           'rgba(255, 206, 86, 1)',
+    //           'rgba(75, 192, 192, 1)'
+    //         ],
+    //         borderWidth: 1
+    //       }]
+    //     };
+
+    //     // Create canvas element for the pie chart
+    //     var chartCanvas = document.createElement('canvas');
+    //     chartCanvas.id = 'genderChart_' + department;
+    //     chartCanvas.className = 'gender-chart';
+    //     document.getElementById('statistics').appendChild(chartCanvas);
+
+    //     // Render the pie chart
+    //     var ctx = chartCanvas.getContext('2d');
+    //     new Chart(ctx, {
+    //       type: 'pie',
+    //       data: genderChartData,
+    //       options: {
+    //         responsive: true,
+    //         legend: {
+    //           display: true,
+    //           position: 'right'
+    //         },
+    //         title: {
+    //           display: true,
+    //           text: department + ' Gender Distribution'
+    //         },
+
+    //         elements: {
+    //           arc: {
+    //             bevelWidth: 5, // Add bevel effect
+    //             bevelHighlightColor: 'rgba(255, 255, 255, 0.5)', // Highlight color for bevel effect
+    //             // Add gradient shading for a realistic look
+    //             shadowOffsetX: 0,
+    //             shadowOffsetY: 0,
+    //             shadowBlur: 15,
+    //             shadowColor: 'rgba(0, 0, 0, 0.5)'
+    //           }
+    //         }
+    //       }
+    //     });
+    //   });
+    // }
+
+    // Function to update the gender chart with fetched data
+    function updateGenderChart(data) {
+      // Extract department names and gender counts
+      var departments = Object.keys(data);
+
+      // Clear previous gender charts
+      document.getElementById('genderChartsContainer').innerHTML = '';
+
+      // Create a pie chart for each department
+      departments.forEach(function(department) {
+        var departmentData = data[department];
+
+        // Create a div element for each chart
+        var chartDiv = document.createElement('div');
+        chartDiv.className = 'col-md-6 mb-4';
+        chartDiv.innerHTML = '<div class="card h-100"><div class="card-body"><h5 class="card-title">' + department + '</h5><canvas id="genderChart_' + department + '"></canvas></div></div>';
+
+        // Append the div to the container
+        document.getElementById('genderChartsContainer').appendChild(chartDiv);
+
+        // Render the pie chart
+        var ctx = document.getElementById('genderChart_' + department).getContext('2d');
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: Object.keys(departmentData),
+            datasets: [{
+              data: Object.values(departmentData),
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            legend: {
+              position: 'right'
+            }
+          }
+        });
+      });
+    }
+
+    // Function to fetch gender data and update the chart
+    function fetchAndRenderGenderChart() {
+      $.ajax({
+        url: 'utils/fetchDataGender.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+          updateGenderChart(response);
+        },
+        error: function(xhr, status, error) {
+          console.error('Error fetching gender data:', error);
+        }
+      });
+    }
+
+    // Update the gender chart initially
+    fetchAndRenderGenderChart();
+
+    // Set interval to update the gender chart every 5 seconds
+    // setInterval(fetchAndRenderGenderChart, 5000);
   </script>
 </body>
 

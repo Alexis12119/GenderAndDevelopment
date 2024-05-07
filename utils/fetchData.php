@@ -4,7 +4,16 @@ include 'config.php';
 // Function to execute a query and fetch results
 function fetchData($tableName, $conn)
 {
-  $query = "SELECT level, COUNT(*) AS count 
+  // Adjust the query to fetch gender-related data
+  if ($tableName === "users") {
+    $query = "SELECT genderName, COUNT(*) AS count 
+              FROM $tableName AS u
+              INNER JOIN gender AS g ON u.genderID = g.genderID
+              INNER JOIN department AS d ON u.departmentCode = d.departmentCode
+              GROUP BY genderName";
+  } else {
+    // For rights-related data
+    $query = "SELECT level, COUNT(*) AS count 
               FROM (
                   SELECT 
                       CASE 
@@ -15,6 +24,7 @@ function fetchData($tableName, $conn)
                   FROM $tableName
               ) AS subquery
               GROUP BY level";
+  }
 
   $result = mysqli_query($conn, $query);
 
@@ -31,7 +41,7 @@ function fetchData($tableName, $conn)
 }
 
 // Fetch data for each table
-$tables = array("ra7877", "ra9262", "ra9710", "ra11313");
+$tables = array("ra7877", "ra9262", "ra9710", "ra11313", "users");
 $data = [];
 foreach ($tables as $table) {
   $data[$table] = fetchData($table, $conn);
