@@ -120,12 +120,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="Second slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -231,7 +231,7 @@
       </div>
 
       <!-- Profiling Survey -->
-      <div class="col-md-6 mb-4">
+      <div class="col-md-12 mb-4">
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Profiling Survey</h5>
@@ -306,6 +306,7 @@
           </div>
         </div>
       </div>
+
       <h4 class="text-center mb-4">Gender Distribution per Department</h4>
       <div class="row align-items-stretch" id="genderChartsContainer">
   </section>
