@@ -127,6 +127,7 @@
           <option value="cba">College of Business Administration</option>
           <option value="coe">College of Engineering</option>
           <option value="cte">College of Teacher Education</option>
+          <option value="chs">College of Allied Health Sciences</option>
           <option value="cthm">College of Tourism And Hospitality Management</option>
         </select>
       </div>

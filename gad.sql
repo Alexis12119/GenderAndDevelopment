@@ -51,6 +51,7 @@ INSERT INTO department (departmentCode, departmentName) VALUES
 ('cba', 'College of Business Administration'),
 ('coe', 'College of Engineering'),
 ('cte', 'College of Teacher Education'),
+('chs', 'College of Allied Health Sciences'),
 ('cthm', 'College of Tourism And Hospitality Management');
 
 CREATE TABLE profiles (
