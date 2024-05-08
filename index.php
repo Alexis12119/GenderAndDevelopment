@@ -711,7 +711,11 @@
       'Man': 'rgba(54, 162, 235, 0.5)',
       'Woman': 'rgba(255, 99, 132, 0.5)',
       'Transgender': 'rgba(255, 206, 86, 0.5)',
-      'Asexual': 'rgba(75, 192, 192, 0.5)'
+      'Asexual': 'rgba(75, 192, 192, 0.5)',
+      'Gay': 'rgba(78, 192, 192, 0.5)',
+      'Lesbian': 'rgba(75, 192, 152, 0.5)',
+      'Bisexual': 'rgba(75, 132, 192, 0.5)',
+      'Queer/Questioning': 'rgba(25, 192, 192, 0.5)',
     };
 
     // Function to update the gender chart with fetched data

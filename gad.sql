@@ -37,7 +37,7 @@ CREATE TABLE gender (
     genderName VARCHAR(255) NOT NULL
 );
 
-INSERT INTO gender (genderName) VALUES ('Man'), ('Woman'), ('Transgender'),('Asexual');
+INSERT INTO gender (genderName) VALUES ('Man'), ('Woman'), ('Transgender'),('Asexual'), ('Gay'), ('Lesbian'), ('Bisexual'), ('Queer/Questioning');
 
 CREATE TABLE department (
     departmentCode VARCHAR(255) PRIMARY KEY,
@@ -47,8 +47,11 @@ CREATE TABLE department (
 INSERT INTO department (departmentCode, departmentName) VALUES 
 ('ccst', 'College Of Computer Studies and Technology'),
 ('coa', 'College of Accountacy'),
+('cas', 'College of Arts And Science'),
+('cba', 'College of Business Administration'),
 ('coe', 'College of Engineering'),
-('cthm', 'College of Hotel Management');
+('cte', 'College of Teacher Education'),
+('cthm', 'College of Tourism And Hospitality Management');
 
 CREATE TABLE profiles (
     profileID INT AUTO_INCREMENT PRIMARY KEY,

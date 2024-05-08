@@ -110,6 +110,10 @@
           <option value="2">Woman</option>
           <option value="3">Transgender</option>
           <option value="4">Asexual</option>
+          <option value="5">Gay</option>
+          <option value="6">Lesbian</option>
+          <option value="7">Bisexual</option>
+          <option value="8">Queer/Questioning</option>
         </select>
       </div>
 
@@ -117,10 +121,13 @@
         <label for="department">Department</label>
         <select id="department" name="department" class="form-control" required>
           <option value="">Select Your Department</option>
-          <option value="ccst">College Of Computer Studies and Technology</option>
+          <option value="ccst">College of Computer Studies and Technology</option>
           <option value="coa">College of Accountancy</option>
+          <option value="cas">College of Arts And Science</option>
+          <option value="cba">College of Business Administration</option>
           <option value="coe">College of Engineering</option>
-          <option value="cthm">College of Hotel Management</option>
+          <option value="cte">College of Teacher Education</option>
+          <option value="cthm">College of Tourism And Hospitality Management</option>
         </select>
       </div>
 
