@@ -263,14 +263,14 @@
     <div class="container">
       <h2 class="text-center mb-4">Statistics</h2>
 
-      <h4 class="text-center mb-4">Awareness per Law</h4>
+      <h4 class="text-center mb-4">Level Of Awareness Per Law</h4>
       <div class="row align-items-stretch">
 
         <!-- Card for Law One Chart -->
         <div class="col-md-6 mb-4 ">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
+              <h5 class="card-title">Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
               <canvas id="law1"></canvas>
             </div>
           </div>
@@ -280,7 +280,7 @@
         <div class="col-md-6 mb-4 ">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
+              <h5 class="card-title">Anti-Violence Against Women and their Children (RA 9262)</h5>
               <canvas id="law2"></canvas>
             </div>
           </div>
@@ -290,7 +290,7 @@
         <div class="col-md-6 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
+              <h5 class="card-title">Magna Carta for Women (RA 9710)</h5>
               <canvas id="law3"></canvas>
             </div>
           </div>
@@ -300,7 +300,7 @@
         <div class="col-md-6 mb-4 ">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
+              <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
               <canvas id="law4"></canvas>
             </div>
           </div>
