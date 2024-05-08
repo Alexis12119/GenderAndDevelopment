@@ -310,9 +310,6 @@
       <div class="row align-items-stretch" id="genderChartsContainer">
   </section>
 
-  </div>
-  </section>
-
   <!-- About section -->
   <section id="about" class="py-5">
     <div class="container">
