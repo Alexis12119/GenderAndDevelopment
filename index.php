@@ -153,9 +153,9 @@
             <h5 class="card-title">
               Anti-Sexual Harassment Act of 1995 (RA 7877)
             </h5>
-            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
-            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7R9VbCO1ck4?si=8PgPgSqzRfEAZwQQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
-            <!-- </div> -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7R9VbCO1ck4?si=8PgPgSqzRfEAZwQQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
             <p class="card-text flex-grow-1">
               This law aims to protect individuals from sexual harassment in
               the workplace and in educational or training institutions.
@@ -175,9 +175,9 @@
             <h5 class="card-title">
               Anti-Violence Against Women and their Children (RA 9262)
             </h5>
-            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
-            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ED9SvlGuJ2Y?si=o3KlLkdWntcpR7tU" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
-            <!-- </div> -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ED9SvlGuJ2Y?si=o3KlLkdWntcpR7tU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
             <p class="card-text flex-grow-1">
               This law provides protection for women and children from all
               forms of violence and abuse.
@@ -195,9 +195,9 @@
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Magna Carta for Women (RA 9710)</h5>
-            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
-            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SHcWcXroVnE?si=_c4eqcRSQzekI_DK" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
-            <!-- </div> -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SHcWcXroVnE?si=_c4eqcRSQzekI_DK" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
             <p class="card-text flex-grow-1">
               This law promotes the rights and welfare of women,
               particularly those belonging to marginalized sectors.
@@ -215,9 +215,9 @@
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
-            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
-            <!--   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MoTfn0QT_dQ?si=X6k9tQ7Sd6sjE_cn" title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
-            <!-- </div> -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MoTfn0QT_dQ?si=X6k9tQ7Sd6sjE_cn" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
             <p class="card-text flex-grow-1">
               This law aims to prevent and address gender-based street and
               public spaces harassment.
