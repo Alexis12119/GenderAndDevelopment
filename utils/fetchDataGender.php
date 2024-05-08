@@ -6,12 +6,6 @@ include 'config.php';
 // Function to fetch gender-related data
 function fetchGenderData($conn)
 {
-  // Query to fetch gender-related data
-  // $query = "SELECT department.departmentName, gender.genderName, COUNT(users.userID) AS count
-  //             FROM users
-  //             INNER JOIN department ON users.departmentCode = department.departmentCode
-  //             INNER JOIN gender ON users.genderID = gender.genderID
-  //             GROUP BY department.departmentName, gender.genderName";
   $query = "SELECT department.departmentName, gender.genderName, COUNT(users.userID) AS count
               FROM department
               LEFT JOIN users ON users.departmentCode = department.departmentCode

@@ -4,6 +4,34 @@ CREATE DATABASE IF NOT EXISTS gad;
 -- Switch to the 'gad' database
 USE gad;
 
+CREATE TABLE IF NOT EXISTS `lawname` (
+    lawCode INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    lawName VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `law` (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    totalScore INT NOT NULL,
+    lawCode INT NOT NULL,
+    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created',
+    FOREIGN KEY (lawCode) REFERENCES lawname(lawCode)
+);
+
+-- Inserting law names into the 'lawname' table
+INSERT INTO `lawname` (lawName) VALUES
+    ('Anti-Sexual Harassment Act of 1995'), -- RA 7877
+    ('Anti-Violence Against Women and their Children'), -- RA 9262
+    ('Magna Carta for Women'), -- RA 9710
+    ('Safe Spaces Act'); -- RA 11313
+
+-- Inserting records into the 'law' table
+INSERT INTO `law` (email, totalScore, lawCode) VALUES
+    ('example1@example.com', 30, 1), -- For Anti-Sexual Harassment Act of 1995 (RA 7877)
+    ('example2@example.com', 20, 2), -- For Anti-Violence Against Women and their Children (RA 9262)
+    ('example3@example.com', 10, 3), -- For Magna Carta for Women (RA 9710)
+    ('example4@example.com', 50, 4); -- For Safe Spaces Act (RA 11313)
+
 -- Create table 'ra7877' with a timestamp column for record creation time
 CREATE TABLE IF NOT EXISTS `ra7877` (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
