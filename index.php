@@ -271,7 +271,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
-              <canvas id="law1"></canvas>
+              <canvas id="law7877"></canvas>
             </div>
           </div>
         </div>
@@ -281,7 +281,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Anti-Violence Against Women and their Children (RA 9262)</h5>
-              <canvas id="law2"></canvas>
+              <canvas id="law9262"></canvas>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Magna Carta for Women (RA 9710)</h5>
-              <canvas id="law3"></canvas>
+              <canvas id="law9710"></canvas>
             </div>
           </div>
         </div>
@@ -301,7 +301,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
-              <canvas id="law4"></canvas>
+              <canvas id="law11313"></canvas>
             </div>
           </div>
         </div>
@@ -565,10 +565,10 @@
 
     // Global variable to store the previous data
     var previousData = {
-      law1: [],
-      law2: [],
-      law3: [],
-      law4: []
+      law7877: [],
+      law9262: [],
+      law9710: [],
+      law11313: []
     };
 
     var isChartAlreadyCreated = false
@@ -582,7 +582,7 @@
         success: function(response) {
           // Update chart for each law
           Object.keys(response).forEach(function(lawCode) {
-            var chartName = "law" + lawCode; // Assuming law codes are 1, 2, 3, 4
+            var chartName = "law" + lawCode;
             if (hasDataChanged(previousData[chartName], response[lawCode])) {
               updateChart(chartName, response[lawCode]);
               previousData[chartName] = response[lawCode];

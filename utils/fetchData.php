@@ -33,7 +33,7 @@ function fetchData($lawCode, $conn)
 }
 
 // Fetch data for each law code
-$lawCodes = array(1, 2, 3, 4); // Assuming law codes are 1, 2, 3, 4
+$lawCodes = array(7877, 9262, 9710, 11313);
 $data = [];
 foreach ($lawCodes as $lawCode) {
   $data[$lawCode] = fetchData($lawCode, $conn);

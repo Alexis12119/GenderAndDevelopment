@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS gad;
 USE gad;
 
 CREATE TABLE IF NOT EXISTS `lawname` (
-    lawCode INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    lawCode INT NOT NULL PRIMARY KEY,
     lawName VARCHAR(255) NOT NULL
 );
 
@@ -19,18 +19,18 @@ CREATE TABLE IF NOT EXISTS `law` (
 );
 
 -- Inserting law names into the 'lawname' table
-INSERT INTO `lawname` (lawName) VALUES
-    ('Anti-Sexual Harassment Act of 1995'), -- RA 7877
-    ('Anti-Violence Against Women and their Children'), -- RA 9262
-    ('Magna Carta for Women'), -- RA 9710
-    ('Safe Spaces Act'); -- RA 11313
+INSERT INTO `lawname` (lawCode, lawName) VALUES
+    (7877,'Anti-Sexual Harassment Act of 1995'), -- RA 7877
+    (9262,'Anti-Violence Against Women and their Children'), -- RA 9262
+    (9710,'Magna Carta for Women'), -- RA 9710
+    (11313,'Safe Spaces Act'); -- RA 11313
 
 -- Inserting records into the 'law' table
 INSERT INTO `law` (email, totalScore, lawCode) VALUES
-    ('example1@example.com', 30, 1), -- For Anti-Sexual Harassment Act of 1995 (RA 7877)
-    ('example2@example.com', 20, 2), -- For Anti-Violence Against Women and their Children (RA 9262)
-    ('example3@example.com', 10, 3), -- For Magna Carta for Women (RA 9710)
-    ('example4@example.com', 50, 4); -- For Safe Spaces Act (RA 11313)
+    ('example1@example.com', 25, 7877), -- For Anti-Sexual Harassment Act of 1995 (RA 7877)
+    ('example2@example.com', 20, 9262), -- For Anti-Violence Against Women and their Children (RA 9262)
+    ('example3@example.com', 10, 9710), -- For Magna Carta for Women (RA 9710)
+    ('example4@example.com', 15, 11313); -- For Safe Spaces Act (RA 11313)
 
 CREATE TABLE gender (
     genderID INT AUTO_INCREMENT PRIMARY KEY,
