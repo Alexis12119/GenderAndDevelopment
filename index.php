@@ -708,14 +708,14 @@
   <script>
     // Predefined colors for genders
     var genderColors = {
-      'Man': 'rgba(54, 162, 235, 0.5)',
-      'Woman': 'rgba(255, 99, 132, 0.5)',
-      'Transgender': 'rgba(255, 206, 86, 0.5)',
-      'Asexual': 'rgba(75, 192, 192, 0.5)',
-      'Gay': 'rgba(78, 192, 192, 0.5)',
-      'Lesbian': 'rgba(75, 192, 152, 0.5)',
-      'Bisexual': 'rgba(75, 132, 192, 0.5)',
-      'Queer/Questioning': 'rgba(25, 192, 192, 0.5)',
+      'Man': 'rgba(54, 162, 235, 0.5)', // Blue
+      'Woman': 'rgba(255, 99, 132, 0.5)', // Red
+      'Transgender': 'rgba(255, 206, 86, 0.5)', // Yellow
+      'Asexual': 'rgba(178, 102, 255, 0.5)', // Purple
+      'Gay': 'rgba(255, 0, 0, 0.5)', // Dark Red
+      'Lesbian': 'rgba(255, 102, 204, 0.5)', // Pink
+      'Bisexual': 'rgba(102, 0, 204, 0.5)', // Blue-Purple
+      'Queer/Questioning': 'rgba(255, 204, 0, 0.5)' // Dark Yellow
     };
 
     // Function to update the gender chart with fetched data
