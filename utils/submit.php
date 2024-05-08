@@ -7,7 +7,7 @@ $response = array();
 // Check if the request is a POST request
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Retrieve form data
-  $survey = $_POST["survey"]; // Parameter indicating the specific survey
+  $lawCode = $_POST["lawCode"]; // Parameter indicating the specific survey
   $email = $_POST["email"];
   $question1 = $_POST["question1"];
   $question2 = $_POST["question2"];
@@ -22,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response["message"] = "Please answer all the questions.";
   } else {
     // Check if the email is already used for the specific survey
-    $query = "SELECT email FROM $survey WHERE email = ?";
+    $query = "SELECT email FROM law WHERE email = ? AND lawCode = ?";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_bind_param($stmt, "si", $email, $lawCode);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_store_result($stmt);
     $rows = mysqli_stmt_num_rows($stmt);
@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
       // Insert data into the database
       $totalScore = $question1 + $question2 + $question3 + $question4 + $question5;
-      $sql = "INSERT INTO $survey (email, totalScore) VALUES (?, ?)";
+      $sql = "INSERT INTO law (email, totalScore, lawCode) VALUES (?, ?, ?)";
       $stmt = mysqli_prepare($conn, $sql);
-      mysqli_stmt_bind_param($stmt, "si", $email, $totalScore);
+      mysqli_stmt_bind_param($stmt, "sii", $email, $totalScore, $lawCode);
       if (mysqli_stmt_execute($stmt)) {
         // Data inserted successfully
         $response["success"] = true;

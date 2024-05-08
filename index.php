@@ -238,7 +238,7 @@
             <p class="card-text flex-grow-1">
               This survey aims to gather demographic information, including gender, from respondents.
             </p>
-            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey(111)">
+            <button class="btn btn-primary font-size mt-auto" onclick="openSurvey('profiling')">
               Take Survey
             </button>
           </div>
@@ -271,7 +271,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Level of Awareness in the Anti-Sexual Harassment Act of 1995 (RA 7877)</h5>
-              <canvas id="lawone"></canvas>
+              <canvas id="law1"></canvas>
             </div>
           </div>
         </div>
@@ -281,7 +281,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Level of Awareness in the Anti-Violence Against Women and their Children (RA 9262)</h5>
-              <canvas id="lawtwo"></canvas>
+              <canvas id="law2"></canvas>
             </div>
           </div>
         </div>
@@ -291,7 +291,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Level of Awareness in the Magna Carta for Women (RA 9710)</h5>
-              <canvas id="lawthree"></canvas>
+              <canvas id="law3"></canvas>
             </div>
           </div>
         </div>
@@ -301,7 +301,7 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title">Level of Awareness in the Safe Spaces Act (RA 11313)</h5>
-              <canvas id="lawfour"></canvas>
+              <canvas id="law4"></canvas>
             </div>
           </div>
         </div>
@@ -402,104 +402,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    // Global variable to store the previous data
-    var previousData = {
-      ra7877: [],
-      ra9262: [],
-      ra9710: [],
-      ra11313: []
-    };
-
-    var isChartAlreadyCreated = false
-    // Function to fetch data from the server
-    function fetchAndUpdateCharts() {
-      $.ajax({
-        url: 'utils/fetchData.php',
-        type: 'GET',
-        dataType: 'json',
-        success: function(response) {
-          // Check if data has changed for each table
-          if (hasDataChanged(previousData.ra7877, response.ra7877)) {
-            updateChart("lawone", response.ra7877);
-            previousData.ra7877 = response.ra7877;
-            isChartAlreadyCreated = false
-          }
-          if (isDataZero(previousData.ra7877)) {
-            if (!isChartAlreadyCreated) {
-              createEmptyChart("lawone");
-            }
-            isChartAlreadyCreated = true
-          }
-          if (hasDataChanged(previousData.ra9262, response.ra9262)) {
-            updateChart("lawtwo", response.ra9262);
-            previousData.ra9262 = response.ra9262;
-            isChartAlreadyCreated = false
-          }
-          if (isDataZero(previousData.ra9262)) {
-            if (!isChartAlreadyCreated) {
-              createEmptyChart("lawtwo");
-            }
-            isChartAlreadyCreated = true
-          }
-          if (hasDataChanged(previousData.ra9710, response.ra9710)) {
-            updateChart("lawthree", response.ra9710);
-            previousData.ra9710 = response.ra9710;
-            isChartAlreadyCreated = false
-          }
-          if (isDataZero(previousData.ra9710)) {
-            if (!isChartAlreadyCreated) {
-              createEmptyChart("lawthree");
-            }
-            isChartAlreadyCreated = true
-          }
-
-          if (hasDataChanged(previousData.ra11313, response.ra11313)) {
-            updateChart("lawfour", response.ra11313);
-            previousData.ra11313 = response.ra11313;
-            isChartAlreadyCreated = false
-          }
-          if (isDataZero(previousData.ra11313)) {
-            if (!isChartAlreadyCreated) {
-              createEmptyChart("lawfour");
-            }
-            isChartAlreadyCreated = true
-          }
-        },
-        error: function(xhr, status, error) {
-          console.error('Error fetching data:', error);
-        }
-      });
-    }
-
-    // Function to check if the data is zero
-    function isDataZero(data) {
-      return data.every(item => item.count === 0);
-    }
-
-    // Function to check if data has changed
-    function hasDataChanged(previousData, newData) {
-      // Check if length differs
-      if (previousData.length !== newData.length) {
-        return true;
-      }
-
-      // Check if any item differs
-      for (var i = 0; i < previousData.length; i++) {
-        if (previousData[i].level !== newData[i].level || previousData[i].count !== newData[i].count) {
-          return true;
-        }
-      }
-
-      // Data is the same
-      return false;
-    }
-
-    // Update charts initially
-    fetchAndUpdateCharts();
-
-    // Set interval to fetch data and update charts every 5 seconds
-    setInterval(fetchAndUpdateCharts, 5000);
-
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -660,6 +562,75 @@
       });
     }
 
+    // Global variable to store the previous data
+    var previousData = {
+      law1: [],
+      law2: [],
+      law3: [],
+      law4: []
+    };
+
+    var isChartAlreadyCreated = false
+
+    // Function to fetch data from the server
+    function fetchAndUpdateCharts() {
+      $.ajax({
+        url: 'utils/fetchData.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+          // Update chart for each law
+          Object.keys(response).forEach(function(lawCode) {
+            var chartName = "law" + lawCode; // Assuming law codes are 1, 2, 3, 4
+            if (hasDataChanged(previousData[chartName], response[lawCode])) {
+              updateChart(chartName, response[lawCode]);
+              previousData[chartName] = response[lawCode];
+              isChartAlreadyCreated = false;
+            }
+            if (isDataZero(previousData[chartName])) {
+              if (!isChartAlreadyCreated) {
+                createEmptyChart(chartName);
+              }
+            }
+            isChartAlreadyCreated = true;
+          });
+        },
+        error: function(xhr, status, error) {
+          console.error('Error fetching data:', error);
+        }
+      });
+    }
+
+    // Function to check if the data is zero
+    function isDataZero(data) {
+      return data.every(item => item.count === 0);
+    }
+
+    // Function to check if data has changed
+    function hasDataChanged(previousData, newData) {
+      // Check if length differs
+      if (previousData.length !== newData.length) {
+        return true;
+      }
+
+      // Check if any item differs
+      for (var i = 0; i < previousData.length; i++) {
+        if (previousData[i].level !== newData[i].level || previousData[i].count !== newData[i].count) {
+          return true;
+        }
+      }
+
+      // Data is the same
+      return false;
+    }
+
+    // Update charts initially
+    fetchAndUpdateCharts();
+
+    // Set interval to fetch data and update charts every 5 seconds
+    setInterval(fetchAndUpdateCharts, 5000);
+
+
     // Function to update the active state of navigation items
     function updateActiveNavItem(navItemId) {
       // Remove 'active' class from all nav items
@@ -738,7 +709,6 @@
     function updateGenderChart(data) {
       // Extract department names and gender counts
       var departments = Object.keys(data);
-      console.log(departments)
 
       // Clear previous gender charts
       document.getElementById('genderChartsContainer').innerHTML = '';

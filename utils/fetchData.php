@@ -2,7 +2,7 @@
 include 'config.php';
 
 // Function to execute a query and fetch results
-function fetchData($tableName, $conn)
+function fetchData($lawCode, $conn)
 {
   // For rights-related data
   $query = "SELECT level, COUNT(*) AS count 
@@ -13,7 +13,8 @@ function fetchData($tableName, $conn)
                           WHEN totalScore BETWEEN 13 AND 19 THEN 'Medium' 
                           WHEN totalScore BETWEEN 20 AND 25 THEN 'High' 
                       END AS level
-                  FROM $tableName
+                  FROM law
+                  WHERE lawCode = $lawCode
               ) AS subquery
               GROUP BY level";
 
@@ -31,11 +32,11 @@ function fetchData($tableName, $conn)
   return $data;
 }
 
-// Fetch data for each table
-$tables = array("ra7877", "ra9262", "ra9710", "ra11313", "users");
+// Fetch data for each law code
+$lawCodes = array(1, 2, 3, 4); // Assuming law codes are 1, 2, 3, 4
 $data = [];
-foreach ($tables as $table) {
-  $data[$table] = fetchData($table, $conn);
+foreach ($lawCodes as $lawCode) {
+  $data[$lawCode] = fetchData($lawCode, $conn);
 }
 
 // Return the data as JSON

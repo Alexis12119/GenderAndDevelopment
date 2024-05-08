@@ -203,7 +203,7 @@
 
         // Serialize form data
         var formData = $(this).serialize();
-        formData += '&survey=ra11313';
+        formData += '&lawCode=4';
 
         // Send form data via AJAX
         $.ajax({
