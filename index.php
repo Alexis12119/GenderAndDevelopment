@@ -120,12 +120,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/equality.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -263,6 +263,7 @@
     <div class="container">
       <h2 class="text-center mb-4">Statistics</h2>
 
+      <h4 class="text-center mb-4">Awareness per Law</h4>
       <div class="row align-items-stretch">
 
         <!-- Card for Law One Chart -->
@@ -304,14 +305,15 @@
             </div>
           </div>
         </div>
-
-        <section id="genderChartSection" class="py-5">
-          <div class="container">
-            <div class="row align-items-stretch" id="genderChartsContainer">
-            </div>
-          </div>
-        </section>
       </div>
+      <section id="genderChartSection" class="py-5">
+        <h4 class="text-center mb-4">Gender Distribution per Department</h4>
+        <div class="container">
+          <div class="row align-items-stretch" id="genderChartsContainer">
+          </div>
+        </div>
+      </section>
+
     </div>
   </section>
 
@@ -743,7 +745,7 @@
     function updateGenderChart(data) {
       // Extract department names and gender counts
       var departments = Object.keys(data);
-console.log(departments)
+      console.log(departments)
 
       // Clear previous gender charts
       document.getElementById('genderChartsContainer').innerHTML = '';
