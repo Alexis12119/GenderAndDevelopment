@@ -306,15 +306,11 @@
           </div>
         </div>
       </div>
-      <section id="genderChartSection" class="py-5">
-        <h4 class="text-center mb-4">Gender Distribution per Department</h4>
-        <div class="container">
-          <div class="row align-items-stretch" id="genderChartsContainer">
-          </div>
-        </div>
-      </section>
+      <h4 class="text-center mb-4">Gender Distribution per Department</h4>
+      <div class="row align-items-stretch" id="genderChartsContainer">
+  </section>
 
-    </div>
+  </div>
   </section>
 
   <!-- About section -->
