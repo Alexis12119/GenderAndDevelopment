@@ -234,7 +234,7 @@
       <div class="col-md-12 mb-4">
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title">Profiling Survey</h5>
+            <h5 class="card-title text-center">Profiling Survey</h5>
             <p class="card-text flex-grow-1">
               This survey aims to gather demographic information, including gender, from respondents.
             </p>
