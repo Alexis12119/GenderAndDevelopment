@@ -4,11 +4,13 @@ CREATE DATABASE IF NOT EXISTS gad;
 -- Switch to the 'gad' database
 USE gad;
 
+-- Creating table to store law names and their codes
 CREATE TABLE IF NOT EXISTS `lawname` (
     lawCode INT NOT NULL PRIMARY KEY,
     lawName VARCHAR(255) NOT NULL
 );
 
+-- Creating table to store law-related records
 CREATE TABLE IF NOT EXISTS `law` (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) NOT NULL,
@@ -32,18 +34,22 @@ INSERT INTO `law` (email, totalScore, lawCode) VALUES
     ('example3@example.com', 10, 9710), -- For Magna Carta for Women (RA 9710)
     ('example4@example.com', 15, 11313); -- For Safe Spaces Act (RA 11313)
 
+-- Creating table to store gender information
 CREATE TABLE gender (
     genderID INT AUTO_INCREMENT PRIMARY KEY,
     genderName VARCHAR(255) NOT NULL
 );
 
+-- Inserting gender information
 INSERT INTO gender (genderName) VALUES ('Man'), ('Woman'), ('Transgender'),('Asexual'), ('Gay'), ('Lesbian'), ('Bisexual'), ('Queer/Questioning');
 
+-- Creating table to store department information
 CREATE TABLE department (
     departmentCode VARCHAR(255) PRIMARY KEY,
     departmentName VARCHAR(255) NOT NULL
 );
 
+-- Inserting department information
 INSERT INTO department (departmentCode, departmentName) VALUES 
 ('ccst', 'College Of Computer Studies and Technology'),
 ('coa', 'College of Accountacy'),
@@ -54,6 +60,7 @@ INSERT INTO department (departmentCode, departmentName) VALUES
 ('chs', 'College of Allied Health Sciences'),
 ('cthm', 'College of Tourism And Hospitality Management');
 
+-- Creating table to store profiles with gender and department associations
 CREATE TABLE profiles (
     profileID INT AUTO_INCREMENT PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
