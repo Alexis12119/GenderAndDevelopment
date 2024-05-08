@@ -792,14 +792,24 @@
       });
     }
 
-    // Function to fetch gender data and update the chart
+
+    // Variable to store the previous data
+    var previousGenderData = null;
+
+    // Function to fetch gender data and update the chart if there are changes
     function fetchAndRenderGenderChart() {
       $.ajax({
         url: 'utils/fetchDataGender.php',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
-          updateGenderChart(response);
+          // Compare current data with previous data
+          if (!isEqual(response, previousGenderData)) {
+            // Update the chart only if there are changes in the data
+            updateGenderChart(response);
+            // Update previous data
+            previousGenderData = response;
+          }
         },
         error: function(xhr, status, error) {
           console.error('Error fetching gender data:', error);
@@ -807,11 +817,16 @@
       });
     }
 
+    // Function to compare two objects
+    function isEqual(obj1, obj2) {
+      return JSON.stringify(obj1) === JSON.stringify(obj2);
+    }
+
     // Update the gender chart initially
     fetchAndRenderGenderChart();
 
     // Set interval to update the gender chart every 5 seconds
-    // setInterval(fetchAndRenderGenderChart, 5000);
+    setInterval(fetchAndRenderGenderChart, 5000);
   </script>
 </body>
 
