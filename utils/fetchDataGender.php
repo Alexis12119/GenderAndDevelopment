@@ -6,10 +6,10 @@ include 'config.php';
 // Function to fetch gender-related data
 function fetchGenderData($conn)
 {
-  $query = "SELECT department.departmentName, gender.genderName, COUNT(users.userID) AS count
+  $query = "SELECT department.departmentName, gender.genderName, COUNT(profiles.profileID) AS count
               FROM department
-              LEFT JOIN users ON users.departmentCode = department.departmentCode
-              LEFT JOIN gender ON users.genderID = gender.genderID
+              LEFT JOIN profiles ON profiles.departmentCode = department.departmentCode
+              LEFT JOIN gender ON profiles.genderID = gender.genderID
               GROUP BY department.departmentName, gender.genderName";
 
   $result = mysqli_query($conn, $query);

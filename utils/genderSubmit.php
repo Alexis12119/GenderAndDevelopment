@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_response["success"] = false;
     $user_response["message"] = "Please fill out all the fields.";
   } else {
-    // Insert data into the 'users' table
-    $sql = "INSERT INTO users (firstName, middleName, lastName, genderID, departmentCode) VALUES (?, ?, ?, ?, ?)";
+    // Insert data into the 'profiles' table
+    $sql = "INSERT INTO profiles (firstName, middleName, lastName, genderID, departmentCode) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "sssss", $firstName, $middleName, $lastName, $gender, $department);
     if (mysqli_stmt_execute($stmt)) {

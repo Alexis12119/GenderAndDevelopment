@@ -50,8 +50,8 @@ INSERT INTO department (departmentCode, departmentName) VALUES
 ('coe', 'College of Engineering'),
 ('cthm', 'College of Hotel Management');
 
-CREATE TABLE users (
-    userID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE profiles (
+    profileID INT AUTO_INCREMENT PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
     middleName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,

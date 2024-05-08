@@ -706,6 +706,14 @@
     document.getElementById('contactNavItem').addEventListener('click', handleNavItemClick);
   </script>
   <script>
+    // Predefined colors for genders
+    var genderColors = {
+      'Man': 'rgba(54, 162, 235, 0.5)',
+      'Woman': 'rgba(255, 99, 132, 0.5)',
+      'Transgender': 'rgba(255, 206, 86, 0.5)',
+      'Asexual': 'rgba(75, 192, 192, 0.5)'
+    };
+
     // Function to update the gender chart with fetched data
     function updateGenderChart(data) {
       // Extract department names and gender counts
@@ -735,18 +743,12 @@
               labels: Object.keys(departmentData),
               datasets: [{
                 data: Object.values(departmentData),
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.5)',
-                  'rgba(54, 162, 235, 0.5)',
-                  'rgba(255, 206, 86, 0.5)',
-                  'rgba(75, 192, 192, 0.5)'
-                ],
-                borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)'
-                ],
+                backgroundColor: Object.keys(departmentData).map(function(gender) {
+                  return genderColors[gender];
+                }),
+                borderColor: Object.keys(departmentData).map(function(gender) {
+                  return genderColors[gender].replace('0.5', '1');
+                }),
                 borderWidth: 1
               }]
             },
@@ -794,7 +796,7 @@
 
 
     // Variable to store the previous data
-    var previousGenderData = null;
+    var previousGenderData = {};
 
     // Function to fetch gender data and update the chart if there are changes
     function fetchAndRenderGenderChart() {
