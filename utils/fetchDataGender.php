@@ -7,10 +7,15 @@ include 'config.php';
 function fetchGenderData($conn)
 {
   // Query to fetch gender-related data
+  // $query = "SELECT department.departmentName, gender.genderName, COUNT(users.userID) AS count
+  //             FROM users
+  //             INNER JOIN department ON users.departmentCode = department.departmentCode
+  //             INNER JOIN gender ON users.genderID = gender.genderID
+  //             GROUP BY department.departmentName, gender.genderName";
   $query = "SELECT department.departmentName, gender.genderName, COUNT(users.userID) AS count
-              FROM users
-              INNER JOIN department ON users.departmentCode = department.departmentCode
-              INNER JOIN gender ON users.genderID = gender.genderID
+              FROM department
+              LEFT JOIN users ON users.departmentCode = department.departmentCode
+              LEFT JOIN gender ON users.genderID = gender.genderID
               GROUP BY department.departmentName, gender.genderName";
 
   $result = mysqli_query($conn, $query);
@@ -25,6 +30,11 @@ function fetchGenderData($conn)
     $department = $row['departmentName'];
     $gender = $row['genderName'];
     $count = (int)$row['count'];
+
+    // Initialize count for the department if not already set
+    if (!isset($gender_response[$department])) {
+      $gender_response[$department] = [];
+    }
 
     // Add data to gender_response array
     $gender_response[$department][$gender] = $count;
