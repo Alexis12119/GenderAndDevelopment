@@ -727,7 +727,7 @@
         document.getElementById('genderChartsContainer').appendChild(chartDiv);
 
         // Render the pie chart only if data is available, otherwise, create an empty chart
-        if (Object.keys(departmentData).length > 0) {
+        if (Object.keys(departmentData).length > 0 && Object.values(departmentData)[0] !== 0) {
           var ctx = document.getElementById('genderChart_' + department).getContext('2d');
           new Chart(ctx, {
             type: 'pie',
@@ -758,13 +758,13 @@
             }
           });
         } else {
-          createEmptyChart('genderChart_' + department);
+          createEmptyGenderChart('genderChart_' + department);
         }
       });
     }
 
     // Function to create an empty chart
-    function createEmptyChart(canvasId) {
+    function createEmptyGenderChart(canvasId) {
       var defaultData = {
         labels: ['No Data'],
         datasets: [{

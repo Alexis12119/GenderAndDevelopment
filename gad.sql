@@ -32,38 +32,6 @@ INSERT INTO `law` (email, totalScore, lawCode) VALUES
     ('example3@example.com', 10, 3), -- For Magna Carta for Women (RA 9710)
     ('example4@example.com', 50, 4); -- For Safe Spaces Act (RA 11313)
 
--- Create table 'ra7877' with a timestamp column for record creation time
-CREATE TABLE IF NOT EXISTS `ra7877` (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    totalScore INT NOT NULL,
-    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
-);
-
--- Create table 'ra9262' with a timestamp column for record creation time
-CREATE TABLE IF NOT EXISTS `ra9262` (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    totalScore INT NOT NULL,
-    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
-);
-
--- Create table 'ra9710' with a timestamp column for record creation time
-CREATE TABLE IF NOT EXISTS `ra9710` (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    totalScore INT NOT NULL,
-    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
-);
-
--- Create table 'ra11313' with a timestamp column for record creation time
-CREATE TABLE IF NOT EXISTS `ra11313` (
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(255) NOT NULL,
-    totalScore INT NOT NULL,
-    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created'
-);
-
 CREATE TABLE gender (
     genderID INT AUTO_INCREMENT PRIMARY KEY,
     genderName VARCHAR(255) NOT NULL
