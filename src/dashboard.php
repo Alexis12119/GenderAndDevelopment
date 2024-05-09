@@ -33,6 +33,12 @@ $profiles_result = mysqli_query($conn, $profiles_query);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Popper&display=swap');
+
+    body {
+      font-family: 'Popper', sans-serif;
+    }
+
     table {
       border-collapse: collapse;
       width: 100%;
