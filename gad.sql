@@ -4,6 +4,14 @@ CREATE DATABASE IF NOT EXISTS gad;
 -- Switch to the 'gad' database
 USE gad;
 
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO admin (username, password) VALUES ('admin', 'admin123');
+
 -- Creating table to store law names and their codes
 CREATE TABLE IF NOT EXISTS `lawname` (
     lawCode INT NOT NULL PRIMARY KEY,
