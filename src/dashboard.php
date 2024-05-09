@@ -106,6 +106,41 @@ $profiles_result = mysqli_query($conn, $profiles_query);
       width: 100%;
       box-sizing: border-box;
     }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -135,6 +170,7 @@ $profiles_result = mysqli_query($conn, $profiles_query);
             <th>Full Name</th>
             <th>Gender</th>
             <th>Department</th>
+            <th>Action</th>
           </tr>
         </thead>
         <!-- Table body -->
@@ -147,6 +183,7 @@ $profiles_result = mysqli_query($conn, $profiles_query);
             echo "<td>{$row['FullName']}</td>";
             echo "<td>{$row['genderName']}</td>";
             echo "<td>{$row['departmentName']}</td>";
+            echo "<td><button onclick='openEditModal(\"editProfileModal\", {$row['profileID']})'>Edit</button> | <button onclick='openDeleteModal(\"deleteProfileModal\", {$row['profileID']})'>Delete</button></td>";
             echo "</tr>";
           }
           ?>
@@ -168,6 +205,7 @@ $profiles_result = mysqli_query($conn, $profiles_query);
             <th>Email</th>
             <th>Total Score</th>
             <th>Law Name</th>
+            <th>Action</th>
           </tr>
         </thead>
         <!-- Table body -->
@@ -180,6 +218,7 @@ $profiles_result = mysqli_query($conn, $profiles_query);
             echo "<td>{$row['email']}</td>";
             echo "<td>{$row['totalScore']}</td>";
             echo "<td>{$row['lawName']}</td>";
+            echo "<td><button onclick='openEditModal(\"editLawModal\", {$row['id']})'>Edit</button> | <button onclick='openDeleteModal(\"deleteLawModal\", {$row['id']})'>Delete</button></td>";
             echo "</tr>";
           }
           ?>
@@ -189,6 +228,42 @@ $profiles_result = mysqli_query($conn, $profiles_query);
 
   </div>
 
+  <!-- Edit and Delete Modals -->
+  <div id="editProfileModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
+      <h2>Edit Profile</h2>
+      <!-- Edit form content goes here -->
+    </div>
+  </div>
+
+  <div id="deleteProfileModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('deleteProfileModal')">&times;</span>
+      <h2>Delete Profile</h2>
+      <!-- Delete confirmation message goes here -->
+      <p>Are you sure you want to delete this profile?</p>
+      <button onclick="deleteProfile()">Delete</button>
+    </div>
+  </div>
+
+  <div id="editLawModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('editLawModal')">&times;</span>
+      <h2>Edit Law</h2>
+      <!-- Edit form content goes here -->
+    </div>
+  </div>
+
+  <div id="deleteLawModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('deleteLawModal')">&times;</span>
+      <h2>Delete Law</h2>
+      <!-- Delete confirmation message goes here -->
+      <p>Are you sure you want to delete this law?</p>
+      <button onclick="deleteLaw()">Delete</button>
+    </div>
+  </div>
   <script>
     // Function to show the selected table section and hide others
     function showTable(sectionId) {
@@ -226,6 +301,42 @@ $profiles_result = mysqli_query($conn, $profiles_query);
           }
         }
       }
+    }
+
+    // Function to open edit modal
+    function openEditModal(modalId, itemId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "block";
+      // Logic to fetch item data and populate edit form goes here
+    }
+
+    // Function to open delete modal
+    function openDeleteModal(modalId, itemId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "block";
+      // Set itemId in a hidden input field in the delete modal for reference
+      var deleteForm = modal.querySelector('form');
+      deleteForm.querySelector('input[name="itemId"]').value = itemId;
+    }
+
+    // Function to close modal
+    function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = "none";
+    }
+
+    // Function to delete profile (You need to implement this)
+    function deleteProfile() {
+      var itemId = document.getElementById('deleteProfileModal').querySelector('input[name="itemId"]').value;
+      // Your delete profile logic here
+      console.log("Deleting profile with ID: " + itemId);
+    }
+
+    // Function to delete law (You need to implement this)
+    function deleteLaw() {
+      var itemId = document.getElementById('deleteLawModal').querySelector('input[name="itemId"]').value;
+      // Your delete law logic here
+      console.log("Deleting law with ID: " + itemId);
     }
   </script>
 </body>

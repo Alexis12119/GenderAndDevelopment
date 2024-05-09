@@ -94,19 +94,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item" id="surveyNavItem">
-            <a class="nav-link" href="#survey">Survey</a>
+            <a class="nav-link text-center" href="#survey">Survey</a>
           </li>
           <li class="nav-item" id="statisticsNavItem">
-            <a class="nav-link" href="#statistics">Statistics</a>
+            <a class="nav-link text-center" href="#statistics">Statistics</a>
           </li>
           <li class="nav-item" id="aboutNavItem">
-            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link text-center" href="#about">About Us</a>
           </li>
           <li class="nav-item" id="contactNavItem">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link text-center" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-primary" href="src/login.php">Login</a>
+            <a class="nav-link btn btn-primary text-center" href="src/login.php">Login</a>
           </li>
         </ul>
       </div>
