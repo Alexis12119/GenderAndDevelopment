@@ -85,7 +85,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="login-form">
-          <h2>Login For Admin</h2>
+          <h2>Login(Admin Only)</h2>
           <form id="loginForm">
             <div class="form-group">
               <label for="username">Username</label>

@@ -31,6 +31,7 @@ $profiles_result = mysqli_query($conn, $profiles_query);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="website icon" href="../assets/img/logo.png" />
   <title>Dashboard</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Popper&display=swap');
