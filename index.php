@@ -105,7 +105,7 @@
           <li class="nav-item" id="contactNavItem">
             <a class="nav-link text-center" href="#contact">Contact</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" style="background: linear-gradient(to right, #091379, #a41e8d);">
             <a class="nav-link btn btn-primary text-center" href="src/login.php">Login</a>
           </li>
         </ul>
