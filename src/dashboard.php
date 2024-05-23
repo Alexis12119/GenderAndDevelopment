@@ -41,110 +41,68 @@ $profiles_result = mysqli_query($conn, $profiles_query);
       font-family: 'Popper', sans-serif;
     }
 
-    .navbar-dark .navbar-nav .nav-link {
-      color: rgba(255, 255, 255, 0.5);
-      /* Normal color */
-    }
-
-    .navbar-dark .navbar-nav .nav-link:hover {
-      color: #fff;
-      /* Hover color */
-    }
-
-    .navbar-dark .navbar-nav .nav-item.active .nav-link {
-      color: #fff;
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-    }
-
-
-    /* Search input styles */
-    .search-container {
-      margin-bottom: 10px;
-    }
-
-    .search-container input[type=text] {
-      padding: 5px;
-      margin-top: 5px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    /* Modal styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
+    .sidebar {
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      padding-top: 20px;
     }
 
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: black;
+    .sidebar a {
+      padding: 15px;
       text-decoration: none;
-      cursor: pointer;
+      font-size: 18px;
+      color: white;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .main {
+      margin-left: 260px;
+      padding: 20px;
+    }
+
+    .table-section {
+      display: none;
+    }
+
+    .table-section.active {
+      display: block;
+    }
+
+    /* Custom Modal Styles */
+    .modal-header {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .modal-footer .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .modal-footer .btn-primary {
+      background-color: #007bff;
     }
   </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <!-- Flex container to align logo and text -->
-      <div class="d-flex align-items-center">
-        <!-- Logo -->
-        <a class="logo navbar-brand" href="https://www.youtube.com/shorts/SXHMnicI6Pg" target="_blank">
-          <img class="rounded-circle" src="../assets/img/logo.png" alt="logo">
-        </a>
-        <!-- Text alongside the logo -->
-        <span class="text ml-2">Dashboard</span>
-      </div>
-      <!-- Navbar toggler for smaller screens -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Navbar items -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item" id="profilesNavItem">
-            <a class="nav-link text-center" href="#profiles" onclick="showTable('profiles')">Profiles Table</a>
-          </li>
-          <li class="nav-item" id="lawNavItem">
-            <a class="nav-link text-center" href="#law" onclick="showTable('law')">Law Table</a>
-          </li>
-          <li class="nav-item" id="logoutNavItem" style="background: linear-gradient(to right, #091379, #a41e8d);">
-            <a class="nav-link btn btn-primary text-center" href="login.php">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#" onclick="showTable('profiles')">Profiles Table</a>
+    <a href="#" onclick="showTable('law')">Law Table</a>
+    <a href="login.php" style="background: linear-gradient(to right, #091379, #a41e8d);">Logout</a>
+  </div>
 
-
-  <!-- Page content -->
-  <div class="container" style="margin-top: 60px;"> <!-- Adjust margin-top to fit navbar height -->
-    <h1>Welcome to the Dashboard, <?php echo $_SESSION['username']; ?>!</h1></br></br>
+  <!-- Main content -->
+  <div class="main">
+    <h1>Welcome to the Dashboard, <?php echo $_SESSION['username']; ?>!</h1>
 
     <!-- Profiles Table -->
     <section id="profiles" class="table-section">
@@ -153,7 +111,6 @@ $profiles_result = mysqli_query($conn, $profiles_query);
         <input type="text" id="profilesSearchInput" onkeyup="searchTable('profiles', 'profilesSearchInput')" placeholder="Search for names..">
       </div>
       <table id="profilesTable" class="table table-striped">
-        <!-- Table header -->
         <thead>
           <tr>
             <th>Profile ID</th>
@@ -163,17 +120,18 @@ $profiles_result = mysqli_query($conn, $profiles_query);
             <th>Action</th>
           </tr>
         </thead>
-        <!-- Table body -->
         <tbody>
           <?php
-          // Fetch and display data from the profiles query result
           while ($row = mysqli_fetch_assoc($profiles_result)) {
-            echo "<tr>";
+            echo "<tr data-id='{$row['profileID']}'>";
             echo "<td>{$row['profileID']}</td>";
             echo "<td>{$row['FullName']}</td>";
             echo "<td>{$row['genderName']}</td>";
             echo "<td>{$row['departmentName']}</td>";
-            echo "<td><button onclick='openEditModal(\"editProfileModal\", {$row['profileID']})' class='btn btn-primary'>Edit</button> | <button onclick='openDeleteModal(\"deleteProfileModal\", {$row['profileID']})' class='btn btn-danger'>Delete</button></td>";
+            echo "<td>
+        <button onclick='openEditModal(\"editProfileModal\", {$row['profileID']})' class='btn btn-primary'>Edit</button> | 
+        <button onclick='openDeleteModal(\"deleteProfileModal\", {$row['profileID']})' class='btn btn-danger'>Delete</button>
+      </td>";
             echo "</tr>";
           }
           ?>
@@ -188,7 +146,6 @@ $profiles_result = mysqli_query($conn, $profiles_query);
         <input type="text" id="lawSearchInput" onkeyup="searchTable('law', 'lawSearchInput')" placeholder="Search for names..">
       </div>
       <table id="lawTable" class="table table-striped">
-        <!-- Table header -->
         <thead>
           <tr>
             <th>ID</th>
@@ -198,17 +155,18 @@ $profiles_result = mysqli_query($conn, $profiles_query);
             <th>Action</th>
           </tr>
         </thead>
-        <!-- Table body -->
         <tbody>
           <?php
-          // Fetch and display data from the law query result
           while ($row = mysqli_fetch_assoc($law_result)) {
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
             echo "<td>{$row['email']}</td>";
             echo "<td>{$row['totalScore']}</td>";
             echo "<td>{$row['lawName']}</td>";
-            echo "<td><button onclick='openEditModal(\"editLawModal\", {$row['id']})' class='btn btn-primary'>Edit</button> | <button onclick='openDeleteModal(\"deleteLawModal\", {$row['id']})' class='btn btn-danger'>Delete</button></td>";
+            echo "<td>
+            <button onclick='openEditModal(\"editLawModal\", {$row['id']})' class='btn btn-primary'>Edit</button> | 
+            <button onclick='openDeleteModal(\"deleteLawModal\", {$row['id']})' class='btn btn-danger'>Delete</button>
+          </td>";
             echo "</tr>";
           }
           ?>
@@ -218,132 +176,206 @@ $profiles_result = mysqli_query($conn, $profiles_query);
 
   </div>
 
-  <!-- Edit and Delete Modals -->
-  <div id="editProfileModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
-      <h2>Edit Profile</h2>
-      <!-- Edit form content goes here -->
+  <!-- Edit Profile Modal -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="event.preventDefault(); updateProfile();">
+            <input type="hidden" id="editProfileID">
+            <div class="form-group">
+              <label for="editFirstName">First Name:</label>
+              <input type="text" id="editFirstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editMiddleName">Middle Name:</label>
+              <input type="text" id="editMiddleName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editLastName">Last Name:</label>
+              <input type="text" id="editLastName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editGenderID">Gender:</label>
+              <input type="number" id="editGenderID" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editDepartmentCode">Department:</label>
+              <input type="text" id="editDepartmentCode" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="deleteProfileModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('deleteProfileModal')">&times;</span>
-      <h2>Delete Profile</h2>
-      <!-- Delete confirmation message goes here -->
-      <p>Are you sure you want to delete this profile?</p>
-      <button onclick="deleteProfile()" class="btn btn-danger">Delete</button>
+  <!-- Delete Profile Modal -->
+  <div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteProfileModalLabel">Delete Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this profile?</p>
+          <input type="hidden" id="deleteProfileID">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button onclick="deleteProfile()" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="editLawModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('editLawModal')">&times;</span>
-      <h2>Edit Law</h2>
-      <!-- Edit form content goes here -->
-    </div>
-  </div>
-
-  <div id="deleteLawModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('deleteLawModal')">&times;</span>
-      <h2>Delete Law</h2>
-      <!-- Delete confirmation message goes here -->
-      <p>Are you sure you want to delete this law?</p>
-      <button onclick="deleteLaw()" class="btn btn-danger">Delete</button>
-    </div>
-  </div>
-  <script>
-    // Function to show the selected table section and hide others
-    function showTable(sectionId) {
-      // Hide all table sections
-      var sections = document.querySelectorAll('.table-section');
-      sections.forEach(function(section) {
-        section.classList.remove('active');
-      });
-
-      // Show the selected table section
-      var selectedSection = document.getElementById(sectionId);
-      selectedSection.classList.add('active');
-    }
-
-    // Function to filter table rows based on search input
-    function searchTable(sectionId, inputId) {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById(inputId);
-      filter = input.value.toUpperCase();
-      table = document.getElementById(sectionId + 'Table');
-      tr = table.getElementsByTagName('tr');
-
-      // Loop through all table rows, and hide those that don't match the search query
-      for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName('td');
-        for (var j = 0; j < td.length; j++) {
-          if (td[j]) {
-            txtValue = td[j].textContent || td[j].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = '';
-              break; // Show the row if a match is found
-            } else {
-              tr[i].style.display = 'none';
-            }
-          }
-        }
-      }
-    }
-
-    // Function to open edit modal
-    function openEditModal(modalId, itemId) {
-      var modal = document.getElementById(modalId);
-      modal.style.display = "block";
-      // Logic to fetch item data and populate edit form goes here
-    }
-
-    // Function to open delete modal
-    function openDeleteModal(modalId, itemId) {
-      var modal = document.getElementById(modalId);
-      modal.style.display = "block";
-      // Set itemId in a hidden input field in the delete modal for reference
-      var deleteForm = modal.querySelector('form');
-      deleteForm.querySelector('input[name="itemId"]').value = itemId;
-    }
-
-    // Function to close modal
-    function closeModal(modalId) {
-      var modal = document.getElementById(modalId);
-      modal.style.display = "none";
-    }
-
-    // Function to delete profile (You need to implement this)
-    function deleteProfile() {
-      var itemId = document.getElementById('deleteProfileModal').querySelector('input[name="itemId"]').value;
-      // Your delete profile logic here
-      console.log("Deleting profile with ID: " + itemId);
-    }
-
-    // Function to delete law (You need to implement this)
-    function deleteLaw() {
-      var itemId = document.getElementById('deleteLawModal').querySelector('input[name="itemId"]').value;
-      // Your delete law logic here
-      console.log("Deleting law with ID: " + itemId);
-    }
-  </script>
   <!-- Bootstrap JS and jQuery -->
   <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+    function openEditModal(modalId, profileID) {
+      var modal = document.getElementById(modalId);
+      $(modal).modal('show');
 
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+      // Fetch profile data
+      fetch(`fetch_profile.php?profileID=${profileID}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('editProfileID').value = data.profileID;
+          document.getElementById('editFirstName').value = data.firstName;
+          document.getElementById('editMiddleName').value = data.middleName;
+          document.getElementById('editLastName').value = data.lastName;
+          document.getElementById('editGenderID').value = data.genderID;
+          document.getElementById('editDepartmentCode').value = data.departmentCode;
         });
-      });
-    });
+    }
+
+    function openDeleteModal(modalId, profileID) {
+      var modal = document.getElementById(modalId);
+      $(modal).modal('show');
+      document.getElementById('deleteProfileID').value = profileID;
+    }
+
+    function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      $(modal).modal('hide');
+    }
+
+    function updateProfile() {
+      var profileID = document.getElementById('editProfileID').value;
+      var firstName = document.getElementById('editFirstName').value;
+      var middleName = document.getElementById('editMiddleName').value;
+      var lastName = document.getElementById('editLastName').value;
+      var genderID = document.getElementById('editGenderID').value;
+      var departmentCode = document.getElementById('editDepartmentCode').value;
+
+      fetch('update_profile.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            profileID,
+            firstName,
+            middleName,
+            lastName,
+            genderID,
+            departmentCode
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode);
+            closeModal('editProfileModal');
+          } else {
+            alert(data.error);
+          }
+        });
+    }
+
+    function updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode) {
+      const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
+      if (row) {
+        row.cells[1].textContent = `${firstName} ${middleName} ${lastName}`;
+        row.cells[2].textContent = genderID;
+        row.cells[3].textContent = departmentCode;
+      }
+    }
+
+    function deleteProfile() {
+      var profileID = document.getElementById('deleteProfileID').value;
+
+      fetch('delete_profile.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            profileID
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            removeTableRow(profileID);
+            closeModal('deleteProfileModal');
+          } else {
+            alert(data.error);
+          }
+        });
+    }
+
+    function removeTableRow(profileID) {
+      const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
+      if (row) {
+        row.remove();
+      }
+    }
+
+    function showTable(tableId) {
+      // Hide all table sections
+      var sections = document.querySelectorAll('.table-section');
+      sections.forEach(section => section.classList.remove('active'));
+
+      // Show the selected table section
+      var selectedSection = document.getElementById(tableId);
+      selectedSection.classList.add('active');
+    }
+
+    function searchTable(tableId, inputId) {
+      var input, filter, table, tr, td, i, j, txtValue;
+      input = document.getElementById(inputId);
+      filter = input.value.toLowerCase();
+      table = document.getElementById(tableId + 'Table');
+      tr = table.getElementsByTagName('tr');
+
+      for (i = 1; i < tr.length; i++) { // Start from 1 to skip the header row
+        tr[i].style.display = 'none';
+        td = tr[i].getElementsByTagName('td');
+        for (j = 0; j < td.length; j++) {
+          if (td[j]) {
+            txtValue = td[j].textContent || td[j].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+              tr[i].style.display = '';
+              break;
+            }
+          }
+        }
+      }
+    }
   </script>
 </body>
 
