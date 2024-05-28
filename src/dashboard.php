@@ -574,6 +574,40 @@ function removeLawTableRow(lawID) {
             }
         }
     </script>
+
+<script>
+    // Store the active section in session storage
+    function setActiveSection(sectionId) {
+        sessionStorage.setItem('activeSection', sectionId);
+    }
+
+    // Retrieve the active section from session storage
+    function getActiveSection() {
+        return sessionStorage.getItem('activeSection');
+    }
+
+    // Function to show the table section and store the active section
+    function showTable(tableId) {
+        // Hide all table sections
+        var sections = document.querySelectorAll('.table-section');
+        sections.forEach(section => section.classList.remove('active'));
+
+        // Show the selected table section
+        var selectedSection = document.getElementById(tableId);
+        selectedSection.classList.add('active');
+
+        // Store the active section in session storage
+        setActiveSection(tableId);
+    }
+
+    // Function to set the active section on page load
+    window.onload = function() {
+        var activeSection = getActiveSection();
+        if (activeSection) {
+            showTable(activeSection);
+        }
+    };
+</script>
 </body>
 
 </html>
