@@ -9,16 +9,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $genderID = $_POST['genderID'];
     $departmentCode = $_POST['departmentCode'];
 
-    $query = "UPDATE profiles SET firstName='$firstName', middleName='$middleName', lastName='$lastName', genderID='$genderID', departmentCode='$departmentCode' WHERE profileID='$profileID'";
+    $query = "UPDATE profiles SET firstName=?, middleName=?, lastName=?, genderID=?, departmentCode=? WHERE profileID=?";
     
-    if (mysqli_query($conn, $query)) {
-        echo json_encode(['success' => 'Profile updated successfully']);
+    $stmt = $conn->prepare($query);
+    if ($stmt) {
+        $stmt->bind_param("sssisi", $firstName, $middleName, $lastName, $genderID, $departmentCode, $profileID);
+        if ($stmt->execute()) {
+            echo json_encode(['success' => 'Profile updated successfully']);
+        } else {
+            echo json_encode(['error' => 'Failed to update profile']);
+        }
+        $stmt->close();
     } else {
-        echo json_encode(['error' => 'Failed to update profile']);
+        echo json_encode(['error' => 'Failed to prepare the statement']);
     }
 } else {
     echo json_encode(['error' => 'Invalid request']);
 }
 
-mysqli_close($conn);
+$conn->close();
 ?>

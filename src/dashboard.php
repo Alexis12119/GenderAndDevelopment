@@ -23,6 +23,21 @@ $profiles_query = "SELECT profiles.profileID, CONCAT(profiles.firstName, ' ', pr
                    INNER JOIN department ON profiles.departmentCode = department.departmentCode";
 $profiles_result = mysqli_query($conn, $profiles_query);
 
+// Retrieve gender data
+$gender_query = "SELECT genderID, genderName FROM gender";
+$gender_result = mysqli_query($conn, $gender_query);
+$genders = [];
+while ($row = mysqli_fetch_assoc($gender_result)) {
+    $genders[] = $row;
+}
+
+// Retrieve department data
+$department_query = "SELECT departmentCode, departmentName FROM department";
+$department_result = mysqli_query($conn, $department_query);
+$departments = [];
+while ($row = mysqli_fetch_assoc($department_result)) {
+    $departments[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
@@ -139,82 +154,136 @@ $profiles_result = mysqli_query($conn, $profiles_query);
       </table>
     </section>
 
-    <!-- Law Table -->
-    <section id="law" class="table-section">
-      <h2>Law Table</h2>
-      <div class="search-container">
+<!-- Law Table -->
+<section id="law" class="table-section">
+    <h2>Law Table</h2>
+    <div class="search-container">
         <input type="text" id="lawSearchInput" onkeyup="searchTable('law', 'lawSearchInput')" placeholder="Search for names..">
-      </div>
-      <table id="lawTable" class="table table-striped">
+    </div>
+    <table id="lawTable" class="table table-striped">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Total Score</th>
-            <th>Law Name</th>
-            <th>Action</th>
-          </tr>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Total Score</th>
+                <th>Law Name</th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
-          <?php
-          while ($row = mysqli_fetch_assoc($law_result)) {
-            echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['email']}</td>";
-            echo "<td>{$row['totalScore']}</td>";
-            echo "<td>{$row['lawName']}</td>";
-            echo "<td>
-            <button onclick='openEditModal(\"editLawModal\", {$row['id']})' class='btn btn-primary'>Edit</button> | 
-            <button onclick='openDeleteModal(\"deleteLawModal\", {$row['id']})' class='btn btn-danger'>Delete</button>
-          </td>";
-            echo "</tr>";
-          }
-          ?>
+            <?php
+            while ($row = mysqli_fetch_assoc($law_result)) {
+                echo "<tr data-id='{$row['id']}'>";
+                echo "<td>{$row['id']}</td>";
+                echo "<td>{$row['email']}</td>";
+                echo "<td>{$row['totalScore']}</td>";
+                echo "<td>{$row['lawName']}</td>";
+                echo "<td>
+                    <button onclick='openEditLawModal({$row['id']})' class='btn btn-primary'>Edit</button> | 
+                    <button onclick='openDeleteLawModal({$row['id']})' class='btn btn-danger'>Delete</button>
+                </td>";
+                echo "</tr>";
+            }
+            ?>
         </tbody>
-      </table>
-    </section>
+    </table>
+</section>
 
   </div>
 
-  <!-- Edit Profile Modal -->
-  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+<!-- Edit Law Modal -->
+<div class="modal fade" id="editLawModal" tabindex="-1" aria-labelledby="editLawModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLawModalLabel">Edit Law Entry</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); updateLawEntry();">
+                    <input type="hidden" id="editLawID">
+                    <div class="form-group">
+                        <label for="editLawEmail">Email:</label>
+                        <input type="email" id="editLawEmail" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-          <form onsubmit="event.preventDefault(); updateProfile();">
-            <input type="hidden" id="editProfileID">
-            <div class="form-group">
-              <label for="editFirstName">First Name:</label>
-              <input type="text" id="editFirstName" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="editMiddleName">Middle Name:</label>
-              <input type="text" id="editMiddleName" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="editLastName">Last Name:</label>
-              <input type="text" id="editLastName" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="editGenderID">Gender:</label>
-              <input type="number" id="editGenderID" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="editDepartmentCode">Department:</label>
-              <input type="text" id="editDepartmentCode" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<!-- Delete Law Modal -->
+<div class="modal fade" id="deleteLawModal" tabindex="-1" aria-labelledby="deleteLawModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteLawModalLabel">Delete Law Entry</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this law entry?</p>
+                <input type="hidden" id="deleteLawID">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button onclick="deleteLawEntry()" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="event.preventDefault(); updateProfile();">
+                    <input type="hidden" id="editProfileID">
+                    <div class="form-group">
+                        <label for="editFirstName">First Name:</label>
+                        <input type="text" id="editFirstName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editMiddleName">Middle Name:</label>
+                        <input type="text" id="editMiddleName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editLastName">Last Name:</label>
+                        <input type="text" id="editLastName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editGenderID">Gender:</label>
+                        <select id="editGenderID" class="form-control" required>
+                            <?php foreach ($genders as $gender): ?>
+                                <option value="<?php echo $gender['genderID']; ?>"><?php echo $gender['genderName']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDepartmentCode">Department:</label>
+                        <select id="editDepartmentCode" class="form-control" required>
+                            <?php foreach ($departments as $department): ?>
+                                <option value="<?php echo $department['departmentCode']; ?>"><?php echo $department['departmentName']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
   <!-- Delete Profile Modal -->
   <div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
@@ -305,14 +374,26 @@ $profiles_result = mysqli_query($conn, $profiles_query);
         });
     }
 
-    function updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode) {
-      const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
-      if (row) {
-        row.cells[1].textContent = `${firstName} ${middleName} ${lastName}`;
-        row.cells[2].textContent = genderID;
-        row.cells[3].textContent = departmentCode;
-      }
-    }
+const genderMap = {
+  <?php foreach ($genders as $gender) { ?>
+    '<?php echo $gender['genderID']; ?>': '<?php echo $gender['genderName']; ?>',
+  <?php } ?>
+};
+
+const departmentMap = {
+  <?php foreach ($departments as $department) { ?>
+    '<?php echo $department['departmentCode']; ?>': '<?php echo $department['departmentName']; ?>',
+  <?php } ?>
+};
+
+function updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode) {
+  const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
+  if (row) {
+    row.cells[1].textContent = `${firstName} ${middleName} ${lastName}`;
+    row.cells[2].textContent = genderMap[genderID];
+    row.cells[3].textContent = departmentMap[departmentCode];
+  }
+}
 
     function deleteProfile() {
       var profileID = document.getElementById('deleteProfileID').value;
@@ -376,11 +457,88 @@ $profiles_result = mysqli_query($conn, $profiles_query);
         }
       }
     }
+
+function openEditLawModal(lawID) {
+    $('#editLawModal').modal('show');
+
+    // Fetch law data
+    fetch(`fetch_law.php?lawID=${lawID}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('editLawID').value = data.id;
+            document.getElementById('editLawEmail').value = data.email;
+        });
+}
+
+function openDeleteLawModal(lawID) {
+    $('#deleteLawModal').modal('show');
+    document.getElementById('deleteLawID').value = lawID;
+}
+
+function updateLawEntry() {
+    var lawID = document.getElementById('editLawID').value;
+    var email = document.getElementById('editLawEmail').value;
+
+    fetch('update_law.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            lawID,
+            email
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.success);
+            updateLawTableRow(lawID, email);
+            $('#editLawModal').modal('hide');
+        } else {
+            alert(data.error);
+        }
+    });
+}
+
+function deleteLawEntry() {
+    var lawID = document.getElementById('deleteLawID').value;
+
+    fetch('delete_law.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            lawID
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.success);
+            removeLawTableRow(lawID);
+            $('#deleteLawModal').modal('hide');
+        } else {
+            alert(data.error);
+        }
+    });
+}
+
+function updateLawTableRow(lawID, email) {
+    const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
+    if (row) {
+        row.cells[1].textContent = email;
+    }
+}
+
+function removeLawTableRow(lawID) {
+    const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
+    if (row) {
+        row.remove();
+    }
+}
   </script>
 </body>
 
 </html>
-
-<?php
-mysqli_close($conn);
-?>
