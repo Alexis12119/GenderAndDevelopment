@@ -104,19 +104,41 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     .modal-footer .btn-primary {
       background-color: #007bff;
     }
+        .sidebar {
+            /* Keep the sidebar collapsed by default */
+            width: 0;
+            overflow-x: hidden;
+            transition: width 0.5s;
+        }
+
+        .sidebar.open {
+            width: 250px; /* Set the width when sidebar is open */
+        }
+
+        /* Main content styles */
+        .main {
+            /* Adjust the margin to accommodate the sidebar */
+            margin-left: 0;
+            transition: margin-left 0.5s;
+        }
+
+        .main.shift {
+            margin-left: 250px; /* Shift the main content when sidebar is open */
+        }
   </style>
 </head>
 
 <body>
   <!-- Sidebar -->
-  <div class="sidebar">
+  <div id="sidebar" class="sidebar">
     <a href="#" onclick="showTable('profiles')">Profiles Table</a>
     <a href="#" onclick="showTable('law')">Law Table</a>
     <a href="login.php" style="background: linear-gradient(to right, #091379, #a41e8d);">Logout</a>
   </div>
 
   <!-- Main content -->
-  <div class="main">
+  <div id="mainContent" class="main">
+        <button onclick="toggleSidebar()">Open/Close</button>
     <h1>Welcome to the Dashboard, <?php echo $_SESSION['username']; ?>!</h1>
 
     <!-- Profiles Table -->
@@ -539,6 +561,19 @@ function removeLawTableRow(lawID) {
     }
 }
   </script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('mainContent');
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                mainContent.classList.remove('shift');
+            } else {
+                sidebar.classList.add('open');
+                mainContent.classList.add('shift');
+            }
+        }
+    </script>
 </body>
 
 </html>
