@@ -356,7 +356,6 @@ while ($row = mysqli_fetch_assoc($department_result)) {
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="../assets/js/scripts.js"></script>
   <script>
     function openSidebar() {
       document.getElementById("sidebar").classList.add("open");
@@ -394,7 +393,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       $('#editLawModal').modal('show');
 
       // Fetch law data
-      fetch(`fetch_law.php?lawID=${lawID}`)
+      fetch(`../utils/fetch_law.php?lawID=${lawID}`)
         .then(response => response.json())
         .then(data => {
           document.getElementById('editLawID').value = data.id;
@@ -414,7 +413,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       var lawID = document.getElementById('editLawID').value;
       var email = document.getElementById('editLawEmail').value;
 
-      fetch('update_law.php', {
+      fetch('../utils/update_law.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -444,7 +443,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     function deleteLawEntry() {
       var lawID = document.getElementById('deleteLawID').value;
 
-      fetch('delete_law.php', {
+      fetch('../utils/delete_law.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -500,7 +499,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       const departmentCode = document.getElementById('editDepartment').value;
 
       $.ajax({
-        url: 'update_profile.php',
+        url: '../utils/update_profile.php',
         method: 'POST',
         data: {
           id,
@@ -591,7 +590,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     function deleteProfile() {
       var profileID = document.getElementById('deleteProfileID').value;
 
-      fetch('delete_profile.php', {
+      fetch('../utils/delete_profile.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -650,7 +649,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       var genderID = document.getElementById('editGenderID').value;
       var departmentCode = document.getElementById('editDepartmentCode').value;
 
-      fetch('update_profile.php', {
+      fetch('../utils/update_profile.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -681,7 +680,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       $(modal).modal('show');
 
       // Fetch profile data
-      fetch(`fetch_profile.php?profileID=${profileID}`)
+      fetch(`../utils/fetch_profile.php?profileID=${profileID}`)
         .then(response => response.json())
         .then(data => {
           document.getElementById('editProfileID').value = data.profileID;

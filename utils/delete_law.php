@@ -1,5 +1,5 @@
 <?php
-include '../utils/config.php';
+include '../utils/delete_profile.php';
 
 $lawID = $_POST['lawID'];
 
