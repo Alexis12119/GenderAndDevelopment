@@ -12,16 +12,15 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    body {
-      background-color: #f8f9fa;
-    }
-
     .login-container {
       margin-top: 100px;
     }
 
     .login-form {
-      background-color: #fff;
+      background: linear-gradient(to right,
+          #6c5ce7,
+          #a44cf2);
+      /* Gradient background for buttons */
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -52,7 +51,11 @@
       width: 100%;
       padding: 10px;
       border-radius: 5px;
-      background-color: #6c5ce7;
+      background: linear-gradient(to right,
+          #091379,
+          #a41e8d);
+      /* Darker gradient on hover */
+
       color: #fff;
       font-weight: 600;
       border: none;
@@ -69,7 +72,7 @@
     }
 
     .login-form .btn-back a {
-      color: #6c757d;
+      color: #fff;
       text-decoration: none;
     }
 
