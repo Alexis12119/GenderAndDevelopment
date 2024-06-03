@@ -442,24 +442,28 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     }
 
     function deleteLawEntry() {
-      const id = document.getElementById('deleteLawID').value;
+      var lawID = document.getElementById('deleteLawID').value;
 
-      $.ajax({
-        url: 'delete_law.php',
-        method: 'POST',
-        data: {
-          id
-        },
-        success: function(response) {
-          if (response.success) {
-            location.reload();
+      fetch('delete_law.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            lawID
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            removeLawTableRow(lawID);
+            $('#deleteLawModal').modal('hide');
           } else {
-            alert('Error deleting entry');
+            alert(data.error);
           }
-        }
-      });
+        });
     }
-
 
     function updateLawTableRow(lawID, email) {
       const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
@@ -517,25 +521,6 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     function openDeleteModal(modalId, id) {
       document.getElementById('deleteProfileID').value = id;
       $(`#${modalId}`).modal('show');
-    }
-
-    function deleteProfile() {
-      const id = document.getElementById('deleteProfileID').value;
-
-      $.ajax({
-        url: 'delete_profile.php',
-        method: 'POST',
-        data: {
-          id
-        },
-        success: function(response) {
-          if (response.success) {
-            location.reload();
-          } else {
-            alert('Error deleting profile');
-          }
-        }
-      });
     }
 
     function getOptionValueByText(selectId, text) {
