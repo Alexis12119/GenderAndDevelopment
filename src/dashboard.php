@@ -80,7 +80,8 @@ include 'tables.php';
     }
 
     .modal-header {
-      background-color: #007bff;
+      background: #8f6dd1;
+      border-color: #5b48a2;
       color: white;
     }
 
