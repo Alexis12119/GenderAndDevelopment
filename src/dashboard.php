@@ -1,43 +1,5 @@
 <?php
-session_start();
-
-// Check if user is logged in, if not, redirect to login page
-if (!isset($_SESSION['username'])) {
-  header("Location: login.php");
-  exit();
-}
-
-// Include database connection
-include '../utils/config.php';
-
-// Retrieve data from the 'law' table
-$law_query = "SELECT law.id, law.email, law.totalScore, lawname.lawName 
-              FROM law 
-              INNER JOIN lawname ON law.lawCode = lawname.lawCode";
-$law_result = mysqli_query($conn, $law_query);
-
-// Retrieve data from the 'profiles' table
-$profiles_query = "SELECT profiles.profileID, CONCAT(profiles.firstName, ' ', profiles.middleName, ' ', profiles.lastName) AS `FullName`, gender.genderName, department.departmentName 
-                   FROM profiles 
-                   INNER JOIN gender ON profiles.genderID = gender.genderID 
-                   INNER JOIN department ON profiles.departmentCode = department.departmentCode";
-$profiles_result = mysqli_query($conn, $profiles_query);
-
-// Retrieve gender data
-$gender_query = "SELECT genderID, genderName FROM gender";
-$gender_result = mysqli_query($conn, $gender_query);
-$genders = [];
-while ($row = mysqli_fetch_assoc($gender_result)) {
-  $genders[] = $row;
-}
-
-// Retrieve department data
-$department_query = "SELECT departmentCode, departmentName FROM department";
-$department_result = mysqli_query($conn, $department_query);
-$departments = [];
-while ($row = mysqli_fetch_assoc($department_result)) {
-  $departments[] = $row;
-}
+include 'tables.php';
 ?>
 
 <!DOCTYPE html>
@@ -117,7 +79,6 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       display: block;
     }
 
-    /* Custom Modal Styles */
     .modal-header {
       background-color: #007bff;
       color: white;
@@ -352,6 +313,45 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     </div>
   </div>
 
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Action completed successfully!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Modal -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>There was an error completing the action.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Bootstrap JS + jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -426,11 +426,11 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert(data.success);
+            $('#successModal').modal('show');
             updateLawTableRow(lawID, email);
             $('#editLawModal').modal('hide');
           } else {
-            alert(data.error);
+            $('#errorModal').modal('show');
           }
         });
     }
@@ -455,11 +455,11 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert(data.success);
+            $('#successModal').modal('show');
             removeLawTableRow(lawID);
             $('#deleteLawModal').modal('hide');
           } else {
-            alert(data.error);
+            $('#errorModal').modal('show');
           }
         });
     }
@@ -509,9 +509,10 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         },
         success: function(response) {
           if (response.success) {
+            $('#successModal').modal('show');
             location.reload();
           } else {
-            alert('Error updating profile');
+            $('#errorModal').modal('show');
           }
         }
       });
@@ -602,11 +603,12 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert(data.success);
+            $('#successModal').modal('show');
             removeTableRow(profileID);
             closeModal('deleteProfileModal');
           } else {
             alert(data.error);
+            $('#errorModal').modal('show');
           }
         });
     }
@@ -666,11 +668,11 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert(data.success);
+            $('#successModal').modal('show');
             updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode);
             closeModal('editProfileModal');
           } else {
-            alert(data.error);
+            $('#errorsModal').modal('show');
           }
         });
     }
