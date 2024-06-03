@@ -18,12 +18,10 @@
   <style>
     .navbar-dark .navbar-nav .nav-link {
       color: rgba(255, 255, 255, 0.5);
-      /* Normal color */
     }
 
     .navbar-dark .navbar-nav .nav-link:hover {
       color: #fff;
-      /* Hover color */
     }
 
     .navbar-dark .navbar-nav .nav-item.active .nav-link {
@@ -105,8 +103,8 @@
           <li class="nav-item" id="contactNavItem">
             <a class="nav-link text-center" href="#contact">Contact</a>
           </li>
-          <li class="nav-item" style="background: linear-gradient(to right, #091379, #a41e8d);">
-            <a class="nav-link btn btn-primary text-center" href="src/login.php">Login</a>
+          <li class="nav-item" id="loginNavItem">
+            <a class="nav-link  btn-primary text-center text-white px-3 py-2" href="src/login.php">Login</a>
           </li>
         </ul>
       </div>

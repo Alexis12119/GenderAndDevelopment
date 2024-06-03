@@ -50,10 +50,14 @@ while ($row = mysqli_fetch_assoc($department_result)) {
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <link rel="stylesheet" href="../assets/css/styles.css" />
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Dashboard</title>
   <style>
     body {
       font-family: 'Popper', sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
     .sidebar {
@@ -62,10 +66,11 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       position: fixed;
       top: 0;
       left: 0;
-      background-color: #111;
+      background: linear-gradient(to bottom, #091379, #a41e8d);
       padding-top: 20px;
       overflow-x: hidden;
       transition: width 0.5s;
+      z-index: 1000;
     }
 
     .sidebar.open {
@@ -73,16 +78,25 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     }
 
     .sidebar a {
-      padding: 15px;
+      padding: 15px 25px;
       text-decoration: none;
       font-size: 18px;
       color: white;
-      display: block;
+      display: flex;
+      align-items: center;
       transition: background-color 0.3s;
     }
 
+    .sidebar a i {
+      margin-right: 10px;
+    }
+
     .sidebar a:hover {
-      background-color: #575757;
+      background: linear-gradient(to right,
+          #070b5c,
+          #830f6f);
+      /* Darker gradient on hover */
+
     }
 
     .main {
@@ -151,7 +165,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     <div class="sidebar-borderline"></div>
     <a href="#" onclick="showTable('profiles')">Profiles Table</a>
     <a href="#" onclick="showTable('law')">Law Table</a>
-    <a href="login.php" style="background: linear-gradient(to right, #091379, #a41e8d);">Logout</a>
+    <a href="login.php">Logout</a>
   </div>
 
   <!-- Main content -->
