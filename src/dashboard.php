@@ -28,7 +28,7 @@ $gender_query = "SELECT genderID, genderName FROM gender";
 $gender_result = mysqli_query($conn, $gender_query);
 $genders = [];
 while ($row = mysqli_fetch_assoc($gender_result)) {
-    $genders[] = $row;
+  $genders[] = $row;
 }
 
 // Retrieve department data
@@ -36,7 +36,7 @@ $department_query = "SELECT departmentCode, departmentName FROM department";
 $department_result = mysqli_query($conn, $department_query);
 $departments = [];
 while ($row = mysqli_fetch_assoc($department_result)) {
-    $departments[] = $row;
+  $departments[] = $row;
 }
 ?>
 
@@ -58,12 +58,18 @@ while ($row = mysqli_fetch_assoc($department_result)) {
 
     .sidebar {
       height: 100%;
-      width: 250px;
+      width: 0;
       position: fixed;
       top: 0;
       left: 0;
       background-color: #111;
       padding-top: 20px;
+      overflow-x: hidden;
+      transition: width 0.5s;
+    }
+
+    .sidebar.open {
+      width: 250px;
     }
 
     .sidebar a {
@@ -72,6 +78,7 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       font-size: 18px;
       color: white;
       display: block;
+      transition: background-color 0.3s;
     }
 
     .sidebar a:hover {
@@ -79,8 +86,13 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     }
 
     .main {
-      margin-left: 260px;
+      margin-left: 0;
       padding: 20px;
+      transition: margin-left 0.5s;
+    }
+
+    .main.shift {
+      margin-left: 250px;
     }
 
     .table-section {
@@ -104,33 +116,39 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     .modal-footer .btn-primary {
       background-color: #007bff;
     }
-        .sidebar {
-            /* Keep the sidebar collapsed by default */
-            width: 0;
-            overflow-x: hidden;
-            transition: width 0.5s;
-        }
 
-        .sidebar.open {
-            width: 250px; /* Set the width when sidebar is open */
-        }
+    .hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1;
+    }
 
-        /* Main content styles */
-        .main {
-            /* Adjust the margin to accommodate the sidebar */
-            margin-left: 0;
-            transition: margin-left 0.5s;
-        }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
 
-        .main.shift {
-            margin-left: 250px; /* Shift the main content when sidebar is open */
-        }
+    .search-container input[type="text"] {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
   </style>
 </head>
 
 <body>
+  <!-- Hover Zone to trigger sidebar -->
+  <div class="hover-zone" onmouseover="openSidebar()"></div>
+
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
+    <div class="sidebar-borderline"></div>
     <a href="#" onclick="showTable('profiles')">Profiles Table</a>
     <a href="#" onclick="showTable('law')">Law Table</a>
     <a href="login.php" style="background: linear-gradient(to right, #091379, #a41e8d);">Logout</a>
@@ -138,12 +156,10 @@ while ($row = mysqli_fetch_assoc($department_result)) {
 
   <!-- Main content -->
   <div id="mainContent" class="main">
-        <button onclick="toggleSidebar()">Open/Close</button>
-    <h1>Welcome to the Dashboard, <?php echo $_SESSION['username']; ?>!</h1>
 
     <!-- Profiles Table -->
     <section id="profiles" class="table-section">
-      <h2>Profiles Table</h2>
+      <h2 class="text-center" style="color: black">Profiles Table</h2>
       <div class="search-container">
         <input type="text" id="profilesSearchInput" onkeyup="searchTable('profiles', 'profilesSearchInput')" placeholder="Search for names..">
       </div>
@@ -176,136 +192,124 @@ while ($row = mysqli_fetch_assoc($department_result)) {
       </table>
     </section>
 
-<!-- Law Table -->
-<section id="law" class="table-section">
-    <h2>Law Table</h2>
-    <div class="search-container">
+    <!-- Law Table -->
+    <section id="law" class="table-section">
+      <h2 class="text-center" style="color: black">Law Table</h2>
+      <div class="search-container">
         <input type="text" id="lawSearchInput" onkeyup="searchTable('law', 'lawSearchInput')" placeholder="Search for names..">
-    </div>
-    <table id="lawTable" class="table table-striped">
+      </div>
+      <table id="lawTable" class="table table-striped">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Total Score</th>
-                <th>Law Name</th>
-                <th>Action</th>
-            </tr>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Total Score</th>
+            <th>Law Name</th>
+            <th>Action</th>
+          </tr>
         </thead>
         <tbody>
-            <?php
-            while ($row = mysqli_fetch_assoc($law_result)) {
-                echo "<tr data-id='{$row['id']}'>";
-                echo "<td>{$row['id']}</td>";
-                echo "<td>{$row['email']}</td>";
-                echo "<td>{$row['totalScore']}</td>";
-                echo "<td>{$row['lawName']}</td>";
-                echo "<td>
+          <?php
+          while ($row = mysqli_fetch_assoc($law_result)) {
+            echo "<tr data-id='{$row['id']}'>";
+            echo "<td>{$row['id']}</td>";
+            echo "<td>{$row['email']}</td>";
+            echo "<td>{$row['totalScore']}</td>";
+            echo "<td>{$row['lawName']}</td>";
+            echo "<td>
                     <button onclick='openEditLawModal({$row['id']})' class='btn btn-primary'>Edit</button> | 
                     <button onclick='openDeleteLawModal({$row['id']})' class='btn btn-danger'>Delete</button>
                 </td>";
-                echo "</tr>";
-            }
-            ?>
+            echo "</tr>";
+          }
+          ?>
         </tbody>
-    </table>
-</section>
-
+      </table>
+    </section>
   </div>
 
-<!-- Edit Law Modal -->
-<div class="modal fade" id="editLawModal" tabindex="-1" aria-labelledby="editLawModalLabel" aria-hidden="true">
+  <!-- Edit Law Modal -->
+  <div class="modal fade" id="editLawModal" tabindex="-1" aria-labelledby="editLawModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editLawModalLabel">Edit Law Entry</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form onsubmit="event.preventDefault(); updateLawEntry();">
-                    <input type="hidden" id="editLawID">
-                    <div class="form-group">
-                        <label for="editLawEmail">Email:</label>
-                        <input type="email" id="editLawEmail" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editLawModalLabel">Edit Law Entry</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <form onsubmit="event.preventDefault(); updateLawEntry();">
+            <input type="hidden" id="editLawID">
+            <div class="form-group">
+              <label for="editLawEmail">Email:</label>
+              <input type="email" id="editLawEmail" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Delete Law Modal -->
-<div class="modal fade" id="deleteLawModal" tabindex="-1" aria-labelledby="deleteLawModalLabel" aria-hidden="true">
+  <!-- Delete Law Modal -->
+  <div class="modal fade" id="deleteLawModal" tabindex="-1" aria-labelledby="deleteLawModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteLawModalLabel">Delete Law Entry</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete this law entry?</p>
-                <input type="hidden" id="deleteLawID">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button onclick="deleteLawEntry()" class="btn btn-danger">Delete</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteLawModalLabel">Delete Law Entry</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this law entry?</p>
+          <input type="hidden" id="deleteLawID">
+          <button type="button" class="btn btn-danger" onclick="deleteLawEntry()">Delete</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<!-- Edit Profile Modal -->
-<div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+  <!-- Edit Profile Modal -->
+  <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form onsubmit="event.preventDefault(); updateProfile();">
-                    <input type="hidden" id="editProfileID">
-                    <div class="form-group">
-                        <label for="editFirstName">First Name:</label>
-                        <input type="text" id="editFirstName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editMiddleName">Middle Name:</label>
-                        <input type="text" id="editMiddleName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editLastName">Last Name:</label>
-                        <input type="text" id="editLastName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="editGenderID">Gender:</label>
-                        <select id="editGenderID" class="form-control" required>
-                            <?php foreach ($genders as $gender): ?>
-                                <option value="<?php echo $gender['genderID']; ?>"><?php echo $gender['genderName']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="editDepartmentCode">Department:</label>
-                        <select id="editDepartmentCode" class="form-control" required>
-                            <?php foreach ($departments as $department): ?>
-                                <option value="<?php echo $department['departmentCode']; ?>"><?php echo $department['departmentName']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <form onsubmit="event.preventDefault(); updateProfile();">
+            <input type="hidden" id="editProfileID">
+            <div class="form-group">
+              <label for="editFullName">Full Name:</label>
+              <input type="text" id="editFullName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editGender">Gender:</label>
+              <select id="editGender" class="form-control" required>
+                <?php foreach ($genders as $gender) : ?>
+                  <option value="<?php echo $gender['genderID']; ?>"><?php echo $gender['genderName']; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="editDepartment">Department:</label>
+              <select id="editDepartment" class="form-control" required>
+                <?php foreach ($departments as $department) : ?>
+                  <option value="<?php echo $department['departmentCode']; ?>"><?php echo $department['departmentName']; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
   <!-- Delete Profile Modal -->
   <div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-labelledby="deleteProfileModalLabel" aria-hidden="true">
@@ -320,142 +324,26 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         <div class="modal-body">
           <p>Are you sure you want to delete this profile?</p>
           <input type="hidden" id="deleteProfileID">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button onclick="deleteProfile()" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-danger" onclick="deleteProfile()">Delete</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap JS and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <!-- Bootstrap JS + jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../assets/js/scripts.js"></script>
   <script>
-    function openEditModal(modalId, profileID) {
-      var modal = document.getElementById(modalId);
-      $(modal).modal('show');
-
-      // Fetch profile data
-      fetch(`fetch_profile.php?profileID=${profileID}`)
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('editProfileID').value = data.profileID;
-          document.getElementById('editFirstName').value = data.firstName;
-          document.getElementById('editMiddleName').value = data.middleName;
-          document.getElementById('editLastName').value = data.lastName;
-          document.getElementById('editGenderID').value = data.genderID;
-          document.getElementById('editDepartmentCode').value = data.departmentCode;
-        });
+    function openSidebar() {
+      document.getElementById("sidebar").classList.add("open");
+      document.getElementById("mainContent").classList.add("shift");
     }
 
-    function openDeleteModal(modalId, profileID) {
-      var modal = document.getElementById(modalId);
-      $(modal).modal('show');
-      document.getElementById('deleteProfileID').value = profileID;
-    }
-
-    function closeModal(modalId) {
-      var modal = document.getElementById(modalId);
-      $(modal).modal('hide');
-    }
-
-    function updateProfile() {
-      var profileID = document.getElementById('editProfileID').value;
-      var firstName = document.getElementById('editFirstName').value;
-      var middleName = document.getElementById('editMiddleName').value;
-      var lastName = document.getElementById('editLastName').value;
-      var genderID = document.getElementById('editGenderID').value;
-      var departmentCode = document.getElementById('editDepartmentCode').value;
-
-      fetch('update_profile.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({
-            profileID,
-            firstName,
-            middleName,
-            lastName,
-            genderID,
-            departmentCode
-          })
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            alert(data.success);
-            updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode);
-            closeModal('editProfileModal');
-          } else {
-            alert(data.error);
-          }
-        });
-    }
-
-const genderMap = {
-  <?php foreach ($genders as $gender) { ?>
-    '<?php echo $gender['genderID']; ?>': '<?php echo $gender['genderName']; ?>',
-  <?php } ?>
-};
-
-const departmentMap = {
-  <?php foreach ($departments as $department) { ?>
-    '<?php echo $department['departmentCode']; ?>': '<?php echo $department['departmentName']; ?>',
-  <?php } ?>
-};
-
-function updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode) {
-  const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
-  if (row) {
-    row.cells[1].textContent = `${firstName} ${middleName} ${lastName}`;
-    row.cells[2].textContent = genderMap[genderID];
-    row.cells[3].textContent = departmentMap[departmentCode];
-  }
-}
-
-    function deleteProfile() {
-      var profileID = document.getElementById('deleteProfileID').value;
-
-      fetch('delete_profile.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams({
-            profileID
-          })
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            alert(data.success);
-            removeTableRow(profileID);
-            closeModal('deleteProfileModal');
-          } else {
-            alert(data.error);
-          }
-        });
-    }
-
-    function removeTableRow(profileID) {
-      const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
-      if (row) {
-        row.remove();
-      }
-    }
-
-    function showTable(tableId) {
-      // Hide all table sections
-      var sections = document.querySelectorAll('.table-section');
-      sections.forEach(section => section.classList.remove('active'));
-
-      // Show the selected table section
-      var selectedSection = document.getElementById(tableId);
-      selectedSection.classList.add('active');
+    function closeSidebar() {
+      document.getElementById("sidebar").classList.remove("open");
+      document.getElementById("mainContent").classList.remove("shift");
     }
 
     function searchTable(tableId, inputId) {
@@ -480,134 +368,199 @@ function updateTableRow(profileID, firstName, middleName, lastName, genderID, de
       }
     }
 
-function openEditLawModal(lawID) {
-    $('#editLawModal').modal('show');
+    function openEditLawModal(lawID) {
+      $('#editLawModal').modal('show');
 
-    // Fetch law data
-    fetch(`fetch_law.php?lawID=${lawID}`)
+      // Fetch law data
+      fetch(`fetch_law.php?lawID=${lawID}`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('editLawID').value = data.id;
-            document.getElementById('editLawEmail').value = data.email;
+          document.getElementById('editLawID').value = data.id;
+          document.getElementById('editLawEmail').value = data.email;
         });
-}
+    }
 
-function openDeleteLawModal(lawID) {
-    $('#deleteLawModal').modal('show');
-    document.getElementById('deleteLawID').value = lawID;
-}
+    function openEditLawModal(id) {
+      const row = document.querySelector(`#lawTable tr[data-id="${id}"]`);
+      const email = row.children[1].innerText;
+      document.getElementById('editLawID').value = id;
+      document.getElementById('editLawEmail').value = email;
+      $('#editLawModal').modal('show');
+    }
 
-function updateLawEntry() {
-    var lawID = document.getElementById('editLawID').value;
-    var email = document.getElementById('editLawEmail').value;
+    function updateLawEntry() {
+      const id = document.getElementById('editLawID').value;
+      const email = document.getElementById('editLawEmail').value;
 
-    fetch('update_law.php', {
+      $.ajax({
+        url: 'update_law.php',
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+        data: {
+          id,
+          email
         },
-        body: new URLSearchParams({
-            lawID,
-            email
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(data.success);
-            updateLawTableRow(lawID, email);
-            $('#editLawModal').modal('hide');
-        } else {
-            alert(data.error);
+        success: function(response) {
+          if (response.success) {
+            location.reload();
+          } else {
+            alert('Error updating entry');
+          }
         }
-    });
-}
+      });
+    }
 
-function deleteLawEntry() {
-    var lawID = document.getElementById('deleteLawID').value;
+    function openDeleteLawModal(id) {
+      document.getElementById('deleteLawID').value = id;
+      $('#deleteLawModal').modal('show');
+    }
 
-    fetch('delete_law.php', {
+    function deleteLawEntry() {
+      const id = document.getElementById('deleteLawID').value;
+
+      $.ajax({
+        url: 'delete_law.php',
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+        data: {
+          id
         },
-        body: new URLSearchParams({
-            lawID
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(data.success);
-            removeLawTableRow(lawID);
-            $('#deleteLawModal').modal('hide');
-        } else {
-            alert(data.error);
+        success: function(response) {
+          if (response.success) {
+            location.reload();
+          } else {
+            alert('Error deleting entry');
+          }
         }
+      });
+    }
+
+    function openEditModal(modalId, id) {
+      const row = document.querySelector(`#profilesTable tr[data-id="${id}"]`);
+      const fullName = row.children[1].innerText;
+      const gender = row.children[2].innerText;
+      const department = row.children[3].innerText;
+
+      document.getElementById('editProfileID').value = id;
+      document.getElementById('editFullName').value = fullName;
+      document.getElementById('editGender').value = getOptionValueByText('editGender', gender);
+      document.getElementById('editDepartment').value = getOptionValueByText('editDepartment', department);
+
+      $(`#${modalId}`).modal('show');
+    }
+
+    function updateProfile() {
+      const id = document.getElementById('editProfileID').value;
+      const fullName = document.getElementById('editFullName').value;
+      const genderID = document.getElementById('editGender').value;
+      const departmentCode = document.getElementById('editDepartment').value;
+
+      $.ajax({
+        url: 'update_profile.php',
+        method: 'POST',
+        data: {
+          id,
+          fullName,
+          genderID,
+          departmentCode
+        },
+        success: function(response) {
+          if (response.success) {
+            location.reload();
+          } else {
+            alert('Error updating profile');
+          }
+        }
+      });
+    }
+
+    function openDeleteModal(modalId, id) {
+      document.getElementById('deleteProfileID').value = id;
+      $(`#${modalId}`).modal('show');
+    }
+
+    function deleteProfile() {
+      const id = document.getElementById('deleteProfileID').value;
+
+      $.ajax({
+        url: 'delete_profile.php',
+        method: 'POST',
+        data: {
+          id
+        },
+        success: function(response) {
+          if (response.success) {
+            location.reload();
+          } else {
+            alert('Error deleting profile');
+          }
+        }
+      });
+    }
+
+    function getOptionValueByText(selectId, text) {
+      const options = document.getElementById(selectId).options;
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].text === text) {
+          return options[i].value;
+        }
+      }
+      return null;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const lastActiveSection = localStorage.getItem('lastActiveSection');
+      if (lastActiveSection) {
+        showTable(lastActiveSection);
+      } else {
+        showTable('profiles'); // Default to 'profiles' section if no section is stored
+      }
     });
-}
 
-function updateLawTableRow(lawID, email) {
-    const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
-    if (row) {
-        row.cells[1].textContent = email;
-    }
-}
-
-function removeLawTableRow(lawID) {
-    const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
-    if (row) {
-        row.remove();
-    }
-}
-  </script>
-    <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById('sidebar');
-            var mainContent = document.getElementById('mainContent');
-            if (sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-                mainContent.classList.remove('shift');
-            } else {
-                sidebar.classList.add('open');
-                mainContent.classList.add('shift');
-            }
-        }
-    </script>
-
-<script>
-    // Store the active section in session storage
-    function setActiveSection(sectionId) {
-        sessionStorage.setItem('activeSection', sectionId);
-    }
-
-    // Retrieve the active section from session storage
-    function getActiveSection() {
-        return sessionStorage.getItem('activeSection');
-    }
-
-    // Function to show the table section and store the active section
     function showTable(tableId) {
-        // Hide all table sections
-        var sections = document.querySelectorAll('.table-section');
-        sections.forEach(section => section.classList.remove('active'));
-
-        // Show the selected table section
-        var selectedSection = document.getElementById(tableId);
-        selectedSection.classList.add('active');
-
-        // Store the active section in session storage
-        setActiveSection(tableId);
+      const sections = document.querySelectorAll('.table-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(tableId).classList.add('active');
+      localStorage.setItem('lastActiveSection', tableId);
     }
 
-    // Function to set the active section on page load
-    window.onload = function() {
-        var activeSection = getActiveSection();
-        if (activeSection) {
-            showTable(activeSection);
+    document.addEventListener('click', function(event) {
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.getElementById('mainContent');
+      if (!sidebar.contains(event.target) && !mainContent.contains(event.target)) {
+        closeSidebar();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarBorderline = document.querySelector('.sidebar-borderline');
+
+      sidebarBorderline.addEventListener('mouseenter', function() {
+        openSidebar();
+      });
+
+      sidebar.addEventListener('mouseleave', function(event) {
+        if (!isMouseOverBorderline(event)) {
+          closeSidebar();
         }
-    };
-</script>
+      });
+    });
+
+    function isMouseOverBorderline(event) {
+      const sidebarBorderline = document.querySelector('.sidebar-borderline');
+      const bounding = sidebarBorderline.getBoundingClientRect();
+      const mouseX = event.clientX;
+      const mouseY = event.clientY;
+
+      return (
+        mouseX >= bounding.left &&
+        mouseX <= bounding.right &&
+        mouseY >= bounding.top &&
+        mouseY <= bounding.bottom
+      );
+    }
+  </script>
 </body>
 
 </html>
