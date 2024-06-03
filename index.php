@@ -75,7 +75,7 @@
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
       <!-- Flex container to align logo and text -->
       <div class="d-flex align-items-center">
