@@ -285,20 +285,28 @@ while ($row = mysqli_fetch_assoc($department_result)) {
           <form onsubmit="event.preventDefault(); updateProfile();">
             <input type="hidden" id="editProfileID">
             <div class="form-group">
-              <label for="editFullName">Full Name:</label>
-              <input type="text" id="editFullName" class="form-control" required>
+              <label for="editFirstName">First Name:</label>
+              <input type="text" id="editFirstName" class="form-control" required>
             </div>
             <div class="form-group">
-              <label for="editGender">Gender:</label>
-              <select id="editGender" class="form-control" required>
+              <label for="editMiddleName">Middle Name:</label>
+              <input type="text" id="editMiddleName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editLastName">Last Name:</label>
+              <input type="text" id="editLastName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="editGenderID">Gender:</label>
+              <select id="editGenderID" class="form-control" required>
                 <?php foreach ($genders as $gender) : ?>
                   <option value="<?php echo $gender['genderID']; ?>"><?php echo $gender['genderName']; ?></option>
                 <?php endforeach; ?>
               </select>
             </div>
             <div class="form-group">
-              <label for="editDepartment">Department:</label>
-              <select id="editDepartment" class="form-control" required>
+              <label for="editDepartmentCode">Department:</label>
+              <select id="editDepartmentCode" class="form-control" required>
                 <?php foreach ($departments as $department) : ?>
                   <option value="<?php echo $department['departmentCode']; ?>"><?php echo $department['departmentName']; ?></option>
                 <?php endforeach; ?>
@@ -389,24 +397,29 @@ while ($row = mysqli_fetch_assoc($department_result)) {
     }
 
     function updateLawEntry() {
-      const id = document.getElementById('editLawID').value;
-      const email = document.getElementById('editLawEmail').value;
+      var lawID = document.getElementById('editLawID').value;
+      var email = document.getElementById('editLawEmail').value;
 
-      $.ajax({
-        url: 'update_law.php',
-        method: 'POST',
-        data: {
-          id,
-          email
-        },
-        success: function(response) {
-          if (response.success) {
-            location.reload();
+      fetch('update_law.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            lawID,
+            email
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            updateLawTableRow(lawID, email);
+            $('#editLawModal').modal('hide');
           } else {
-            alert('Error updating entry');
+            alert(data.error);
           }
-        }
-      });
+        });
     }
 
     function openDeleteLawModal(id) {
@@ -431,6 +444,21 @@ while ($row = mysqli_fetch_assoc($department_result)) {
           }
         }
       });
+    }
+
+
+    function updateLawTableRow(lawID, email) {
+      const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
+      if (row) {
+        row.cells[1].textContent = email;
+      }
+    }
+
+    function removeLawTableRow(lawID) {
+      const row = document.querySelector(`#lawTable tr[data-id='${lawID}']`);
+      if (row) {
+        row.remove();
+      }
     }
 
     function openEditModal(modalId, id) {
@@ -559,6 +587,111 @@ while ($row = mysqli_fetch_assoc($department_result)) {
         mouseY >= bounding.top &&
         mouseY <= bounding.bottom
       );
+    }
+
+    function deleteProfile() {
+      var profileID = document.getElementById('deleteProfileID').value;
+
+      fetch('delete_profile.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            profileID
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            removeTableRow(profileID);
+            closeModal('deleteProfileModal');
+          } else {
+            alert(data.error);
+          }
+        });
+    }
+
+    function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      $(modal).modal('hide');
+    }
+
+    function removeTableRow(profileID) {
+      const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
+      if (row) {
+        row.remove();
+      }
+    }
+    const genderMap = {
+      <?php foreach ($genders as $gender) { ?> '<?php echo $gender['genderID']; ?>': '<?php echo $gender['genderName']; ?>',
+      <?php } ?>
+    };
+
+    const departmentMap = {
+      <?php foreach ($departments as $department) { ?> '<?php echo $department['departmentCode']; ?>': '<?php echo $department['departmentName']; ?>',
+      <?php } ?>
+    };
+
+    function updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode) {
+      const row = document.querySelector(`#profilesTable tr[data-id='${profileID}']`);
+      if (row) {
+        row.cells[1].textContent = `${firstName} ${middleName} ${lastName}`;
+        row.cells[2].textContent = genderMap[genderID];
+        row.cells[3].textContent = departmentMap[departmentCode];
+      }
+    }
+
+    function updateProfile() {
+      var profileID = document.getElementById('editProfileID').value;
+      var firstName = document.getElementById('editFirstName').value;
+      var middleName = document.getElementById('editMiddleName').value;
+      var lastName = document.getElementById('editLastName').value;
+      var genderID = document.getElementById('editGenderID').value;
+      var departmentCode = document.getElementById('editDepartmentCode').value;
+
+      fetch('update_profile.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            profileID,
+            firstName,
+            middleName,
+            lastName,
+            genderID,
+            departmentCode
+          })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert(data.success);
+            updateTableRow(profileID, firstName, middleName, lastName, genderID, departmentCode);
+            closeModal('editProfileModal');
+          } else {
+            alert(data.error);
+          }
+        });
+    }
+
+    function openEditModal(modalId, profileID) {
+      var modal = document.getElementById(modalId);
+      $(modal).modal('show');
+
+      // Fetch profile data
+      fetch(`fetch_profile.php?profileID=${profileID}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('editProfileID').value = data.profileID;
+          document.getElementById('editFirstName').value = data.firstName;
+          document.getElementById('editMiddleName').value = data.middleName;
+          document.getElementById('editLastName').value = data.lastName;
+          document.getElementById('editGenderID').value = data.genderID;
+          document.getElementById('editDepartmentCode').value = data.departmentCode;
+        });
     }
   </script>
 </body>
