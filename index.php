@@ -103,8 +103,8 @@
           <li class="nav-item" id="contactNavItem">
             <a class="nav-link text-center" href="#contact">Contact</a>
           </li>
-          <li class="nav-item" id="loginNavItem">
-            <a class="nav-link  btn-primary text-center text-white px-3 py-2" href="src/login.php">Login</a>
+          <li class="nav-item btn-primary" id="loginNavItem">
+            <a class="nav-link text-center text-white px-3 py-2" href="src/login.php">Login</a>
           </li>
         </ul>
       </div>
