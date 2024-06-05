@@ -442,6 +442,7 @@
       }
     }
 
+
     // Function to fetch data from the database
     function fetchDataForChart(data) {
       // Extract the score ranges and counts
@@ -458,13 +459,14 @@
         counts: counts
       };
     }
+
     // Function to update the chart with fetched data
     function updateChart(surveyName, data) {
-      var data = fetchDataForChart(data);
+      var chartData = fetchDataForChart(data);
 
       // Define custom colors based on GAD score ranges
       var customColors = [];
-      data.level.forEach(function(range) {
+      chartData.level.forEach(function(range) {
         switch (range) {
           case 'Low':
             customColors.push('rgba(255, 99, 132, 0.5)');
@@ -479,9 +481,9 @@
       });
 
       var scoreData = {
-        labels: data.level,
+        labels: chartData.level,
         datasets: [{
-          data: data.counts,
+          data: chartData.counts,
           backgroundColor: customColors, // Use custom colors
           borderColor: customColors.map(color => color.replace('0.5', '1')), // Set border color to full opacity
           borderWidth: 1
@@ -572,7 +574,12 @@
       law11313: []
     };
 
-    var isChartAlreadyCreated = false
+    var isChartAlreadyCreated = {
+      law7877: false,
+      law9262: false,
+      law9710: false,
+      law11313: false
+    };
 
     // Function to fetch data from the server
     function fetchAndUpdateCharts() {
@@ -585,16 +592,15 @@
           Object.keys(response).forEach(function(lawCode) {
             var chartName = "law" + lawCode;
             if (hasDataChanged(previousData[chartName], response[lawCode])) {
-              updateChart(chartName, response[lawCode]);
               previousData[chartName] = response[lawCode];
-              isChartAlreadyCreated = false;
+              updateChart(chartName, response[lawCode]);
             }
-            if (isDataZero(previousData[chartName])) {
-              if (!isChartAlreadyCreated) {
+            if (isDataZero(response[lawCode])) {
+              if (!isChartAlreadyCreated[chartName]) {
                 createEmptyChart(chartName);
               }
             }
-            isChartAlreadyCreated = true;
+            isChartAlreadyCreated[chartName] = true;
           });
         },
         error: function(xhr, status, error) {
@@ -605,7 +611,7 @@
 
     // Function to check if the data is zero
     function isDataZero(data) {
-      return data.every(item => item.count === 0);
+      return data.length === 0 || data.every(item => item.count === 0);
     }
 
     // Function to check if data has changed
@@ -631,8 +637,6 @@
 
     // Set interval to fetch data and update charts every 5 seconds
     setInterval(fetchAndUpdateCharts, 5000);
-
-
     // Function to update the active state of navigation items
     function updateActiveNavItem(navItemId) {
       // Remove 'active' class from all nav items
