@@ -121,12 +121,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide" loading="lazy">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide">
+          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide" loading="lazy">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
@@ -155,7 +155,7 @@
               Anti-Sexual Harassment Act of 1995 (RA 7877)
             </h5>
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7R9VbCO1ck4?si=8PgPgSqzRfEAZwQQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7R9VbCO1ck4?si=8PgPgSqzRfEAZwQQ" title="YouTube video player" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="card-text flex-grow-1">
               This law aims to protect individuals from sexual harassment in
@@ -177,7 +177,7 @@
               Anti-Violence Against Women and their Children (RA 9262)
             </h5>
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ED9SvlGuJ2Y?si=o3KlLkdWntcpR7tU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ED9SvlGuJ2Y?si=o3KlLkdWntcpR7tU" title="YouTube video player" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="card-text flex-grow-1">
               This law provides protection for women and children from all
@@ -197,7 +197,7 @@
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Magna Carta for Women (RA 9710)</h5>
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SHcWcXroVnE?si=_c4eqcRSQzekI_DK" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SHcWcXroVnE?si=_c4eqcRSQzekI_DK" title="YouTube video player" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="card-text flex-grow-1">
               This law promotes the rights and welfare of women,
@@ -217,7 +217,7 @@
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">Safe Spaces Act (RA 11313)</h5>
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MoTfn0QT_dQ?si=X6k9tQ7Sd6sjE_cn" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MoTfn0QT_dQ?si=X6k9tQ7Sd6sjE_cn" title="YouTube video player" frameborder="0" allowfullscreen loading="lazy"></iframe>
             </div>
             <p class="card-text flex-grow-1">
               This law aims to prevent and address gender-based street and
@@ -320,7 +320,7 @@
         <!-- Profile cards -->
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/kevin.jpg" alt="Profile 3" class="img-fluid">
+            <img src="assets/img/profiles/kevin.jpg" alt="Profile 3" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Vince Kevin Comaya</h5>
               <p class="card-text">System Analyst</p>
@@ -330,7 +330,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/archie.jpg" alt="Profile 4" class="img-fluid">
+            <img src="assets/img/profiles/archie.jpg" alt="Profile 4" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Archie Nuque</h5>
               <p class="card-text">Database Administrator</p>
@@ -340,7 +340,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/alexis.jpg" alt="Profile 6" class="img-fluid">
+            <img src="assets/img/profiles/alexis.jpg" alt="Profile 6" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Alexis Corporal</h5>
               <p class="card-text">Programmer</p>
@@ -350,7 +350,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/daniel.jpg" alt="Profile 7" class="img-fluid">
+            <img src="assets/img/profiles/daniel.jpg" alt="Profile 7" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Daniel Mendoza</h5>
               <p class="card-text">UI/UX Designer</p>
@@ -360,7 +360,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/aldrin.jpg" alt="Profile 5" class="img-fluid">
+            <img src="assets/img/profiles/aldrin.jpg" alt="Profile 5" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Aldrin Porcioncula</h5>
               <p class="card-text">Documentation</p>
@@ -370,7 +370,7 @@
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/errol.jpg" alt="Profile 8" class="img-fluid">
+            <img src="assets/img/profiles/errol.jpg" alt="Profile 8" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Errol Arapan</h5>
               <p class="card-text">Documentation</p>
