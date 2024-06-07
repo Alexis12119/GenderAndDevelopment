@@ -114,10 +114,10 @@
   <!-- Carousel Section -->
   <section id="carousel" class="py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      </ol>
+      <!--<ol class="carousel-indicators">-->
+      <!--  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
+      <!--  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
+      <!--</ol>-->
       <div class="carousel-inner">
         <div class="carousel-item active">
           <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
@@ -125,20 +125,20 @@
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
-        <div class="carousel-item">
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide" loading="lazy">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
+        <!--<div class="carousel-item">-->
+        <!--  <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide" loading="lazy">-->
+        <!--  <div class="carousel-caption d-none d-md-block">-->
+        <!--  </div>-->
+        <!--</div>-->
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
+      <!--  <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+      <!--  <span class="sr-only">Previous</span>-->
+      <!--</a>-->
+      <!--<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
+      <!--  <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+      <!--  <span class="sr-only">Next</span>-->
+      <!--</a>-->
     </div>
   </section>
 
@@ -232,12 +232,12 @@
       </div>
 
       <!-- Profiling Survey -->
-      <div class="col-md-12 mb-4">
+      <div class="col-md-8 mb-4 mx-auto">
         <div class="card h-100">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title text-center">Profiling Survey</h5>
             <p class="card-text flex-grow-1">
-              This survey aims to gather demographic information, including gender, from respondents.
+              This survey aims to gather demographic information, including gender and college department, from respondents.
             </p>
             <button class="btn btn-primary font-size mt-auto" onclick="openSurvey('profiling')">
               Take Survey
