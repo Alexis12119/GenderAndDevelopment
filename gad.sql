@@ -24,7 +24,6 @@ CREATE TABLE IF NOT EXISTS `law` (
     email VARCHAR(255) NOT NULL,
     totalScore INT NOT NULL,
     lawCode INT NOT NULL,
-    createdTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time when the record is created',
     FOREIGN KEY (lawCode) REFERENCES lawname(lawCode)
 );
 
