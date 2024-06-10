@@ -158,8 +158,8 @@ include 'tables.php';
             echo "<td>{$row['genderName']}</td>";
             echo "<td>{$row['departmentName']}</td>";
             echo "<td>
-        <button onclick='openEditModal(\"editProfileModal\", {$row['profileID']})' class='btn btn-primary'>Edit</button> | 
-        <button onclick='openDeleteModal(\"deleteProfileModal\", {$row['profileID']})' class='btn btn-danger'>Delete</button>
+        <button onclick='openEditModal(\"editProfileModal\", {$row['profileID']})' class='btn btn-primary '>Edit</button>
+        <button onclick='openDeleteModal(\"deleteProfileModal\", {$row['profileID']})' class='btn btn-danger mt-auto'>Delete</button>
       </td>";
             echo "</tr>";
           }
@@ -193,7 +193,7 @@ include 'tables.php';
             echo "<td>{$row['totalScore']}</td>";
             echo "<td>{$row['lawName']}</td>";
             echo "<td>
-                    <button onclick='openEditLawModal({$row['id']})' class='btn btn-primary'>Edit</button> | 
+                    <button onclick='openEditLawModal({$row['id']})' class='btn btn-primary'>Edit</button> 
                     <button onclick='openDeleteLawModal({$row['id']})' class='btn btn-danger'>Delete</button>
                 </td>";
             echo "</tr>";

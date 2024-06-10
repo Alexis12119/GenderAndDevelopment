@@ -168,22 +168,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!-- Script to show error modal if error flag is set -->
-  <?php if ($error) : ?>
-    <script>
-      $(document).ready(function() {
-        $('#errorModal').modal('show');
-      });
-    </script>
-  <?php endif; ?>
-  <!-- Script to show success modal if success flag is set -->
-  <?php if ($success) : ?>
-    <script>
-      $(document).ready(function() {
-        $('#successModal').modal('show');
-      });
-    </script>
-  <?php endif; ?>
   <script>
     $(document).ready(function() {
       $('#surveyForm').submit(function(event) {
