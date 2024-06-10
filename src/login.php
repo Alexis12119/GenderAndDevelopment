@@ -87,7 +87,8 @@
 
 <body>
 
-  <div class="container-lg login-container">
+<body class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+  <div class="container-lg">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="login-form">
