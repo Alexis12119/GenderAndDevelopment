@@ -67,13 +67,35 @@
       background: linear-gradient(to right, #5b48a2, #8f6dd1);
       border-color: #5b48a2;
     }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+      /* Adjust this height as needed */
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .image-container {
+        height: 200px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
       <!-- Flex container to align logo and text -->
       <div class="d-flex align-items-center">
@@ -114,31 +136,45 @@
   <!-- Carousel Section -->
   <section id="carousel" class="py-5">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <!--<ol class="carousel-indicators">-->
-      <!--  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-      <!--  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-      <!--</ol>-->
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <!-- From: https://djnrmh.doh.gov.ph/images/Images/GAD/GAD_FINAL.png -->
-          <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="First slide" loading="lazy">
-          <div class="carousel-caption d-none d-md-block">
+          <div class="image-container">
+            <a href="https://plsp.edu.ph/plsp-joins-the-2023-national-womens-month-kick-off-names-25-finalists-for-natatanging-juana/" target="_blank">
+              <img class="d-block w-100" src="assets/img/carousel/gender1.jpg" alt="First slide" loading="lazy">
+            </a>
           </div>
+          <div class="carousel-caption d-none d-md-block"></div>
         </div>
-        <!--<div class="carousel-item">-->
-        <!--  <img class="d-block img-fluid" src="assets/img/carousel/gad.png" alt="Second slide" loading="lazy">-->
-        <!--  <div class="carousel-caption d-none d-md-block">-->
-        <!--  </div>-->
-        <!--</div>-->
+        <div class="carousel-item">
+          <div class="image-container">
+            <a href="https://plsp.edu.ph/plsp-gad-conducted-its-simultaneous-program-in-line-with-the-2023-national-womens-month-celebration/" target="_blank">
+            <img class="d-block w-100" src="assets/img/carousel/gender.jpg" alt="Second slide" loading="lazy">
+            </a>
+          </div>
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
+        <div class="carousel-item">
+          <div class="image-container">
+            <a href="https://plsp.edu.ph/we-for-gender-equality-and-inclusive-society/" target="_blank">
+            <img class="d-block w-100" src="assets/img/carousel/gender2.jpg" alt="Third slide" loading="lazy">
+            </a>
+          </div>
+          <div class="carousel-caption d-none d-md-block"></div>
+        </div>
       </div>
-      <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-      <!--  <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-      <!--  <span class="sr-only">Previous</span>-->
-      <!--</a>-->
-      <!--<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-      <!--  <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-      <!--  <span class="sr-only">Next</span>-->
-      <!--</a>-->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </section>
 

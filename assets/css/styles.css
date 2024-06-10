@@ -79,6 +79,15 @@ footer p {
 }
 
 /* Resources Section with Cards */
+#carousel {
+  background: linear-gradient(
+    to right,
+    #e0aaff,
+    #ffb3d1
+  ); /* Gradient from light purple to light pink */
+}
+
+
 #survey {
   background: linear-gradient(
     to right,
