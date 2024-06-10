@@ -125,8 +125,8 @@ include 'tables.php';
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <div class="sidebar-borderline"></div>
-    <a href="#" onclick="showTable('profiles')">Profiles Table</a>
-    <a href="#" onclick="showTable('law')">Law Table</a>
+    <a href="#" onclick="showTable('profiles')">Profiles</a>
+    <a href="#" onclick="showTable('law')">Law</a>
     <a href="login.php">Logout</a>
   </div>
 

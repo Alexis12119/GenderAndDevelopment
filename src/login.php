@@ -13,9 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
-      background: linear-gradient(to right,
-          #091379,
-          #a41e8d);
+      background: linear-gradient(to right, #091379, #a41e8d);
     }
 
     .login-container {
@@ -23,23 +21,21 @@
     }
 
     .login-form {
-      background: linear-gradient(to right,
-          #6c5ce7,
-          #a44cf2);
+      background: linear-gradient(to right, #6c5ce7, #a44cf2);
       /* Gradient background for buttons */
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
-  .login-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    /* Apply gradient as text shadow */
-    background: linear-gradient(to right, #091379, #a41e8d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    .login-form h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      /* Apply gradient as text shadow */
+      background: linear-gradient(to right, #091379, #a41e8d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     .login-form .form-group {
       margin-bottom: 20px;
@@ -61,11 +57,8 @@
       width: 100%;
       padding: 10px;
       border-radius: 5px;
-      background: linear-gradient(to right,
-          #091379,
-          #a41e8d);
+      background: linear-gradient(to right, #091379, #a41e8d);
       /* Darker gradient on hover */
-
       color: #fff;
       font-weight: 600;
       border: none;
@@ -110,7 +103,7 @@
                 <input type="password" id="password" name="password" class="form-control" required>
               </div>
             </div>
-            <button type="button" id="loginBtn" class="btn btn-primary btn-login">Login</button>
+            <button type="submit" id="loginBtn" class="btn btn-primary btn-login">Login</button>
           </form>
           <div class="btn-back">
             <a href="../index.php" class="btn">Back to Home</a>
@@ -127,7 +120,8 @@
   <script>
     $(document).ready(function() {
       // Function to handle form submission via AJAX
-      $("#loginBtn").click(function() {
+      $("#loginForm").submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
         var username = $("#username").val();
         var password = $("#password").val();
         var userType = $("#userType").val();
