@@ -353,27 +353,37 @@
             <img src="assets/img/profiles/daniel.jpg" alt="Profile 7" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Daniel Mendoza</h5>
-              <p class="card-text">UI/UX Designer</p>
+              <p class="card-text">UI/UX and Network Designer</p>
             </div>
           </div>
         </div>
 
         <div class="col-md-4 mb-4">
           <div class="card rounded-3 h-100">
-            <img src="assets/img/profiles/aldrin.jpg" alt="Profile 5" class="img-fluid" loading="lazy">
+            <img src="assets/img/profiles/gian.jpg" alt="Profile 5" class="img-fluid" loading="lazy">
             <div class="card-body">
-              <h5 class="card-title">Aldrin Porcioncula</h5>
-              <p class="card-text">Documentation</p>
+              <h5 class="card-title">Gian Vinci Fandino</h5>
+              <p class="card-text">Tester</p>
             </div>
           </div>
         </div>
 
         <div class="col-md-4 mb-4">
+          <div class="card rounded-3 h-100">
+            <img src="assets/img/profiles/isaiah.jpg" alt="Profile 5" class="img-fluid" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">John Isaiah Garcia</h5>
+              <p class="card-text">Tester</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 mx-auto">
           <div class="card rounded-3 h-100">
             <img src="assets/img/profiles/errol.jpg" alt="Profile 8" class="img-fluid" loading="lazy">
             <div class="card-body">
               <h5 class="card-title">Errol Arapan</h5>
-              <p class="card-text">Documentation</p>
+              <p class="card-text">Technical Writer</p>
             </div>
           </div>
         </div>
