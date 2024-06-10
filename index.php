@@ -104,7 +104,7 @@
           <img class="rounded-circle" src="assets/img/logo.png" alt="logo">
         </a>
         <!-- Text alongside the logo -->
-        <span class="text ml-2">Gender And Development</span>
+        <span class="text md-2">Gender And Development</span>
       </div>
       <!-- Navbar toggler for smaller screens -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,11 +173,11 @@
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <a class="carousel-control-prev" href="#" role="button" onclick="prevSlide()">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <a class="carousel-control-next" href="#" role="button" onclick="nextSlide()">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -890,6 +890,16 @@
 
     // Set interval to update the gender chart every 5 seconds
     setInterval(fetchAndRenderGenderChart, 5000);
+
+    function prevSlide() {
+      $('#carouselExampleIndicators').carousel('prev');
+      return false; // Prevents the default behavior of the anchor tag
+    }
+
+    function nextSlide() {
+      $('#carouselExampleIndicators').carousel('next');
+      return false; // Prevents the default behavior of the anchor tag
+    }
   </script>
 </body>
 
