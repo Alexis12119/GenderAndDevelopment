@@ -135,7 +135,7 @@
 
   <!-- Carousel Section -->
   <section id="carousel" class="py-5">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -148,23 +148,29 @@
               <img class="d-block w-100" src="assets/img/carousel/gender1.jpg" alt="First slide" loading="lazy">
             </a>
           </div>
-          <div class="carousel-caption d-none d-md-block"></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5></h5>
+          </div>
         </div>
         <div class="carousel-item">
           <div class="image-container">
             <a href="https://plsp.edu.ph/plsp-gad-conducted-its-simultaneous-program-in-line-with-the-2023-national-womens-month-celebration/" target="_blank">
-            <img class="d-block w-100" src="assets/img/carousel/gender.jpg" alt="Second slide" loading="lazy">
+              <img class="d-block w-100" src="assets/img/carousel/gender.jpg" alt="Second slide" loading="lazy">
             </a>
           </div>
-          <div class="carousel-caption d-none d-md-block"></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5></h5>
+          </div>
         </div>
         <div class="carousel-item">
           <div class="image-container">
             <a href="https://plsp.edu.ph/we-for-gender-equality-and-inclusive-society/" target="_blank">
-            <img class="d-block w-100" src="assets/img/carousel/gender2.jpg" alt="Third slide" loading="lazy">
+              <img class="d-block w-100" src="assets/img/carousel/gender2.jpg" alt="Third slide" loading="lazy">
             </a>
           </div>
-          <div class="carousel-caption d-none d-md-block"></div>
+          <div class="carousel-caption d-none d-md-block">
+            <h5></h5>
+          </div>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
