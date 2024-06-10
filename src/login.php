@@ -12,6 +12,12 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+    body {
+      background: linear-gradient(to right,
+          #091379,
+          #a41e8d);
+    }
+
     .login-container {
       margin-top: 100px;
     }
@@ -26,10 +32,14 @@
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .login-form h2 {
-      margin-bottom: 20px;
-      text-align: center;
-    }
+  .login-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    /* Apply gradient as text shadow */
+    background: linear-gradient(to right, #091379, #a41e8d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
     .login-form .form-group {
       margin-bottom: 20px;
@@ -88,22 +98,22 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="login-form">
-          <h2>Login(Admin Only)</h2>
+          <h2>Login(Admin)</h2>
           <form id="loginForm">
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" id="username" name="username" required>
+              <input type="text" id="username" name="username" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
               <div class="input-group">
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" class="form-control" required>
               </div>
             </div>
-            <button type="button" id="loginBtn" class="btn btn-login">Login</button>
+            <button type="button" id="loginBtn" class="btn btn-primary btn-login">Login</button>
           </form>
           <div class="btn-back">
-            <a href="../index.php">Back to Home</a>
+            <a href="../index.php" class="btn">Back to Home</a>
           </div>
         </div>
       </div>
@@ -111,8 +121,8 @@
   </div>
 
   <!-- Bootstrap JS and jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function() {
