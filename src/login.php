@@ -129,7 +129,6 @@
           data: {
             username: username,
             password: password,
-            userType: userType
           },
           success: function(response) {
             // Check response from server

@@ -78,3 +78,29 @@ CREATE TABLE profiles (
     FOREIGN KEY (genderID) REFERENCES gender(genderID),
     FOREIGN KEY (departmentCode) REFERENCES department(departmentCode)
 );
+
+INSERT INTO profiles (firstName, middleName, lastName, genderID, departmentCode) VALUES
+    ('John', 'William', 'Smith', 1, 'ccst'), -- Man, College Of Computer Studies and Technology
+    ('Jane', 'Elizabeth', 'Doe', 2, 'coa'), -- Woman, College of Accountancy
+    ('Michael', 'James', 'Johnson', 1, 'cas'), -- Man, College of Arts And Science
+    ('Emily', 'Grace', 'Brown', 2, 'cba'), -- Woman, College of Business Administration
+    ('David', 'Alexander', 'Miller', 5, 'coe'), -- Gay, College of Engineering
+    ('Sarah', 'Michelle', 'Wilson', 6, 'cte'), -- Lesbian, College of Teacher Education
+    ('Daniel', 'Robert', 'Taylor', 1, 'chs'), -- Man, College of Allied Health Sciences
+    ('Jessica', 'Marie', 'Anderson', 2, 'cthm'), -- Woman, College of Tourism And Hospitality Management
+    ('Christopher', 'John', 'Lee', 4, 'ccst'), -- Asexual, College Of Computer Studies and Technology
+    ('Amanda', 'Nicole', 'Harris', 7, 'coa'), -- Bisexual, College of Accountancy
+    ('Matthew', 'Thomas', 'Clark', 1, 'cas'), -- Man, College of Arts And Science
+    ('Lauren', 'Ashley', 'Martinez', 2, 'cba'), -- Woman, College of Business Administration
+    ('Andrew', 'Jacob', 'White', 5, 'coe'), -- Gay, College of Engineering
+    ('Olivia', 'Sophia', 'King', 6, 'cte'), -- Lesbian, College of Teacher Education
+    ('William', 'Ryan', 'Green', 1, 'chs'), -- Man, College of Allied Health Sciences
+    ('Samantha', 'Elizabeth', 'Thompson', 2, 'cthm'), -- Woman, College of Tourism And Hospitality Management
+    ('Ryan', 'Patrick', 'Young', 3, 'ccst'), -- Transgender, College Of Computer Studies and Technology
+    ('Hannah', 'Victoria', 'Scott', 8, 'coa'), -- Queer/Questioning, College of Accountancy
+    ('Jacob', 'Benjamin', 'Evans', 1, 'cas'), -- Man, College of Arts And Science
+    ('Megan', 'Rachel', 'Turner', 2, 'cba'), -- Woman, College of Business Administration
+    ('Nathan', 'Daniel', 'Hill', 5, 'coe'), -- Gay, College of Engineering
+    ('Alyssa', 'Christina', 'Wright', 6, 'cte'), -- Lesbian, College of Teacher Education
+    ('James', 'Brandon', 'Adams', 1, 'chs'), -- Man, College of Allied Health Sciences
+    ('Taylor', 'Rebecca', 'Perez', 2, 'cthm'); -- Woman, College of Tourism And Hospitality Management
