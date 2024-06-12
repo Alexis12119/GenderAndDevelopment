@@ -142,7 +142,7 @@ include 'tables.php';
       <table id="profilesTable" class="table table-striped">
         <thead>
           <tr>
-            <th>Profile ID</th>
+            <th onclick="sortTable('profilesTable', 0)">Profile ID<i class="fas fa-sort"></i></th>
             <th onclick="sortTable('profilesTable', 1)">Full Name <i class="fas fa-sort"></i></th>
             <th onclick="sortTable('profilesTable', 2)">Gender <i class="fas fa-sort"></i></th>
             <th onclick="sortTable('profilesTable', 3)">Department <i class="fas fa-sort"></i></th>
@@ -177,7 +177,7 @@ include 'tables.php';
       <table id="lawTable" class="table table-striped">
         <thead>
           <tr>
-            <th>Law ID</th>
+            <th onclick="sortTable('lawTable', 0)">Law ID<i class="fas fa-sort"></i></th>
             <th onclick="sortTable('lawTable', 1)">Email <i class="fas fa-sort"></i></th>
             <th onclick="sortTable('lawTable', 2)">Total Score <i class="fas fa-sort"></i></th>
             <th onclick="sortTable('lawTable', 3)">Law Name <i class="fas fa-sort"></i></th>

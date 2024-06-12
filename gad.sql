@@ -39,7 +39,9 @@ INSERT INTO `law` (email, totalScore, lawCode) VALUES
     ('example1@example.com', 25, 7877), -- For Anti-Sexual Harassment Act of 1995 (RA 7877)
     ('example2@example.com', 20, 9262), -- For Anti-Violence Against Women and their Children (RA 9262)
     ('example3@example.com', 10, 9710), -- For Magna Carta for Women (RA 9710)
-    ('example4@example.com', 15, 11313); -- For Safe Spaces Act (RA 11313)
+    ('example4@example.com', 15, 11313), -- For Safe Spaces Act (RA 11313)
+    ('example5@example.com', 5, 11313), -- For Safe Spaces Act (RA 11313)
+    ('example6@example.com', 25, 9710) -- For Magna Carta for Women (RA 9710)
 
 -- Creating table to store gender information
 CREATE TABLE gender (
